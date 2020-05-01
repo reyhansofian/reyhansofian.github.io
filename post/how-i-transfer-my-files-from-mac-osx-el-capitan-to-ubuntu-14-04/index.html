@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", development, tips, articles">
+<meta name="description" content="Transfer files from Macbook to Ubuntu using Wifi">
+
+
+<meta property="og:description" content="Transfer files from Macbook to Ubuntu using Wifi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04">
+<meta name="twitter:title" content="How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04">
+<meta property="og:url" content="https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="Transfer files from Macbook to Ubuntu using Wifi">
+<meta name="twitter:description" content="Transfer files from Macbook to Ubuntu using Wifi">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-05-01T22:50:18">
+  
+  
+    <meta property="article:modified_time" content="2020-05-01T22:50:18">
+  
+  
+  
+    
+      <meta property="article:section" content="development">
+    
+  
+  
+    
+      <meta property="article:tag" content="tips">
+    
+      <meta property="article:tag" content="unix">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="https://pacs.ou.edu/filer/sharing/1495831525/1027/">
+  <meta property="twitter:image" content="https://pacs.ou.edu/filer/sharing/1495831525/1027/">
+
+
+  <meta property="og:image" content="https://networkencyclopedia.com/wp-content/uploads/2019/08/ftam-file-transfer-access-management.jpg">
+  <meta property="twitter:image" content="https://networkencyclopedia.com/wp-content/uploads/2019/08/ftam-file-transfer-access-management.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://networkencyclopedia.com/wp-content/uploads/2019/08/ftam-file-transfer-access-management.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="https://networkencyclopedia.com/file-transfer-access-and-management-ftam">https://networkencyclopedia.com/file-transfer-access-and-management-ftam</a></span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-05-01T22:50:18&#43;07:00">
+        
+  May 1, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/categories/development">development</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Today I want to transfer all of my data from my office’s MacBook Air (El-Capitan) to my laptop (Ubuntu 14.04). Since two of my external hard disk are broken, I need another way to transfer those files. And I come with transferring using the network (I have a wifi router at home).</p>
+<p>So this is how I set it up:</p>
+<p><strong>Prerequisite:</strong></p>
+<ul>
+<li>Both your Macbook Air and laptop (Ubuntu) should be on same network, otherwise this method won’t work</li>
+<li>Please check your laptop’s (Ubuntu) IP on the network by run:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; ifconfig
+docker0   Link encap:Ethernet  HWaddr 02:42:a7:c6:fe:9a
+          inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>  TX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+eth0      Link encap:Ethernet  HWaddr 30:85:a9:25:79:2f
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>  TX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:26183 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26183 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:2772883 <span style="color:#f92672">(</span>2.7 MB<span style="color:#f92672">)</span>  TX bytes:2772883 <span style="color:#f92672">(</span>2.7 MB<span style="color:#f92672">)</span>
+vboxnet4  Link encap:Ethernet  HWaddr 0a:00:27:00:00:04
+          inet addr:192.168.99.1  Bcast:192.168.99.255  Mask:255.255.255.0
+          inet6 addr: fe80::800:27ff:fe00:4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1641 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>  TX bytes:320617 <span style="color:#f92672">(</span>320.6 KB<span style="color:#f92672">)</span>
+wlan0     Link encap:Ethernet  HWaddr dc:85:de:08:13:28
+          inet addr:192.168.1.68  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::de85:deff:fe08:1328/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2904324 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1565126 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:1275931788 <span style="color:#f92672">(</span>1.2 GB<span style="color:#f92672">)</span>  TX bytes:518127433 <span style="color:#f92672">(</span>518.1 MB<span style="color:#f92672">)</span>
+</code></pre></div><p>If you’re using a wifi network, you should find <code>wlan0</code> section and make a note on the <code>inet addr</code> section. In this case, my IP address is <strong>192.168.1.68</strong></p>
+<h2 id="ubuntu-1404-setup">Ubuntu 14.04 Setup</h2>
+<ul>
+<li>I use Samba server for sharing folder on the network. Please check your samba installation by run:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; which samba
+/usr/sbin/samba
+<span style="color:#75715e"># ^^^ It will return like this if you already have samba installed</span>
+</code></pre></div><ul>
+<li>If you don’t have samba, you can run <code>sudo apt-get install samba</code> to install Samba to your system.</li>
+<li>Create a folder to store your files by run this on terminal:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; sudo mkdir -p /media/hdd/backup
+&gt; sudo chown nobody:nogroup /media/hdd/backup
+</code></pre></div><ul>
+<li>Now we need to set our Samba configuration which located in “/etc/samba/smb.conf”. Run “sudo vim /etc/samba/smb.conf” to edit Samba config file.
+Add these codes at the bottom of the config file:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Ubuntu 14.04<span style="color:#f92672">]</span> <span style="color:#75715e"># This is the network&#39;s name that will show up on the network</span>
+    comment <span style="color:#f92672">=</span> Ubuntu File Server Share
+    path <span style="color:#f92672">=</span> /media/hdd/backup
+    browsable <span style="color:#f92672">=</span> yes
+    guest ok <span style="color:#f92672">=</span> yes
+    read only <span style="color:#f92672">=</span> no
+    create mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0755</span>
+</code></pre></div><blockquote>
+<p><strong>comment:</strong> a short description of the share. Adjust to fit your needs.<br>
+<strong>path:</strong> the path to the directory to share. Technically Samba shares can be placed anywhere on the filesystem as long as the permissions are correct, but adhering to standards is recommended.<br>
+<strong>browsable:</strong> enables Windows clients to browse the shared directory using Windows Explorer.<br>
+<strong>guest ok:</strong> allows clients to connect to the share without supplying a password.<br>
+<strong>read only:</strong> determines if the share is read only or if write privileges are granted. Write privileges are allowed only when the value is no, as is seen in this example. If the value is yes, then access to the share is read only.<br>
+<strong>create mask:</strong> determines the permissions new files will have when created.<br>
+<br>
+-<!-- raw HTML omitted -->From: <a href="https://help.ubuntu.com/lts/serverguide/samba-fileserver.html">https://help.ubuntu.com/lts/serverguide/samba-fileserver.html</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p> </p>
+<ul>
+<li>Now we need to restart our Samba server</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; sudo service samba restart
+nmbd stop/waiting
+nmbd start/running, process <span style="color:#ae81ff">22180</span>
+smbd stop/waiting
+smbd start/running, process <span style="color:#ae81ff">22192</span>
+stop: Unknown instance:
+samba-ad-dc start/running, process <span style="color:#ae81ff">22207</span>
+</code></pre></div><ul>
+<li>We’re done with our Samba server</li>
+</ul>
+<hr>
+<h2 id="mac-osx-el-capitan-setup">Mac OSX (El Capitan) Setup:</h2>
+<ul>
+<li>Go to your Finder</li>
+<li>Find <strong>Go</strong> -&gt; <strong>Connect to Server</strong> or by press <strong>Cmd + K</strong> and a popup will appear</li>
+</ul>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/984/1*rPk3Ez8gjIyO5uTW1H14Ow.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/984/1*rPk3Ez8gjIyO5uTW1H14Ow.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ul>
+<li>Enter <strong>smb://192.168.1.68</strong> on the Server Address bar. The IP address depends on your <code>ifconfig</code> results. Then press <strong>Connect</strong> button.</li>
+<li>A popup will appear (again)</li>
+</ul>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/836/1*pVXiaBRWBPXWcD9B5sJQ_A.png" title="The Ubuntu 14.04 volume is greyed out because I already mount it" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/836/1*pVXiaBRWBPXWcD9B5sJQ_A.png"  alt="The Ubuntu 14.04 volume is greyed out because I already mount it">
+  
+    </a>
+  
+   
+    <span class="caption">The Ubuntu 14.04 volume is greyed out because I already mount it</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ul>
+<li>The Ubuntu 14.04 volume is greyed out because I already mount it</li>
+<li>Select the desired volume, and press <strong>OK</strong></li>
+<li>Your selected volume will appear on the <strong>Devices</strong> list</li>
+</ul>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*J-QUtQBEylJLUSo9xBzU8Q.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*J-QUtQBEylJLUSo9xBzU8Q.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ul>
+<li>Now open up your terminal</li>
+<li>We will use rsync to copy our files from MBA to Ubuntu</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; sudo rsync -vaE --progress --exclude<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/dirs/you/dont/need&#39;</span> /Users/username/your/folder/to/copy/from /Volumes/Ubuntu<span style="color:#ae81ff">\ </span>14.04
+</code></pre></div><blockquote>
+<p>The flags are:<br>
+<strong>v:</strong> increases verbosity.<br>
+<strong>a:</strong> applies archive settings to mirror the source files exactly, including symbolic links and permissions.<br>
+<strong>E:</strong> copies extended attributes and resource forks (OS X only).<br>
+<strong>progress:</strong> provides a count down and transfer statistics during the copy.<br>
+<strong>exclude:</strong> exclude desired file / folder from copied<br>
+<br>
+-<!-- raw HTML omitted -->From: <a href="https://apple.stackexchange.com/questions/117465/fastest-and-safest-way-to-copy-massive-data-from-one-external-drive-to-another/117469#117469">https://apple.stackexchange.com/questions/117465/fastest-and-safest-way-to-copy-massive-data-from-one-external-drive-to-another/117469#117469</a><!-- raw HTML omitted --></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/tags/tips/">tips</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/tags/unix/">unix</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/" data-tooltip="Squash Multiple Git Commit Into One Commit">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Reyhan Sofian. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/" data-tooltip="Squash Multiple Git Commit Into One Commit">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <!-- raw HTML omitted -->Kata.ai<!-- raw HTML omitted -->
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/post\/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04\/';
+          
+            this.page.identifier = '\/post\/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 16:32:22 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2020 22:50:18 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tips</title>
+      <link>https://reyhansofian.github.io/tags/tips/</link>
+      <pubDate>Fri, 01 May 2020 22:50:18 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/tags/tips/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unix</title>
+      <link>https://reyhansofian.github.io/tags/unix/</link>
+      <pubDate>Fri, 01 May 2020 22:50:18 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/tags/unix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://reyhansofian.github.io/tags/git/</link>
+      <pubDate>Fri, 01 May 2020 22:20:30 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/tags/git/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>osx</title>
