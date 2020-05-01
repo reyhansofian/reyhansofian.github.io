@@ -1,19 +1,69 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://reyhan.tech/categories/</loc>
-    <priority>0</priority>
+    <loc>https://reyhansofian.github.io/</loc>
+    <lastmod>2020-05-01T16:32:22+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://reyhan.tech/</loc>
-    <priority>0</priority>
+    <loc>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</loc>
+    <lastmod>2020-05-01T16:32:22+07:00</lastmod>
   </url>
   
   <url>
-    <loc>http://reyhan.tech/tags/</loc>
-    <priority>0</priority>
+    <loc>https://reyhansofian.github.io/tags/osx/</loc>
+    <lastmod>2020-05-01T16:32:22+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/post/</loc>
+    <lastmod>2020-05-01T16:32:22+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/tags/</loc>
+    <lastmod>2020-05-01T16:32:22+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/post/different-vim-settings-for-each-project/</loc>
+    <lastmod>2017-07-12T08:25:31+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/tags/vim/</loc>
+    <lastmod>2017-07-12T08:25:31+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/tags/javascript/</loc>
+    <lastmod>2017-06-16T08:16:53+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/post/javascripts-template-literals/</loc>
+    <lastmod>2017-06-16T08:16:53+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/tags/react/</loc>
+    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/post/react-native-with-graphql/</loc>
+    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/tags/react-native/</loc>
+    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/archives/</loc>
   </url>
   
 </urlset>

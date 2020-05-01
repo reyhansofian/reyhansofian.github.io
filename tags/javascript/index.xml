@@ -1,33 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Everyday I Learn</title>
-    <link>https://reyhansofian.github.io/</link>
-    <description>Recent content on Everyday I Learn</description>
+    <title>javascript on Everyday I Learn</title>
+    <link>https://reyhansofian.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 16:32:22 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 16 Jun 2017 08:16:53 +0700</lastBuildDate>
     
-	<atom:link href="https://reyhansofian.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://reyhansofian.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Installing Gollum on OSX Catalina</title>
-      <link>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</link>
-      <pubDate>Fri, 01 May 2020 16:32:22 +0700</pubDate>
-      
-      <guid>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</guid>
-      <description>&lt;p&gt;I’m working on a wiki page on Gitlab. In this particular case, I need to attach a file into the wiki. Which can’t be done using web editor on Gitlab. So I’m trying to edit it locally. In short, I need to pull the wiki and install Gollum on my laptop. Unfortunately, it didn’t go smoothly like a banana (?).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Different Vim Settings for Each Project</title>
-      <link>https://reyhansofian.github.io/post/different-vim-settings-for-each-project/</link>
-      <pubDate>Wed, 12 Jul 2017 08:25:31 +0700</pubDate>
-      
-      <guid>https://reyhansofian.github.io/post/different-vim-settings-for-each-project/</guid>
-      <description>&lt;p&gt;Sometimes, we need to have a different Vim settings across projects. We can achieve it by kept specific settings for each projects in a &lt;code&gt;.vimrc.local&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
     
     <item>
       <title>Javascript&#39;s Template Literals</title>
