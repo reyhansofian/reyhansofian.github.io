@@ -6,7 +6,7 @@
     <description>Recent content in git on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 22:20:30 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 18 Apr 2018 22:20:30 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Squash Multiple Git Commit Into One Commit</title>
       <link>https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/</link>
-      <pubDate>Fri, 01 May 2020 22:20:30 +0700</pubDate>
+      <pubDate>Wed, 18 Apr 2018 22:20:30 +0700</pubDate>
       
       <guid>https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/</guid>
       <description>&lt;p&gt;Git is a powerful versioning tool. Most tech companies use Git as their versioning tools (some big companies still using Mercurial and SVN though). It’s also applied to my current company.&lt;/p&gt;</description>

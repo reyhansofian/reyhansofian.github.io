@@ -6,36 +6,27 @@
     <description>Recent content in Posts on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2020 22:50:18 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2020 16:32:22 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04</title>
-      <link>https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</link>
-      <pubDate>Fri, 01 May 2020 22:50:18 +0700</pubDate>
+      <title>Installing Gollum on OSX Catalina</title>
+      <link>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</link>
+      <pubDate>Thu, 23 Jan 2020 16:32:22 +0700</pubDate>
       
-      <guid>https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</guid>
-      <description>&lt;p&gt;Today I want to transfer all of my data from my office’s MacBook Air (El-Capitan) to my laptop (Ubuntu 14.04). Since two of my external hard disk are broken, I need another way to transfer those files. And I come with transferring using the network (I have a wifi router at home).&lt;/p&gt;</description>
+      <guid>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</guid>
+      <description>&lt;p&gt;I’m working on a wiki page on Gitlab. In this particular case, I need to attach a file into the wiki. Which can’t be done using web editor on Gitlab. So I’m trying to edit it locally. In short, I need to pull the wiki and install Gollum on my laptop. Unfortunately, it didn’t go smoothly like a banana (?).&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Squash Multiple Git Commit Into One Commit</title>
       <link>https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/</link>
-      <pubDate>Fri, 01 May 2020 22:20:30 +0700</pubDate>
+      <pubDate>Wed, 18 Apr 2018 22:20:30 +0700</pubDate>
       
       <guid>https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/</guid>
       <description>&lt;p&gt;Git is a powerful versioning tool. Most tech companies use Git as their versioning tools (some big companies still using Mercurial and SVN though). It’s also applied to my current company.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Installing Gollum on OSX Catalina</title>
-      <link>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</link>
-      <pubDate>Fri, 01 May 2020 16:32:22 +0700</pubDate>
-      
-      <guid>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</guid>
-      <description>&lt;p&gt;I’m working on a wiki page on Gitlab. In this particular case, I need to attach a file into the wiki. Which can’t be done using web editor on Gitlab. So I’m trying to edit it locally. In short, I need to pull the wiki and install Gollum on my laptop. Unfortunately, it didn’t go smoothly like a banana (?).&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -65,6 +56,24 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;
 &lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>Autofix ESLint Issue on Webstrom 2016</title>
+      <link>https://reyhansofian.github.io/post/autofix-eslint-issue-on-webstrom-2016/</link>
+      <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/post/autofix-eslint-issue-on-webstrom-2016/</guid>
+      <description>&lt;p&gt;Currently, I and my team are working on a Javascript application using NodeJS and ReactJS. We use ESLint to use a coding standard with AirBnB config. We’re satisfied with it so far.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04</title>
+      <link>https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</link>
+      <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</guid>
+      <description>&lt;p&gt;Today I want to transfer all of my data from my office’s MacBook Air (El-Capitan) to my laptop (Ubuntu 14.04). Since two of my external hard disk are broken, I need another way to transfer those files. And I come with transferring using the network (I have a wifi router at home).&lt;/p&gt;</description>
     </item>
     
   </channel>
