@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", development, tips, articles">
+<meta name="description" content="How template literals behave like a function">
+
+
+<meta property="og:description" content="How template literals behave like a function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript&#39;s Template Literals">
+<meta name="twitter:title" content="Javascript&#39;s Template Literals">
+<meta property="og:url" content="https://reyhansofian.github.io/en/post/javascripts-template-literals/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/en/post/javascripts-template-literals/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="How template literals behave like a function">
+<meta name="twitter:description" content="How template literals behave like a function">
+<meta property="og:locale" content="en">
+
+  
+    <meta property="article:published_time" content="2017-06-16T08:16:53">
+  
+  
+    <meta property="article:modified_time" content="2017-06-16T08:16:53">
+  
+  
+  
+    
+      <meta property="article:section" content="development">
+    
+  
+  
+    
+      <meta property="article:tag" content="javascript">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="//res.cloudinary.com/dweyilbvh/image/upload/c_scale,w_800/v1497584063/java-script_pqill1.jpg">
+  <meta property="twitter:image" content="//res.cloudinary.com/dweyilbvh/image/upload/c_scale,w_800/v1497584063/java-script_pqill1.jpg">
+
+
+  <meta property="og:image" content="//res.cloudinary.com/dweyilbvh/image/upload/v1497584063/java-script_pqill1.jpg">
+  <meta property="twitter:image" content="//res.cloudinary.com/dweyilbvh/image/upload/v1497584063/java-script_pqill1.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>Javascript&#39;s Template Literals</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/en/post/javascripts-template-literals/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-clfftjwlszwzyxxw9l3x2zdrq5cdmbinowk1d5edwxmrzbfxvsvbmcgyrfp.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/en/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/en/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/en/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+      <li class="sidebar-button">
+      
+        
+        
+        
+        
+        
+        <a class="sidebar-button-link" href="https://reyhansofian.github.io//id">
+          <i class="sidebar-button-icon flag-icon flag-icon-id"></i>
+          <span class="sidebar-button-desc">ID</span>
+        </a>
+      
+        
+        
+        
+        
+        
+        <a class="sidebar-button-link" href="https://reyhansofian.github.io//en">
+          <i class="sidebar-button-icon flag-icon flag-icon-gb"></i>
+          <span class="sidebar-button-desc">EN</span>
+        </a>
+      
+      </li>
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('//res.cloudinary.com/dweyilbvh/image/upload/v1497584063/java-script_pqill1.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="http://ewanvalentine.io/content/images/2017/05/java-script.jpg">http://ewanvalentine.io/content/images/2017/05/java-script.jpg</a></span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Javascript&#39;s Template Literals
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-06-16T08:16:53&#43;07:00">
+        
+   16, 2017
+
+      </time>
+    
+    
+  
+  
+    <span></span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/en/categories/development">development</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>When I&rsquo;m conducting a workshop for <a href="https://www.facebook.com/groups/DevCMalang">Facebook Developer Circle Malang</a>, one of our participants asking how <a href="https://github.com/apollographql/graphql-tag">gql</a> works. I know it&rsquo;s called <em><strong>template literals</strong></em>, but how did <em><strong>template literals</strong></em> can behave like a function (but without parentheses)?</p>
+<p>Template literals is a new feature in ES6 or ES2015 (it&rsquo;s called &ldquo;template strings&rdquo; in prior editions of ES2015).
+It allow us to embed expressions, multi-line strings, and string interpolation. There are two kinds of template literals: <em><strong>template literals</strong></em> and <em><strong>tagged template literals</strong></em>.</p>
+<h1 id="template-literals">Template Literals</h1>
+<p>Template literals are enclosed by the back-tick (` `) characters with the dollar sign and curly braces as a placeholder (<code>${expression}</code>). This placeholder can do string interpolation or expression interpolation.</p>
+<h3 id="string-interpolation">String Interpolation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bruce&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`Hello there, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greetingWithMultilines</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">greeting</span><span style="color:#e6db74">}</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">How are you today?`</span>;
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">greeting</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">greetingWithMultilines</span>);
+
+<span style="color:#75715e">// Single line result:
+</span><span style="color:#75715e">// Hello there, Bruce!
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Multiline result:
+</span><span style="color:#75715e">// Hello there, Bruce!
+</span><span style="color:#75715e">// How are you today?
+</span></code></pre></div><h3 id="expression-interpolation">Expression Interpolation</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`1 + 5 equals </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+
+<span style="color:#75715e">// Result:
+</span><span style="color:#75715e">// 1 + 5 equals 6
+</span></code></pre></div><h1 id="tagged-template-literals">Tagged Template Literals</h1>
+<p>As per what <a href="https://developer.mozilla.org/id/docs/Web/JavaScript/Reference/Template_literals">MDN</a> said,</p>
+<blockquote>
+<p>Tagged template literals is an advanced form of template literals. Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.</p>
+</blockquote>
+<p>If you notice, <em><strong>tagged template literals</strong></em>&lsquo;s first argument is containing an array of string! Here&rsquo;s an example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">someFunction</span>(<span style="color:#a6e22e">strings</span>, <span style="color:#a6e22e">name</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Array of string:&#39;</span>, <span style="color:#a6e22e">strings</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Name parameter:&#39;</span>, <span style="color:#a6e22e">name</span>);
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bruce&#39;</span>;
+
+<span style="color:#a6e22e">someFunction</span><span style="color:#e6db74">`Hello there, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>
+
+<span style="color:#75715e">// Result:
+</span><span style="color:#75715e">// Array of string: [&#34;Hello there, &#34;, &#34;!&#34;]
+</span><span style="color:#75715e">// Name parameter: Bruce
+</span></code></pre></div><p>This is almost the same way how <code>gql</code> works (see the <a href="https://github.com/apollographql/graphql-tag/blob/master/src/index.js#L143">source code</a>).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// XXX This should eventually disallow arbitrary string interpolation, like Relay does
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">gql</span>(<span style="color:#75715e">/* arguments */</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">slice</span>.<span style="color:#a6e22e">call</span>(<span style="color:#a6e22e">arguments</span>);
+
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">literals</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">args</span>[<span style="color:#ae81ff">0</span>];
+
+  ...
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">query</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
+</span><span style="color:#e6db74">  {
+</span><span style="color:#e6db74">    user(id: 5) {
+</span><span style="color:#e6db74">      firstName
+</span><span style="color:#e6db74">      lastName
+</span><span style="color:#e6db74">    }
+</span><span style="color:#e6db74">  }
+</span><span style="color:#e6db74">`</span>
+
+<span style="color:#75715e">// query is now a GraphQL syntax tree object
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">query</span>);
+
+<span style="color:#75715e">// {
+</span><span style="color:#75715e">//   &#34;kind&#34;: &#34;Document&#34;,
+</span><span style="color:#75715e">//   &#34;definitions&#34;: [
+</span><span style="color:#75715e">//     {
+</span><span style="color:#75715e">//       &#34;kind&#34;: &#34;OperationDefinition&#34;,
+</span><span style="color:#75715e">//       &#34;operation&#34;: &#34;query&#34;,
+</span><span style="color:#75715e">//       &#34;name&#34;: null,
+</span><span style="color:#75715e">//       &#34;variableDefinitions&#34;: null,
+</span><span style="color:#75715e">//       &#34;directives&#34;: [],
+</span><span style="color:#75715e">//       &#34;selectionSet&#34;: {
+</span><span style="color:#75715e">//         &#34;kind&#34;: &#34;SelectionSet&#34;,
+</span><span style="color:#75715e">//         &#34;selections&#34;: [
+</span><span style="color:#75715e">//           {
+</span><span style="color:#75715e">//             &#34;kind&#34;: &#34;Field&#34;,
+</span><span style="color:#75715e">//             &#34;alias&#34;: null,
+</span><span style="color:#75715e">//             &#34;name&#34;: {
+</span><span style="color:#75715e">//               &#34;kind&#34;: &#34;Name&#34;,
+</span><span style="color:#75715e">//               &#34;value&#34;: &#34;user&#34;,
+</span><span style="color:#75715e">//               ...
+</span></code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small"></span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/javascript/">javascript</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/different-vim-settings-for-each-project/" data-tooltip="Different Vim Settings for Each Project">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml"></span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/react-native-with-graphql/" data-tooltip="React Native with GraphQL">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr"></span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Reyhan Sofian. 
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/different-vim-settings-for-each-project/" data-tooltip="Different Vim Settings for Each Project">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml"></span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/react-native-with-graphql/" data-tooltip="React Native with GraphQL">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr"></span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/highlight.min.js" integrity="sha256-vKAFTkVgOWgJSkZLSvNo5q6nvk0jzTA30icOePtl6pw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-ym6kriv5qisteic7itftdezsf4k5fkdcohbhd4vsgeqmvidgvle880anys.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/en\/post\/javascripts-template-literals\/';
+          
+            this.page.identifier = '\/en\/post\/javascripts-template-literals\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

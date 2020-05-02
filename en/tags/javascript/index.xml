@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on Everyday I Learn</title>
+    <link>https://reyhansofian.github.io/en/tags/javascript/</link>
+    <description>Recent content in javascript on Everyday I Learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Jun 2017 08:16:53 +0700</lastBuildDate>
+    
+	<atom:link href="https://reyhansofian.github.io/en/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Javascript&#39;s Template Literals</title>
+      <link>https://reyhansofian.github.io/en/post/javascripts-template-literals/</link>
+      <pubDate>Fri, 16 Jun 2017 08:16:53 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/javascripts-template-literals/</guid>
+      <description>&lt;p&gt;When I&amp;rsquo;m conducting a workshop for &lt;a href=&#34;https://www.facebook.com/groups/DevCMalang&#34;&gt;Facebook Developer Circle Malang&lt;/a&gt;, one of our participants asking how &lt;a href=&#34;https://github.com/apollographql/graphql-tag&#34;&gt;gql&lt;/a&gt; works. I know it&amp;rsquo;s called &lt;em&gt;&lt;strong&gt;template literals&lt;/strong&gt;&lt;/em&gt;, but how did &lt;em&gt;&lt;strong&gt;template literals&lt;/strong&gt;&lt;/em&gt; can behave like a function (but without parentheses)?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>React Native with GraphQL</title>
+      <link>https://reyhansofian.github.io/en/post/react-native-with-graphql/</link>
+      <pubDate>Wed, 31 May 2017 09:26:13 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/react-native-with-graphql/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

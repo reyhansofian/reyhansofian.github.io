@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/post/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/tags/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/tags/tips/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/tips/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/tags/webstrom/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/webstrom/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/webstrom/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/archives/"
+                />
+  </url>
+  
+</urlset>

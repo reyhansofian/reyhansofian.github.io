@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", development, tips, articles">
+<meta name="description" content="Memperbaiki masalah autofix ESLint yang tidak berjalan dengan menggunakan File Watcher di Webstrom 2016.">
+
+
+<meta property="og:description" content="Memperbaiki masalah autofix ESLint yang tidak berjalan dengan menggunakan File Watcher di Webstrom 2016.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+<meta name="twitter:title" content="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+<meta property="og:url" content="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="Memperbaiki masalah autofix ESLint yang tidak berjalan dengan menggunakan File Watcher di Webstrom 2016.">
+<meta name="twitter:description" content="Memperbaiki masalah autofix ESLint yang tidak berjalan dengan menggunakan File Watcher di Webstrom 2016.">
+<meta property="og:locale" content="id">
+
+  
+    <meta property="article:published_time" content="2017-01-11T23:33:37">
+  
+  
+    <meta property="article:modified_time" content="2017-01-11T23:33:37">
+  
+  
+  
+    
+      <meta property="article:section" content="development">
+    
+  
+  
+    
+      <meta property="article:tag" content="webstrom">
+    
+      <meta property="article:tag" content="tips">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="https://boundingintocomics.com/files/2019/09/2019.09.18-05.47-boundingintocomics-5d826db3a30f6.png">
+  <meta property="twitter:image" content="https://boundingintocomics.com/files/2019/09/2019.09.18-05.47-boundingintocomics-5d826db3a30f6.png">
+
+
+  <meta property="og:image" content="https://instazood.com/wp-content/uploads/2019/07/instagram_issue_sory_something_went_wrong-1050x550.jpg">
+  <meta property="twitter:image" content="https://instazood.com/wp-content/uploads/2019/07/instagram_issue_sory_something_went_wrong-1050x550.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>Memperbaiki Masalah Autofix ESLint pada Webstrom 2016</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-clfftjwlszwzyxxw9l3x2zdrq5cdmbinowk1d5edwxmrzbfxvsvbmcgyrfp.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/id/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+      <li class="sidebar-button">
+      
+        
+        
+        
+        
+        
+        <a class="sidebar-button-link" href="https://reyhansofian.github.io//id">
+          <i class="sidebar-button-icon flag-icon flag-icon-id"></i>
+          <span class="sidebar-button-desc">ID</span>
+        </a>
+      
+        
+        
+        
+        
+        
+        <a class="sidebar-button-link" href="https://reyhansofian.github.io//en">
+          <i class="sidebar-button-icon flag-icon flag-icon-gb"></i>
+          <span class="sidebar-button-desc">EN</span>
+        </a>
+      
+      </li>
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://instazood.com/wp-content/uploads/2019/07/instagram_issue_sory_something_went_wrong-1050x550.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="https://instazood.com/blog/how-to-fix-instagram-issue-sorry-something-went-wrong/">https://instazood.com/blog/how-to-fix-instagram-issue-sorry-something-went-wrong/</a></span>
+          
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Memperbaiki Masalah Autofix ESLint pada Webstrom 2016
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2017-01-11T23:33:37&#43;07:00">
+        
+  January 11, 2017
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/id/categories/development">development</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Saya dan tim sedang mengerjakan aplikasi Javascript dengan menggunakan NodeJS dan ReactJS. Kami menggunakan ESLint sebagai standart untuk kode kami dengan menggunakan konfigurasi ESLint dari AirBnB. Hingga saat ini kami cukup puas dengan konfigurasi ini.</p>
+<p>Saya pribadi menggunakan Webstrom 2016 untuk kegiatan koding sehari-hari. Meskipun Webstrom 2016 cukup powerful, tapi ini tidak seperti di VSCode ataupun Atom dimana kita bisa memperbaiki kode kita secara otomatis dengan menggunakan <em>plugin</em> ESLint pada saat setiap kali kita menyimpan. Setelah Googling sana-sini, ternyata fitur perbaikan kode secara otomatis di Webstrom 2016 masih belum ada dan masih menjadi permintaan dari pengguna lainnya berdasarkan jawaban dari pertanyaan di <a href="http://stackoverflow.com/a/29231841/2763662">Stackoverflow</a>.</p>
+<p>Ternyata, Webstrom (ataupun produk JetBrains lainnya) menyediakan <em>plugin</em> yang bernama <strong>File Watcher</strong>. <em>Plugin</em> ini dapat <strong>&ldquo;melihat&rdquo;</strong> (<em><strong>watch</strong></em>) perubahan pada kode kita dan akan melakukan suatu task tertentu jika terjadi perubahan. Informasi lebih lanjut, dapat membaca <a href="https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html">referensi berikut</a>.</p>
+<p>Akhirnya saya mencoba menggunakan <em>plugin</em> <strong>File Watcher</strong> tersebut supaya secara otomatis dapat memperbaiki kode kita yang ditandai memiliki masalah oleh ESLint. Jadi tidak perlu repot-repot memperbaiki kode yang berantakan. Berikut caranya untuk menggunakan File Watcher:</p>
+<ol>
+<li>Install <em>plugin</em> File Watcher. Kalian dapat menemukannya di menu <strong>Preferences</strong> &gt; <strong>Plugins</strong> &gt; <strong>Search for “File Watchers&rdquo;</strong>. Centang pilihannya dan klik tombol <strong>Apply</strong>. Setelah itu kalian perlu restart Webstrom.</li>
+</ol>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*-LJSlJ4NHxX2bpBoG5vF_g.png" title="Preferences &gt; Plugins &gt; Search for &#34;File Watchers&#34;" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*-LJSlJ4NHxX2bpBoG5vF_g.png"  alt="Preferences &gt; Plugins &gt; Search for &#34;File Watchers&#34;">
+  
+    </a>
+  
+   
+    <span class="caption">Preferences &gt; Plugins &gt; Search for &#34;File Watchers&#34;</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ol start="2">
+<li>Cari menu <strong>Preferences</strong> &gt; <strong>Tools</strong> &gt; <strong>File Watchers</strong>. Buat <strong>File Watcher</strong> baru dengan menekan tombol <strong>+</strong>. Lalu pilih <strong>Custom Template</strong></li>
+</ol>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*jnQ-CyXK3lrbOvIw96QL6Q.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*jnQ-CyXK3lrbOvIw96QL6Q.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ol start="3">
+<li>Ubah <strong>File Type</strong> menjadi <strong>Javascript</strong></li>
+<li>Sesuaikan <strong>Scope</strong> kalian ke direktori projek kalian atau direktori apapun yang ingin kalian masukkan</li>
+<li>Tambahkan binary ESLint ke path di menu <strong>Watcher Settings</strong> &gt; <strong>Program</strong>. Jika kalian install ESLint secara local (maksudnya per projek), kalian dapat menemukan binary ESLint di <code>&lt;project_path&gt;/node_modules/bin</code>. Pathnya akan terlihat seperti ini</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ProjectFileDir$/node_modules/.bin/ESLint
+</code></pre></div><p>Jika kalian install ESLint secara global (dengan/atau menggukan NVM), kalian dapat mencari path ESLint dengan mengeksekusi <code>which eslint</code> pada terminal. Contohnya jika saya menggunakan NVM, maka path-nya akan menjadi seperti ini (tergantung OS kalian)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/Users/vicz/.nvm/versions/node/v7.0.0/bin/ESLint
+</code></pre></div><ol start="6">
+<li>Tambahkan parameter <code>--fix $FileName$</code> ke <strong>Watcher Settings</strong> &gt; <strong>Arguments</strong></li>
+<li>Klik menu <strong>Watcher Settings</strong> &gt; <strong>Other Options</strong> untuk melihat opsi tersembunyi dan tambahkan <code>$FileDir</code> ke <strong>Watcher Settings</strong> &gt; <strong>Other Options</strong> &gt; <strong>Working Directory</strong></li>
+<li>Jangan centang menu <strong>Immediate file synchronization</strong></li>
+</ol>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*9kmjeSMC4leS8VkrYx65PQ.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*9kmjeSMC4leS8VkrYx65PQ.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<blockquote>
+<p><em><strong>Referensi:</strong></em><br>
+<a href="https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm">https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm</a><br>
+<a href="https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je">https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je</a><br>
+<a href="https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html">https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html</a></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/webstrom/">webstrom</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/tips/">tips</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+        
+          
+          
+          
+          
+          <li class="post-action">
+            <a class="post-action-btn btn btn--default" href="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/" hreflang="en" lang="en">
+              <i class="flag-icon flag-icon-gb"></i> Translated to EN
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Reyhan Sofian. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+        
+          
+          
+          
+          
+          <li class="post-action">
+            <a class="post-action-btn btn btn--default" href="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/" hreflang="en" lang="en">
+              <i class="flag-icon flag-icon-gb"></i> Translated to EN
+            </a>
+          </li>
+        
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.1/highlight.min.js" integrity="sha256-vKAFTkVgOWgJSkZLSvNo5q6nvk0jzTA30icOePtl6pw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-ym6kriv5qisteic7itftdezsf4k5fkdcohbhd4vsgeqmvidgvle880anys.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/id\/post\/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016\/';
+          
+            this.page.identifier = '\/id\/post\/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

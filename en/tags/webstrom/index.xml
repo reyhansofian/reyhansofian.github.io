@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webstrom on Everyday I Learn</title>
+    <link>https://reyhansofian.github.io/en/tags/webstrom/</link>
+    <description>Recent content in webstrom on Everyday I Learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 11 Jan 2017 23:33:37 +0700</lastBuildDate>
+    
+	<atom:link href="https://reyhansofian.github.io/en/tags/webstrom/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Autofix ESLint Issue on Webstrom 2016</title>
+      <link>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</link>
+      <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</guid>
+      <description>&lt;p&gt;Currently, I and my team are working on a Javascript application using NodeJS and ReactJS. We use ESLint to use a coding standard with AirBnB config. We’re satisfied with it so far.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

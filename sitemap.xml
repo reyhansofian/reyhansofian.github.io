@@ -1,104 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://reyhansofian.github.io/</loc>
-    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/installing-gollum-on-osx-catalina/</loc>
-    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/osx/</loc>
-    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/</loc>
-    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/</loc>
-    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/git/</loc>
-    <lastmod>2018-04-18T22:20:30+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/squash-multiple-git-commit-into-one-commit/</loc>
-    <lastmod>2018-04-18T22:20:30+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/different-vim-settings-for-each-project/</loc>
-    <lastmod>2017-07-12T08:25:31+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/vim/</loc>
-    <lastmod>2017-07-12T08:25:31+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/javascript/</loc>
-    <lastmod>2017-06-16T08:16:53+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/javascripts-template-literals/</loc>
-    <lastmod>2017-06-16T08:16:53+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/react/</loc>
-    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/react-native-with-graphql/</loc>
-    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/react-native/</loc>
-    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/autofix-eslint-issue-on-webstrom-2016/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/tips/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/webstrom/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</loc>
-    <lastmod>2016-08-24T22:50:18+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/tags/unix/</loc>
-    <lastmod>2016-08-24T22:50:18+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/archives/</loc>
-  </url>
-  
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	<sitemap>
+	   	<loc>https://reyhansofian.github.io/id/sitemap.xml</loc>
+		
+	   	<lastmod>2017-01-11T23:33:37+07:00</lastmod>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://reyhansofian.github.io/en/sitemap.xml</loc>
+		
+	   	<lastmod>2020-01-23T16:32:22+07:00</lastmod>
+		
+	</sitemap>
+	
+</sitemapindex>

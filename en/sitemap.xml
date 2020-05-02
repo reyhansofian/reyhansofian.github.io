@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/</loc>
+    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/</loc>
+    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/osx/</loc>
+    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/</loc>
+    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/post/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/post/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/</loc>
+    <lastmod>2020-01-23T16:32:22+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/git/</loc>
+    <lastmod>2018-04-18T22:20:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/squash-multiple-git-commit-into-one-commit/</loc>
+    <lastmod>2018-04-18T22:20:30+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/different-vim-settings-for-each-project/</loc>
+    <lastmod>2017-07-12T08:25:31+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/vim/</loc>
+    <lastmod>2017-07-12T08:25:31+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/javascript/</loc>
+    <lastmod>2017-06-16T08:16:53+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/javascripts-template-literals/</loc>
+    <lastmod>2017-06-16T08:16:53+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/react/</loc>
+    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/react-native-with-graphql/</loc>
+    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/react-native/</loc>
+    <lastmod>2017-05-31T09:26:13+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/tips/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/tips/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/tips/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/webstrom/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/webstrom/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/webstrom/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</loc>
+    <lastmod>2016-08-24T22:50:18+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/tags/unix/</loc>
+    <lastmod>2016-08-24T22:50:18+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/en/archives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/archives/"
+                />
+  </url>
+  
+</urlset>
