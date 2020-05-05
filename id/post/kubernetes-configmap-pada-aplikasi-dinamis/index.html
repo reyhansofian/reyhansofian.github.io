@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", tech, development, tips, articles">
+<meta name="description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
+
+
+<meta property="og:description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kubernetes ConfigMap pada Aplikasi Dinamis">
+<meta name="twitter:title" content="Kubernetes ConfigMap pada Aplikasi Dinamis">
+<meta property="og:url" content="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
+<meta name="twitter:description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
+<meta property="og:locale" content="id">
+
+  
+    <meta property="article:published_time" content="2020-05-04T23:17:28">
+  
+  
+    <meta property="article:modified_time" content="2020-05-04T23:17:28">
+  
+  
+  
+    
+      <meta property="article:section" content="development">
+    
+  
+  
+    
+      <meta property="article:tag" content="kubernetes">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="https://i0.wp.com/www.lediligent.com/wp/wp-content/uploads/2019/03/Kubernetes-Logo.png?fit=750%2C400&ssl=1">
+  <meta property="twitter:image" content="https://i0.wp.com/www.lediligent.com/wp/wp-content/uploads/2019/03/Kubernetes-Logo.png?fit=750%2C400&ssl=1">
+
+
+  <meta property="og:image" content="https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png">
+  <meta property="twitter:image" content="https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>Kubernetes ConfigMap pada Aplikasi Dinamis</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.cb8227a92f3fbced97026ddbd9a1e2ef3ed6bfcbb9db48d8a2b1ca4f579071e0.css">
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/id/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Beranda</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tag</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  <div class="sidebar-lang">
+    <ul class="sidebar-buttons">
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/id">
+            <i class="sidebar-button-icon flag-icon flag-icon-id"></i>
+            <span class="sidebar-button-desc">ID</span>
+          </a>
+        </li>
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/en">
+            <i class="sidebar-button-icon flag-icon flag-icon-gb"></i>
+            <span class="sidebar-button-desc">EN</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png">https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png</a></span>
+          
+          <div class="post-header-edit-on-github main-content-wrap">
+            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2019-02-24-id-kubernetes-configmap-on-dynamic-application.id.md" class="btn btn--default">
+              <span class="fa fa-github">
+              </span>
+              Edit on GitHub
+            </a>
+          </div>
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Kubernetes ConfigMap pada Aplikasi Dinamis
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-05-04T23:17:28&#43;07:00">
+        
+  Mei 4, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>dalam</span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/id/categories/development">development</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.</p>
+<!-- raw HTML omitted -->
+<h1 id="apa-itu-configmap">Apa Itu ConfigMap?</h1>
+<blockquote>
+<p>ConfigMap allows you to decouple configuration artifacts from image content to keep containerized applications portable.</p>
+</blockquote>
+<p>Menurut penjelasan resmi dari dokumentasi Kubernetes, ConfigMap adalah sebuah mekanisme untuk memisahkan konfigurasi dari sebuah aplikasi yang sudah dikontainerkan. Hal ini dapat membuat aplikasi tersebut lebih portabel dan membuat konfigurasinya lebih mudah untuk diubah dan dimanage, dan juga mengurangi kemungkinan konfigurasi yang langsung ditulis ke dalam sebuah Pod.
+ConfigMap cocok digunakan untuk menyimpan konfigurasi yang tidak sensitif atau konfigurasi yang tidak perlu dienkripsi, seperti variabel lingkungan.</p>
+<h1 id="bagaimana-cara-kerja-configmap">Bagaimana Cara Kerja ConfigMap?</h1>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/600/1*GoB8Po84hhM707uIi_xZVA.png" title="Gambar 1.1 — Membuat ConfigMap" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/600/1*GoB8Po84hhM707uIi_xZVA.png"  alt="Gambar 1.1 — Membuat ConfigMap">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 1.1 — Membuat ConfigMap</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Pada Gambar 1.1 kita membuat ConfigMap terlebih dahulu. Ada 3 cara untuk membuat ConfigMap:</p>
+<ol>
+<li>Menggunakan opsi &ndash;from-file.
+Contoh: <code>kubectl create configmap myConfigMap --from-file /my/path/to/directory/or/file</code></li>
+<li>Menggunakan opsi &ndash;from-literal.
+Contoh: <code>kubectl create configmap myConfigMap --from-literal KEY1=VALUE1 KEY2=VALUE2</code></li>
+<li>Menggunakan manifest dengan tipe ConfigMap (lihat gambar 2.1).
+Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml dan sesuai dengan spesifikasi, lalu mengunggah file tersebut dengan perintah <code>kubectl apply -f myConfigMap.yaml</code></li>
+</ol>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/600/1*KQjy0ceER44muI5_kZkdLA.png" title="Gambar 1.2 — Unggah ConfigMap" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/600/1*KQjy0ceER44muI5_kZkdLA.png"  alt="Gambar 1.2 — Unggah ConfigMap">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 1.2 — Unggah ConfigMap</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Perintah <code>kubectl create configmap</code> maupun <code>kubectl apply -f &lt;file&gt;</code> akan mengunggah ConfigMap tersebut ke Apiserver Kubernetes yang ada di dalam cluster Kubernetes.</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/600/1*bVutgbPL5mfpdhnMTzFiAQ.png" title="Gambar 1.2 — Apiserver mendistribusikan ConfigMap" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/600/1*bVutgbPL5mfpdhnMTzFiAQ.png"  alt="Gambar 1.2 — Apiserver mendistribusikan ConfigMap">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 1.2 — Apiserver mendistribusikan ConfigMap</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Lalu apiserver akan mendistribusikan ConfigMap tersebut ke semua Pod yang membutuhkan yang berada di dalam cluster Kubernetes.</p>
+<h1 id="bagaimana-cara-menggunakan-configmap">Bagaimana Cara Menggunakan ConfigMap?</h1>
+<p>Ada 2 cara untuk menggunakan ConfigMap:</p>
+<p><strong>1. Sebagai environment variable</strong></p>
+<p>Sebagai contoh, kita memiliki sebuah ConfigMap seperti berikut</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1000/1*UmIEX_zGQqrxNbTjdEyuGw.png" title="Gambar 2.1 - ConfigMap" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1000/1*UmIEX_zGQqrxNbTjdEyuGw.png"  alt="Gambar 2.1 - ConfigMap">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 2.1 - ConfigMap</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p><em><strong>Penjelasan nomor pada gambar:</strong></em></p>
+<p>    <em>1. Nama ConfigMap</em><br>
+    <em>2. Blok data untuk sebuah ConfigMap</em></p>
+<p>Lalu kita gunakan nilai dari ConfigMap <strong>&ldquo;special-config&rdquo;</strong> (dari key <strong>&ldquo;metadata.name&rdquo;</strong>) tersebut ke sebuah Pod dengan menggunakan env seperti berikut</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1000/1*zSVWgoFVokE6MRPYvp3-MQ.png" title="Gambar 2.2 - Konfigurasi Pod" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1000/1*zSVWgoFVokE6MRPYvp3-MQ.png"  alt="Gambar 2.2 - Konfigurasi Pod">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 2.2 - Konfigurasi Pod</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p><em><strong>Penjelasan nomor pada gambar:</strong></em></p>
+<p>    <em>1. Nama environment variable yang akan digunakan oleh aplikasi</em><br>
+    <em>2. Referensi ke ConfigMap yang akan digunakan. Dalam contoh ini mengacu kepada ConfigMap di gambar 2.1</em><br>
+    <em>3. Key dari sebuah ConfigMap yang akan dipakai nilainya</em><br>
+    <em>4. Referensi ke ConfigMap lain tanpa harus mendefinisikan key yang akan digunakan</em></p>
+<p><strong>2. Sebagai volume yang dipasang ke sebuah pod</strong></p>
+<p>ConfigMap juga dapat digunakan dengan menggunakan plugin volume. Kita ambil contoh dengan menggunakan konfigurasi ConfigMap yang sama dengan di atas (gambar 2.1). Kita buat konfigurasi Pod seperti berikut:</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*q7EtLCY9rEhRH_on0ZZl1w.png" title="Gambar 2.3 - Konfigurasi Pod menggunakan plugin volume" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*q7EtLCY9rEhRH_on0ZZl1w.png"  alt="Gambar 2.3 - Konfigurasi Pod menggunakan plugin volume">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 2.3 - Konfigurasi Pod menggunakan plugin volume</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p><em><strong>Penjelasan nomor pada gambar:</strong></em></p>
+<p>    <em>1. Referensi ke nama volume yang akan digunakan. Dalam contoh ini nomor 1 akan menggunakan volume dari nomor 3, yaitu volume “config-volume”</em><br>
+    <em>2. Path yang akan digunakan oleh volume tersebut di dalam Pod</em><br>
+    <em>3. Nama volume</em><br>
+    <em>4. Nama ConfigMap yang dijadikan referensi oleh volume “config-volume” (nomor 3)</em></p>
+<hr>
+<p>Menggunakan ConfigMap sebagai variabel lingkungan dengan menggunakan volume membuka peluang untuk mengubah variabel lingkungan yang ada didalam sebuah container atau Pod tanpa harus melakukan restart. Metode seperti ini biasa disebut dengan <em><strong>&ldquo;live-update&rdquo;</strong></em> atau <em><strong>&ldquo;hot config&rdquo;</strong></em>.</p>
+<p>Kenapa <em><strong>&ldquo;live-update&rdquo;</strong></em> dibutuhkan? Karena di dalam dunia kontainerisasi, jika kita setel variabel lingkungan dengan <code>docker run -e &lt;KEY&gt;=&lt;VALUE&gt;</code> atau menggunakan <code>env</code> pada konfigurasi Pod, kita tidak bisa langsung menggantinya pada saat aplikasi berjalan. Sehingga kita perlu cara lain untuk membaca variabel lingkungan, yaitu dengan membaca dari sebuah file. Dalam konteks kali ini akan kita menggunakan ConfigMap yang sudah dipasang ke sebuah Pod.</p>
+<p>Sebelum kita mulai, mari kita lihat apa yang terjadi jika ConfigMap berubah dengan contoh konfigurasi ConfigMap seperti berikut</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*jYIXmJHAv97m7XQZUWh-DQ.png" title="Gambar 3.1 - Konfigurasi ConfigMap" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*jYIXmJHAv97m7XQZUWh-DQ.png"  alt="Gambar 3.1 - Konfigurasi ConfigMap">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 3.1 - Konfigurasi ConfigMap</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*MiKDIUvl72yUvlIfUqs6KQ.png" title="Gambar 3.2 - ConfigMap di dalam sebuah container sebelum berubah" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*MiKDIUvl72yUvlIfUqs6KQ.png"  alt="Gambar 3.2 - ConfigMap di dalam sebuah container sebelum berubah">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 3.2 - ConfigMap di dalam sebuah container sebelum berubah</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Jika kita perhatikan, setiap variabel yang kita definisikan di dalam ConfigMap akan menjadi sebuah file di dalam kontainer yang ada di dalam setiap Pod. File-file ini memiliki tautan (<em><strong>symlink</strong></em>) ke dalam sebuah folder <code>..data</code> dengan nama file yang sama. Misal <code>ENV_IS_MAINTENANCE</code> memiliki tautan ke file <code>..data/ENV_IS_MAINTENACE</code>, dst. Dan folder <code>..data</code> mengarah kepada sebuah folder yang memiliki nama <code>..2019_02_22_04_00_47.246998214</code>.</p>
+<p>Sekarang mari kita coba membuat sebuah aplikasi sederhana menggunakan NodeJS dan ExpressJS yang membaca variabel lingkungan dari ConfigMap, lalu kita kemas ke dalam sebuah kontainer supaya kita bisa memvalidasi ide di atas.</p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+    
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span><a href="https://gist.github.com/reyhansofian/9d9d8f7f242364595a56753bdeae721e#file-index-js">index.js</a></span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">js</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-js" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-js"><code class="js">// @ts-check
+
+const express = require(&#34;express&#34;);
+const app = express();
+const fs = require(&#34;fs&#34;);
+const bodyParser = require(&#39;body-parser&#39;);
+
+// volume mount path
+const mountPath = &#34;/etc/config&#34;;
+
+// ConfigMap filename
+const configMapFile = &#34;..data&#34;;
+
+// watching file
+fs.watch(`${mountPath}`, (event, filename) =&gt; {
+// only listen to event &#34;rename&#34;.
+// kubelet will rename the reference folder on ConfigMap update.
+if (event === &#34;rename&#34; &amp;&amp; filename) {
+    if (filename === configMapFile) {
+    console.log(`process.env BEFORE: ${JSON.stringify(process.env)}`);
+
+    // get all files from `..data` directory
+    const dir = fs.readdirSync(`${mountPath}/${configMapFile}`);
+
+    console.log(`Env list: ${dir}`);
+
+    // read all files inside `..data` directory
+    dir.forEach(env =&gt; {
+        // inject the new envar value to `process.env` object (not recommended)
+        process.env[env] = fs.readFileSync(
+        `${mountPath}/${configMapFile}/${env}`
+        );
+    });
+
+    console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
+    }
+}
+});
+
+// for readinessProbe and livelinessProbe Kubernetes
+app.get(&#34;/info&#34;, (req, res) =&gt; {
+res.sendStatus(200);
+});
+
+app.get(&#34;/isMaintenance&#34;, (req, res) =&gt; {
+const isMaintenace = process.env.ENV_IS_MAINTENANCE;
+
+res.status(200).send(`Is it maintenance? ${isMaintenace}`);
+})
+
+app.listen(3000, err =&gt; {
+if (err) {
+    console.error(err);
+    process.exit(1);
+}
+
+console.log(`Server is up on port 3000`);
+});</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+<p>Kode di atas akan melihat dan melakukan perubahan jika terjadi event <em><strong>&ldquo;rename&rdquo;</strong></em> di dalam folder <code>/etc/config</code>. Setelah itu kita buat sebuah konfigurasi Deployment dan Service untuk sebuah Pod seperti berikut, lalu kita unggah ke Kubernetes dengan <code>kubectl apply -f test-k8s.yaml</code>.</p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+    
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span><a href="https://gist.github.com/reyhansofian/89da577d93c6c191beef34cfeae2dca4#file-test-k8s-yaml">test-k8s.yaml</a></span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">yaml</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-yaml" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br><span>82</span><br><span>83</span><br><span>84</span><br><span>85</span><br><span>86</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-yaml"><code class="yaml">apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    test-app: test
+  name: test
+  namespace: default
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30321
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    test-app: test
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+---
+apiVersion: extensions/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  selector:
+    matchLabels:
+      test-app: test
+  template:
+    metadata:
+      labels:
+        test-app: test
+    spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: test-config
+      containers:
+        - name: test
+          image: reyhan/docker-try-config:1.0.0
+          command: [&#34;npm&#34;, &#34;start&#34;]
+          imagePullPolicy: Never
+          livenessProbe:
+            httpGet:
+              path: /info
+              port: 3000
+            initialDelaySeconds: 90
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /info
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+          resources:
+            requests:
+              memory: &#34;256Mi&#34;
+              cpu: &#34;64m&#34;
+            limits:
+              memory: &#34;512Mi&#34;
+              cpu: &#34;256m&#34;
+          env:
+            - name: ENV_SQL_CLIENT
+              value: &#34;mysql&#34;
+            - name: ENV_SQL_HOST
+              value: &#34;13.67.44.182&#34;
+            - name: ENV_IS_MAINTENANCE
+              valueFrom:
+                configMapKeyRef:
+                  name: test-config
+                  key: ENV_IS_MAINTENANCE
+            - name: ENV_IS_BLOWN_UP
+              valueFrom:
+                configMapKeyRef:
+                  name: test-config
+                  key: ENV_IS_BLOWN_UP</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+<p>Selanjutnya mari kita ubah konfigurasi ConfigMap di atas menjadi</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*H9gsRDvKQeydrJWp6QInBg.png" title="Gambar 3.3 — Perubahan konfigurasi ConfigMap pada key &#34;ENV_IS_MAINTENTANCE&#34;" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*H9gsRDvKQeydrJWp6QInBg.png"  alt="Gambar 3.3 — Perubahan konfigurasi ConfigMap pada key &#34;ENV_IS_MAINTENTANCE&#34;">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 3.3 — Perubahan konfigurasi ConfigMap pada key &#34;ENV_IS_MAINTENTANCE&#34;</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*-chB0yixX6GdBfW3ZA0oDQ.png" title="Gambar 3.4 — ConfigMap di dalam sebuah container setelah berubah" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*-chB0yixX6GdBfW3ZA0oDQ.png"  alt="Gambar 3.4 — ConfigMap di dalam sebuah container setelah berubah">
+  
+    </a>
+  
+   
+    <span class="caption">Gambar 3.4 — ConfigMap di dalam sebuah container setelah berubah</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Dari gambar di atas dapat kita lihat bahwa tautan antara file-file variabel lingkungan tidak berubah sama sekali. Hanya tautan folder ..data yang berubah tautannya menuju folder baru yang namanya <code>..2019_02_23_19_01_09.591362024</code>.</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/2000/1*0kLzHvwruLapTKbvgqaOKA.gif" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/2000/1*0kLzHvwruLapTKbvgqaOKA.gif" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Dari animasi di atas dapat kita lihat bagaimana mudahnya mengubah variabel lingkungan tanpa harus mengubah konfigurasi Deployment, Service, atau Pod sama sekali bahkan tanpa harus restart aplikasi tersebut.</p>
+<p>Beberapa hal yang harus kita ingat jika menggunakan ConfigMap:</p>
+<ol>
+<li>ConfigMap hanya &ldquo;hidup&rdquo; di dalam satu namespace saja. Yang artinya kita tidak bisa menggunakan ConfigMap yang berada di namespace lain.</li>
+<li>Proses sinkronisasi ConfigMap tidak langsung terjadi atau biasa disebut <em><strong>&ldquo;eventually consistent&rdquo;</strong></em>. Hal ini terjadi karena frekuensi sinkronisasi dari kubelet standardnya adalah 60 detik. Jika ingin proses sinkronisasi lebih cepat dapat menggunakan opsi <code>--sync-frequency</code>. Untuk lebih jelasnya bisa baca dari dokumentasi resmi Kubernetes di <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically">sini</a></li>
+</ol>
+<hr>
+<h1 id="ekstra">Ekstra!</h1>
+<p>Jika kita amati, implementasi <em><strong>&ldquo;live-update&rdquo;</strong></em> di atas hanya bisa bekerja untuk NodeJS saja karena NodeJS memiliki pustaka standar untuk sistem file yang bisa melihat perubahan suatu file (dengan menggunakan <code>fs.watch</code>). Apabila kita ingin implementasi di bahasa lain, maka kode server dan konfigurasi Deployment, Service dan Pod di atas perlu sedikit penyesuaian.</p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+    
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span><a href="https://gist.github.com/reyhansofian/af1bab9b437dcfb570fa263e101635bb#file-k8s-yaml">k8s.yaml</a></span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">yaml</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-yaml" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br><span>82</span><br><span>83</span><br><span>84</span><br><span>85</span><br><span>86</span><br><span>87</span><br><span>88</span><br><span>89</span><br><span>90</span><br><span>91</span><br><span>92</span><br><span>93</span><br><span>94</span><br><span>95</span><br><span>96</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-yaml"><code class="yaml">apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    test-app: test
+  name: test
+  namespace: default
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 30321
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    test-app: test
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+---
+apiVersion: extensions/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  revisionHistoryLimit: 2
+  strategy:
+    type: RollingUpdate
+  replicas: 1
+  selector:
+    matchLabels:
+      test-app: test
+  template:
+    metadata:
+      labels:
+        test-app: test
+    spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: test-config
+      containers:
+        - name: configmap-reload
+          image: &#34;jimmidyson/configmap-reload:v0.1&#34;
+          imagePullPolicy: &#34;IfNotPresent&#34;
+          args:
+            - --volume-dir=/etc/config
+            - --webhook-url=http://localhost:3000/-/reload
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+              readOnly: true
+        - name: test
+          image: reyhan/docker-try-config:1.0.3
+          command: [&#34;npm&#34;, &#34;start&#34;]
+          imagePullPolicy: Never
+          livenessProbe:
+            httpGet:
+              path: /info
+              port: 3000
+            initialDelaySeconds: 90
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /info
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          ports:
+            - containerPort: 3000
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+          resources:
+            requests:
+              memory: &#34;256Mi&#34;
+              cpu: &#34;64m&#34;
+            limits:
+              memory: &#34;512Mi&#34;
+              cpu: &#34;256m&#34;
+          env:
+            - name: ENV_SQL_CLIENT
+              value: &#34;mysql&#34;
+            - name: ENV_SQL_HOST
+              value: &#34;13.67.44.182&#34;
+            - name: ENV_IS_MAINTENANCE
+              valueFrom:
+                configMapKeyRef:
+                  name: test-config
+                  key: ENV_IS_MAINTENANCE
+            - name: ENV_IS_BLOWN_UP
+              valueFrom:
+                configMapKeyRef:
+                  name: test-config
+                  key: ENV_IS_BLOWN_UP</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+<p>Mari kita perhatikan konfigurasi containers di atas</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*b_xFQ5VYDIY54QKuzFE1Qw.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*b_xFQ5VYDIY54QKuzFE1Qw.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Jika kita perhatikan lagi, kita menambahkan kontainer <a href="https://github.com/jimmidyson/configmap-reload">jimmidyson/configmap-reload</a> dengan beberapa konfigurasinya ke dalam Pod untuk membaca perubahan ConfigMap.</p>
+
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+    
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span><a href="https://gist.github.com/reyhansofian/7d8db68335870d5a889fabbd5e221413#file-app-js">app.js</a></span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">js</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-js" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-js"><code class="js">// @ts-check
+
+const express = require(&#34;express&#34;);
+const app = express();
+const fs = require(&#34;fs&#34;);
+const bodyParser = require(&#39;body-parser&#39;);
+
+const mountPath = &#34;/etc/config&#34;;
+const configMapFile = &#34;..data&#34;;
+
+function readConfig() {
+  const dir = fs.readdirSync(`${mountPath}/${configMapFile}`);
+
+  console.log(`Available envar: ${dir}`);
+
+  dir.forEach(env =&gt; {
+    process.env[env] = fs.readFileSync(
+      `${mountPath}/${configMapFile}/${env}`
+    );
+  });
+}
+
+app.get(&#34;/info&#34;, (req, res) =&gt; {
+  res.sendStatus(200);
+});
+
+app.use(bodyParser.json());
+
+// configmap reload webhook
+app.post(&#34;/-/reload&#34;, (req, res) =&gt; {
+  // read new ConfigMap value
+  readConfigMap();
+
+  console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
+
+  res.sendStatus(200);
+});
+
+app.get(&#34;/isMaintenance&#34;, (req, res) =&gt; {
+  const isMaintenace = process.env.ENV_IS_MAINTENANCE;
+
+  res.status(200).send(`Is it maintenance? ${isMaintenace}`);
+})
+
+app.listen(3000, err =&gt; {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+  console.log(`Server is up on port 3000`);
+});</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+<p>Untuk kode server kita menambahkan satu endpoint supaya bisa menerima webhook dari kontainer <strong>&ldquo;configmap-reload&rdquo;</strong>.</p>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*QKmTx-uhZQZ85gynZWDlrw.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*QKmTx-uhZQZ85gynZWDlrw.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<p>Jika kita menggunakan metode seperti ini, maka alur kerjanya akan menjadi seperti berikut</p>
+<ol>
+<li>Kontainer configmap-reload akan melihat apakah ConfigMap yang dipasang sebagai volume mengalami perubahan atau tidak</li>
+<li>Jika ConfigMap mengalami perubahan, kontainer configmap-reload akan memberikan notifikasi kepada aplikasi yang memiliki endpoint <code>/-/reload</code> (sesuai dengan konfigurasi parameter <code>--webhook-url</code>)</li>
+<li>Aplikasi yang menerima notifikasi akan membaca ulang semua variabel lingkungan yang ada di ConfigMap lalu menyimpan ulang ke sebuah variabel global. Karena contoh di atas menggunakan NodeJS, maka akan disimpan ke variabel <code>process.env</code></li>
+</ol>
+<p>Dengan metode seperti ini, kita bisa implementasi <em><strong>&ldquo;live-update&rdquo;</strong></em> dengan bahasa pemrograman apapun. Selamat bereksperimen!</p>
+<hr>
+<h1 id="referensi">Referensi</h1>
+<ul>
+<li><a href="https://unofficial-kubernetes.readthedocs.io/en/latest/tasks/configure-pod-container/configmap/">https://unofficial-kubernetes.readthedocs.io/en/latest/tasks/configure-pod-container/configmap/</a></li>
+<li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/configmap">https://cloud.google.com/kubernetes-engine/docs/concepts/configmap</a></li>
+<li><a href="https://www.slideshare.net/kubecon/kubecon-eu-2016-keynote-kubernetes-state-of-the-union">https://www.slideshare.net/kubecon/kubecon-eu-2016-keynote-kubernetes-state-of-the-union</a></li>
+<li><a href="https://medium.com/@xcoulon/kubernetes-configmap-hot-reload-in-action-with-viper-d413128a1c9a">https://medium.com/@xcoulon/kubernetes-configmap-hot-reload-in-action-with-viper-d413128a1c9a</a></li>
+<li><a href="https://github.com/kubernetes/kubernetes/issues/30189">https://github.com/kubernetes/kubernetes/issues/30189</a></li>
+<li><a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap">https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap</a></li>
+<li><a href="https://github.com/jimmidyson/configmap-reload">https://github.com/jimmidyson/configmap-reload</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">DITAG DI</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/kubernetes/">kubernetes</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/" data-tooltip="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Reyhan Sofian. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/" data-tooltip="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Fkubernetes-configmap-pada-aplikasi-dinamis%2F">
+          <i class="fa fa-facebook-official"></i><span>Bagikan di Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Fkubernetes-configmap-pada-aplikasi-dinamis%2F">
+          <i class="fa fa-twitter"></i><span>Bagikan di Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/id\/post\/kubernetes-configmap-pada-aplikasi-dinamis\/';
+          
+            this.page.identifier = '\/id\/post\/kubernetes-configmap-pada-aplikasi-dinamis\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

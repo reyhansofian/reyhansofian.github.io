@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jan 2017 23:33:37 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 23:17:28 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/id/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes ConfigMap pada Aplikasi Dinamis</title>
+      <link>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</link>
+      <pubDate>Mon, 04 May 2020 23:17:28 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</guid>
+      <description>&lt;p&gt;Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Memperbaiki Masalah Autofix ESLint pada Webstrom 2016</title>

@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://reyhansofian.github.io/id/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,13 +18,18 @@
   </url>
   
   <url>
-    <loc>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <loc>https://reyhansofian.github.io/id/tags/kubernetes/</loc>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</loc>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://reyhansofian.github.io/id/post/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -39,7 +44,7 @@
   
   <url>
     <loc>https://reyhansofian.github.io/id/tags/</loc>
-    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,6 +55,11 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</loc>
+    <lastmod>2017-01-11T23:33:37+07:00</lastmod>
   </url>
   
   <url>
