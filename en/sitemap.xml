@@ -20,11 +20,31 @@
   <url>
     <loc>https://reyhansofian.github.io/en/tags/gin/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/gin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/gin/"
+                />
   </url>
   
   <url>
     <loc>https://reyhansofian.github.io/en/tags/golang/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/golang/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/golang/"
+                />
   </url>
   
   <url>
@@ -65,6 +85,16 @@
   <url>
     <loc>https://reyhansofian.github.io/en/tags/tools/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/tools/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/tools/"
+                />
   </url>
   
   <url>

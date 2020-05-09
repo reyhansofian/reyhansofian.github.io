@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://reyhansofian.github.io/id/</loc>
-    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -18,18 +18,43 @@
   </url>
   
   <url>
-    <loc>https://reyhansofian.github.io/id/tags/kubernetes/</loc>
-    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+    <loc>https://reyhansofian.github.io/id/tags/gin/</loc>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/gin/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/gin/"
+                />
   </url>
   
   <url>
-    <loc>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</loc>
-    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+    <loc>https://reyhansofian.github.io/id/tags/golang/</loc>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/golang/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/golang/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/</loc>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
   </url>
   
   <url>
     <loc>https://reyhansofian.github.io/id/post/</loc>
-    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -44,7 +69,7 @@
   
   <url>
     <loc>https://reyhansofian.github.io/id/tags/</loc>
-    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,6 +80,31 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/tags/tools/</loc>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/tools/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/tools/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/tags/kubernetes/</loc>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</loc>
+    <lastmod>2020-05-04T23:17:28+07:00</lastmod>
   </url>
   
   <url>

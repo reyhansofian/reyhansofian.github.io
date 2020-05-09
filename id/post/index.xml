@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 May 2020 23:17:28 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 09 May 2020 08:24:28 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/id/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Live-reload dengan Gin untuk Develop Aplikasi Golang</title>
+      <link>https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/</link>
+      <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/</guid>
+      <description>&lt;p&gt;Berawal dari dunia per-NodeJS-an, aku selalu menggunakan Nodemon untuk develop aplikasi dengan NodeJS. Singkat cerita, di ak mendapatkan projek yang menggunakan Golang sebagai pengganti dari aplikasi lama, dan memuat ulang aplikasi yang kodenya sudah dimodifikasi cukup membuat repot. Karena aku harus restart Golang servernya setiap kali ada perubahan di dalam kode aplikasi.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Kubernetes ConfigMap pada Aplikasi Dinamis</title>

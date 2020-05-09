@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", tech, development, tips, articles">
+<meta name="description" content="Live-reload dengan menggunakan Gin setiap kali menyimpan berkas pada saat develop aplikasi dengan Golang.">
+
+
+<meta property="og:description" content="Live-reload dengan menggunakan Gin setiap kali menyimpan berkas pada saat develop aplikasi dengan Golang.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Live-reload dengan Gin untuk Develop Aplikasi Golang">
+<meta name="twitter:title" content="Live-reload dengan Gin untuk Develop Aplikasi Golang">
+<meta property="og:url" content="https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="Live-reload dengan menggunakan Gin setiap kali menyimpan berkas pada saat develop aplikasi dengan Golang.">
+<meta name="twitter:description" content="Live-reload dengan menggunakan Gin setiap kali menyimpan berkas pada saat develop aplikasi dengan Golang.">
+<meta property="og:locale" content="id">
+
+  
+    <meta property="article:published_time" content="2020-05-09T08:24:28">
+  
+  
+    <meta property="article:modified_time" content="2020-05-09T08:24:28">
+  
+  
+  
+    
+      <meta property="article:section" content="programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="golang">
+    
+      <meta property="article:tag" content="gin">
+    
+      <meta property="article:tag" content="tools">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="https://i.imgur.com/UjsWOzU.gif">
+  <meta property="twitter:image" content="https://i.imgur.com/UjsWOzU.gif">
+
+
+  <meta property="og:image" content="https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg">
+  <meta property="twitter:image" content="https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>Live-reload dengan Gin untuk Develop Aplikasi Golang</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.cb8227a92f3fbced97026ddbd9a1e2ef3ed6bfcbb9db48d8a2b1ca4f579071e0.css">
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/id/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Beranda</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tag</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  <div class="sidebar-lang">
+    <ul class="sidebar-buttons">
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/id">
+            <i class="sidebar-button-icon flag-icon flag-icon-id"></i>
+            <span class="sidebar-button-desc">ID</span>
+          </a>
+        </li>
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/en">
+            <i class="sidebar-button-icon flag-icon flag-icon-gb"></i>
+            <span class="sidebar-button-desc">EN</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg">https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg</a></span>
+          
+          <div class="post-header-edit-on-github main-content-wrap">
+            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2020-05-09-id-golang-autoreload-with-gin.id.md" class="btn btn--default">
+              <span class="fa fa-github">
+              </span>
+              Edit on GitHub
+            </a>
+          </div>
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Live-reload dengan Gin untuk Develop Aplikasi Golang
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-05-09T08:24:28&#43;07:00">
+        
+  Mei 9, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>dalam</span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/id/categories/programming">programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Berawal dari dunia per-NodeJS-an, aku selalu menggunakan Nodemon untuk develop aplikasi dengan NodeJS. Singkat cerita, di ak mendapatkan projek yang menggunakan Golang sebagai pengganti dari aplikasi lama, dan memuat ulang aplikasi yang kodenya sudah dimodifikasi cukup membuat repot. Karena aku harus restart Golang servernya setiap kali ada perubahan di dalam kode aplikasi.</p>
+<p>Oleh karena itu aku mencari-cari library yang mirip dengan Nodemon. Seperti <a href="https://github.com/githubnemo/CompileDaemon">CompileDaemon</a>, <a href="https://github.com/cosmtrek/air">Air</a>, <a href="https://github.com/oxequa/realize">Realize</a>, bahkan melihat ulang <a href="https://nodemon.io/">Nodemon</a> karena memiliki fitur melihat perubahan di binary. Awalnya aku mencoba CompileDaemon, tapi ternyata fitur live-reloadnya tidak berjalan (mungkin ada yang salah di konfigurasinya 🤷‍♂). Lalu aku juga mencoba Air dan Realize, tapi library-library ini memerlukan file konfigurasi khusus supaya bisa berjalan dan ternyata kurang cocok untuk kebutuhanku. Karena yang aku butuhkan adalah library yang bisa dijalankan tanpa perlu ada file konfigurasi khusus (CompileDaemon tidak perlu file konfigurasi, tapi entah kenapa fitur live-reloadnya tidak berjalan).</p>
+<p>Setelah mencari lebih jauh, ternyata ada library lain yang bernama <a href="https://github.com/codegangsta/gin">Gin</a>. Simpel tapi cukup powerful. Mirip seperti CompileDaemon tapi ada fitur tambahan seperti notifikasi desktop. Aku suka dengan fitur ini karena Gin akan mengirimkan notifikasi ke desktop setiap kali ada perubahan atau setiap kali kita melakukan penyimpanan di kode kita.</p>
+<p>Berikut adalah parameter-parameter yang bisa kita pakai di Gin</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   --laddr value, -l value       listening address <span style="color:#66d9ef">for</span> the proxy server
+   --port value, -p value        port <span style="color:#66d9ef">for</span> the proxy server <span style="color:#f92672">(</span>default: 3000<span style="color:#f92672">)</span>
+   --appPort value, -a value     port <span style="color:#66d9ef">for</span> the Go web server <span style="color:#f92672">(</span>default: 3001<span style="color:#f92672">)</span>
+   --bin value, -b value         name of generated binary file <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;gin-bin&#34;</span><span style="color:#f92672">)</span>
+   --path value, -t value        Path to watch files from <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span>
+   --build value, -d value       Path to build files from <span style="color:#f92672">(</span>defaults to same value as --path<span style="color:#f92672">)</span>
+   --excludeDir value, -x value  Relative directories to exclude
+   --immediate, -i               run the server immediately after it<span style="color:#960050;background-color:#1e0010">&#39;</span>s built
+   --all                         reloads whenever any file changes, as opposed to reloading only on .go file change
+   --godep, -g                   use godep when building
+   --buildArgs value             Additional go build arguments
+   --certFile value              TLS Certificate
+   --keyFile value               TLS Certificate Key
+   --logPrefix value             Setup custom log prefix
+   --notifications               enable desktop notifications
+   --help, -h                    show help
+   --version, -v                 print the version
+</code></pre></div><p>Catatan: Salah satu kekurangan dari Gin adalah dia memerlukan proxy server sebagai entrypoint ke aplikasi kita.</p>
+<h2 id="contoh">Contoh</h2>
+<h3 id="menjalankan-server-go-di-port-8080">Menjalankan server Go di port 8080</h3>
+<p>Pada contoh berikut, Gin akan membuat proxy server di port 3000 (port default dari Gin) dan proxy server tersebut akan meneruskan request ke port aplikasi Golang kita di port 8000.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span>
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">3000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><h3 id="menjalankan-server-go-di-port-8080-dan-proxy-server-di-port-5000">Menjalankan server Go di port 8080 dan proxy server di port 5000</h3>
+<p>Pada contoh berikut, Gin akan membuat proxy server di port 5000 dan proxy server tersebut akan meneruskan request ke port aplikasi Golang kita di port 8000.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span>
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><h3 id="menjalankan-server-go-langsung-setelah-gin-build-berhasil">Menjalankan server Go langsung setelah Gin build berhasil</h3>
+<p>Ada beberapa orang yang mengalami masalah dimana setelah Gin berhasil membuat ulang binary, mereka tidak bisa langsung mengirimkan API request ke proxy server Gin. Ini dikarenakan Gin menggunakan <code>time.Sleep(100 * time.Millisecond)</code> di fungsi <code>build</code> yang ada di dalamnya. Kita bisa menyiasati ini dengan menggunakan flag <code>--immediate</code> supaya proxy server akan langsung dijalankan setiap kali Gin berhasil membuat ulang binary aplikasi kita.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate
+
+<span style="color:#75715e"># or</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> -i
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><h3 id="mengirimkan-notifikasi-desktop">Mengirimkan notifikasi desktop</h3>
+<p>Ini salah satu fitur yang aku suka dari Gin. Dengan notifikasi desktop ini kita bisa tahu apakah build binary aplikasi kita berhasil atau gagal tanpa harus bolak-balik pindah dari IDE dan terminal kalian. Kita bisa menggunakan flag <code>--notifications</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate --notifications
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><p><strong>Preview</strong></p>
+<p>
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.44_AM_qzligo.png" title="Build started" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.44_AM_qzligo.png"  alt="Build started">
+  
+    </a>
+  
+   
+    <span class="caption">Build started</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.34_AM_w4i2c4.png" title="Build success" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.34_AM_w4i2c4.png"  alt="Build success">
+  
+    </a>
+  
+   
+    <span class="caption">Build success</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993700/Screen_Shot_2020-05-09_at_10.06.04_AM_t9yo1y.png" title="Build failed" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993700/Screen_Shot_2020-05-09_at_10.06.04_AM_t9yo1y.png"  alt="Build failed">
+  
+    </a>
+  
+   
+    <span class="caption">Build failed</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">DITAG DI</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/golang/">golang</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/gin/">gin</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/tools/">tools</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/" data-tooltip="Kubernetes ConfigMap pada Aplikasi Dinamis">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Reyhan Sofian. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/" data-tooltip="Kubernetes ConfigMap pada Aplikasi Dinamis">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Flive-reload-dengan-gin-untuk-develop-aplikasi-golang%2F">
+          <i class="fa fa-facebook-official"></i><span>Bagikan di Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Flive-reload-dengan-gin-untuk-develop-aplikasi-golang%2F">
+          <i class="fa fa-twitter"></i><span>Bagikan di Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/id\/post\/live-reload-dengan-gin-untuk-develop-aplikasi-golang\/';
+          
+            this.page.identifier = '\/id\/post\/live-reload-dengan-gin-untuk-develop-aplikasi-golang\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
