@@ -31,7 +31,7 @@
   
   
     
-      <meta property="article:section" content="development">
+      <meta property="article:section" content="programming">
     
   
   
@@ -259,7 +259,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://reyhansofian.github.io/en/categories/development">development</a>
+      <a class="category-link" href="https://reyhansofian.github.io/en/categories/programming">programming</a>
     
   
 
@@ -284,23 +284,23 @@ if (!doNotTrack) {
 <p>First, define your route and add it to React Navigation&rsquo;s <code>StackNavigator</code>. Example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-navigation&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-navigation&#34;</span>;
 
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/App&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/Film&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/Film/FilmDetail&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/App&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film/FilmDetail&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">Home</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Home&#39;</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
     <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">App</span>,
   },
   <span style="color:#a6e22e">Film</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Film&#39;</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Film&#34;</span>,
     <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Film</span>,
   },
   <span style="color:#a6e22e">FilmDetail</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;FilmDetail&#39;</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FilmDetail&#34;</span>,
     <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilmDetail</span>,
   },
 };
@@ -310,14 +310,14 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">import</span> {
-    <span style="color:#a6e22e">ApolloClient</span>,
-    <span style="color:#a6e22e">ApolloProvider</span>,
-    <span style="color:#a6e22e">createNetworkInterface</span>,
-} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-apollo&#39;</span>;
+  <span style="color:#a6e22e">ApolloClient</span>,
+  <span style="color:#a6e22e">ApolloProvider</span>,
+  <span style="color:#a6e22e">createNetworkInterface</span>,
+} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-apollo&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ApolloClient</span>({
   <span style="color:#a6e22e">networkInterface</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">createNetworkInterface</span>({
-    <span style="color:#a6e22e">uri</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;GRAPHQL_SERVER_ENDPOINT&#39;</span>,
+    <span style="color:#a6e22e">uri</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GRAPHQL_SERVER_ENDPOINT&#34;</span>,
   }),
 });
 </code></pre></div><p>And then, crate a class for wrapping your router with <code>ApolloProvider</code> and register it as your root component.</p>
@@ -337,25 +337,25 @@ if (!doNotTrack) {
 </code></pre></div><p>So the full code for the main entrypoint looks like this:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
 </span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Expo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;expo&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-navigation&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Expo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;expo&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-navigation&#34;</span>;
 
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/App&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/Film&#39;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./src/Film/FilmDetail&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/App&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film&#34;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film/FilmDetail&#34;</span>;
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">Home</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Home&#39;</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
     <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">App</span>,
   },
   <span style="color:#a6e22e">Film</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Film&#39;</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Film&#34;</span>,
     <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Film</span>,
   },
   <span style="color:#a6e22e">FilmDetail</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;FilmDetail&#39;</span>,
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FilmDetail&#34;</span>,
     <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilmDetail</span>,
   },
 };
@@ -437,14 +437,12 @@ if (!doNotTrack) {
 })
 </code></pre></div><p>You&rsquo;ll notice that we specify the variables called <code>id</code> on the <code>options</code> section. It will get injected into the query and will be read by grapqhl query as <code>$id</code> on runtime. The code will looks like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// FilmDetail.js
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">gql</span>, <span style="color:#a6e22e">graphql</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-apollo&#39;</span>;
-<span style="color:#66d9ef">import</span> {
-  <span style="color:#a6e22e">Text</span>,
-  <span style="color:#a6e22e">View</span>,
-} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-native&#39;</span>;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">gql</span>, <span style="color:#a6e22e">graphql</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-apollo&#34;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">View</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-native&#34;</span>;
 
-<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">graphql</span>(<span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
+<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">graphql</span>(
+  <span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
 </span><span style="color:#e6db74">    query($id: ID!) {
 </span><span style="color:#e6db74">      film(id: $id) {
 </span><span style="color:#e6db74">        title
@@ -454,13 +452,15 @@ if (!doNotTrack) {
 </span><span style="color:#e6db74">        releaseDate
 </span><span style="color:#e6db74">      }
 </span><span style="color:#e6db74">    }
-</span><span style="color:#e6db74">`</span>, {
-  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">props</span>) =&gt; ({
-    <span style="color:#a6e22e">variables</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>,
-    },
-  }),
-})
+</span><span style="color:#e6db74">  `</span>,
+  {
+    <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">props</span>) =&gt; ({
+      <span style="color:#a6e22e">variables</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>,
+      },
+    }),
+  }
+)
 <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
   <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">navigationOptions</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">navigation</span> }) =&gt; ({
     <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">title</span>,
@@ -473,13 +473,16 @@ if (!doNotTrack) {
       <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">container</span>}<span style="color:#f92672">&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Released</span> Date<span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {moment(film.releaseDate).format(&#39;DD MMMM Y&#39;)}&lt;/Text&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Released</span> Date<span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">moment</span>(<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">releaseDate</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;DD MMMM Y&#34;</span>)}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Director</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {film.director}&lt;/Text&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Director</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">director</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Producers</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {film.producers.join(&#39;, &#39;)}&lt;/Text&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Producers</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">producers</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;, &#34;</span>)}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
         <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlContainer</span>}<span style="color:#f92672">&gt;</span>
           <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlText</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">openingCrawl</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>

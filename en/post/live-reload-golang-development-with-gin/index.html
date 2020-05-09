@@ -8,25 +8,25 @@
 <meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Reyhan Sofian">
 <meta name="keywords" content=", tech, development, tips, articles">
-<meta name="description" content="Autofix ESLint issue on NodeJS applications using Webstrom&#39;s File Watcher">
+<meta name="description" content="Developing Golang application with live-reload on save with Gin.">
 
 
-<meta property="og:description" content="Autofix ESLint issue on NodeJS applications using Webstrom&#39;s File Watcher">
+<meta property="og:description" content="Developing Golang application with live-reload on save with Gin.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Autofix ESLint Issue on Webstrom 2016">
-<meta name="twitter:title" content="Autofix ESLint Issue on Webstrom 2016">
-<meta property="og:url" content="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
-<meta property="twitter:url" content="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
+<meta property="og:title" content="Live Reload Golang Development With Gin">
+<meta name="twitter:title" content="Live Reload Golang Development With Gin">
+<meta property="og:url" content="https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
 <meta property="og:site_name" content="Everyday I Learn">
-<meta property="og:description" content="Autofix ESLint issue on NodeJS applications using Webstrom&#39;s File Watcher">
-<meta name="twitter:description" content="Autofix ESLint issue on NodeJS applications using Webstrom&#39;s File Watcher">
+<meta property="og:description" content="Developing Golang application with live-reload on save with Gin.">
+<meta name="twitter:description" content="Developing Golang application with live-reload on save with Gin.">
 <meta property="og:locale" content="en">
 
   
-    <meta property="article:published_time" content="2017-01-11T23:33:37">
+    <meta property="article:published_time" content="2020-05-09T08:24:28">
   
   
-    <meta property="article:modified_time" content="2017-01-11T23:33:37">
+    <meta property="article:modified_time" content="2020-05-09T08:24:28">
   
   
   
@@ -36,9 +36,11 @@
   
   
     
-      <meta property="article:tag" content="webstrom">
+      <meta property="article:tag" content="golang">
     
-      <meta property="article:tag" content="tips">
+      <meta property="article:tag" content="gin">
+    
+      <meta property="article:tag" content="tools">
     
   
 
@@ -55,12 +57,12 @@
 
 
 
-  <meta property="og:image" content="https://boundingintocomics.com/files/2019/09/2019.09.18-05.47-boundingintocomics-5d826db3a30f6.png">
-  <meta property="twitter:image" content="https://boundingintocomics.com/files/2019/09/2019.09.18-05.47-boundingintocomics-5d826db3a30f6.png">
+  <meta property="og:image" content="https://i.imgur.com/UjsWOzU.gif">
+  <meta property="twitter:image" content="https://i.imgur.com/UjsWOzU.gif">
 
 
-  <meta property="og:image" content="https://instazood.com/wp-content/uploads/2019/07/instagram_issue_sory_something_went_wrong-1050x550.jpg">
-  <meta property="twitter:image" content="https://instazood.com/wp-content/uploads/2019/07/instagram_issue_sory_something_went_wrong-1050x550.jpg">
+  <meta property="og:image" content="https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg">
+  <meta property="twitter:image" content="https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg">
 
 
 
@@ -69,14 +71,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
 
 
-    <title>Autofix ESLint Issue on Webstrom 2016</title>
+    <title>Live Reload Golang Development With Gin</title>
 
     <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
+    <link rel="canonical" href="https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -215,7 +217,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://instazood.com/wp-content/uploads/2019/07/instagram_issue_sory_something_went_wrong-1050x550.jpg')"
+       style="background-image:url('https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg')"
        data-behavior="4">
     
   </div>
@@ -227,10 +229,10 @@ if (!doNotTrack) {
                hasCoverCaption">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
-            <span class="post-header-cover-caption caption"><a href="https://instazood.com/blog/how-to-fix-instagram-issue-sorry-something-went-wrong/">https://instazood.com/blog/how-to-fix-instagram-issue-sorry-something-went-wrong/</a></span>
+            <span class="post-header-cover-caption caption"><a href="https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg">https://stackify.com/wp-content/uploads/2018/09/Learn-Go_-Tutorials-for-Beginners-Intermediate-and-Advanced-programmers-1280x720.jpg</a></span>
           
           <div class="post-header-edit-on-github main-content-wrap">
-            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2017-01-11-en-autofix-eslint-issue-on-webstrom-2016.md" class="btn btn--default">
+            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2020-05-09-en-golang-autoreload-with-gin.md" class="btn btn--default">
               <span class="fa fa-github">
               </span>
               Edit on GitHub
@@ -240,15 +242,15 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Autofix ESLint Issue on Webstrom 2016
+      Live Reload Golang Development With Gin
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2017-01-11T23:33:37&#43;07:00">
+      <time itemprop="datePublished" datetime="2020-05-09T08:24:28&#43;07:00">
         
-  January 11, 2017
+  May 9, 2020
 
       </time>
     
@@ -267,13 +269,69 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Currently, I and my team are working on a Javascript application using NodeJS and ReactJS. We use ESLint to use a coding standard with AirBnB config. We’re satisfied with it so far.</p>
-<p>I’m using Webstorm 2016 for code. Great features. But something is missing on it. On Visual Studio Code and Atom, we can fix the ESLint issue on save. But not it Webstorm 2016. It’s still a requested feature based on this <a href="http://stackoverflow.com/a/29231841/2763662">Stackoverflow answer</a>.</p>
-<p>However, Webstorm provides a plugin called File Watcher. This plugin will <strong>“watch”</strong> changes on our code and will run a specific task if there’s a change. For more information, please refer <a href="https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html">here</a>. I’m using File Watcher to auto fix ESLint issue on our code. This is how I set up a File Watcher:</p>
-<ol>
-<li>Install a <strong>File Watcher</strong> plugin. You can find it on <strong>Preferences</strong> &gt; <strong>Plugins</strong> &gt; <strong>Search for “File Watchers&rdquo;</strong>. Check it and click <strong>Apply</strong> button. You need to restart Webstorm afterward</li>
-</ol>
+              <p>Coming from NodeJS land, I&rsquo;m always relying on Nodemon to have live-reload my development server while developing. Long story short, I got a project that uses Golang as a drop-in replacement, and reloading the development server is PITA. I need to restart my development server every time I have changed inside my code.</p>
+<p>After looking at some libraries like <a href="https://github.com/githubnemo/CompileDaemon">CompileDaemon</a>, <a href="https://github.com/cosmtrek/air">Air</a>, <a href="https://github.com/oxequa/realize">Realize</a>, even <a href="https://nodemon.io/">Nodemon</a>!. At first, I&rsquo;m trying CompileDaemon but it doesn&rsquo;t do the live-reload on save (maybe I didn&rsquo;t configure it properly 🤷‍♂️). And then trying Air and Realize, but these libraries need a configuration file to make it works. Unfortunately, this didn&rsquo;t meet my expectation where I don&rsquo;t need an extra configuration file to use that.</p>
+<p>And then I found <a href="https://github.com/codegangsta/gin">Gin</a> after some search. Simple yet powerful. Just like CompileDaemon but with extra features (personally, I like the <code>--notifications</code> flag where it will send a notification to our desktop). Here are some options we use for Gin</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   --laddr value, -l value       listening address <span style="color:#66d9ef">for</span> the proxy server
+   --port value, -p value        port <span style="color:#66d9ef">for</span> the proxy server <span style="color:#f92672">(</span>default: 3000<span style="color:#f92672">)</span>
+   --appPort value, -a value     port <span style="color:#66d9ef">for</span> the Go web server <span style="color:#f92672">(</span>default: 3001<span style="color:#f92672">)</span>
+   --bin value, -b value         name of generated binary file <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;gin-bin&#34;</span><span style="color:#f92672">)</span>
+   --path value, -t value        Path to watch files from <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span>
+   --build value, -d value       Path to build files from <span style="color:#f92672">(</span>defaults to same value as --path<span style="color:#f92672">)</span>
+   --excludeDir value, -x value  Relative directories to exclude
+   --immediate, -i               run the server immediately after it<span style="color:#960050;background-color:#1e0010">&#39;</span>s built
+   --all                         reloads whenever any file changes, as opposed to reloading only on .go file change
+   --godep, -g                   use godep when building
+   --buildArgs value             Additional go build arguments
+   --certFile value              TLS Certificate
+   --keyFile value               TLS Certificate Key
+   --logPrefix value             Setup custom log prefix
+   --notifications               enable desktop notifications
+   --help, -h                    show help
+   --version, -v                 print the version
+</code></pre></div><p>The downside for Gin is it needs a proxy server for as the front server (is it the right term?).</p>
+<h2 id="examples">Examples</h2>
+<h3 id="running-go-server-on-port-8080">Running Go server on port 8080</h3>
+<p>This will create a proxy server on port 3000 and it will listen to the application port on 8080. With this setting, you need to send the request to the proxy server (port 3000) instead of directly to the Go server (port 8080).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span>
 
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">3000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><h3 id="running-go-server-on-port-8080-and-proxy-server-on-5000">Running Go server on port 8080 and proxy server on 5000</h3>
+<p>This will create a proxy server on port 5000 and it will listen to the application port on 8080. With this setting, you need to send the request to the proxy server (port 5000) instead of directly to the Go server (port 8080).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span>
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><h3 id="running-go-server-immediately-after-gin-build-run-successfully">Running Go server immediately after Gin build run successfully</h3>
+<p>There are some peoples encountered this problem where they can&rsquo;t make an API request to the server after Gin build. This is Gin&rsquo;s default behavior where it uses <code>time.Sleep(100 * time.Millisecond)</code> on its <code>build</code> function. We can solve this using <code>--immediate</code> flag so the server will immediately run after a successful build.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate
+
+<span style="color:#75715e"># or</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> -i
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><h3 id="send-desktop-notification-on-build">Send desktop notification on build</h3>
+<p>I love this feature. With the desktop notification, we know if the build succeeded or failed. So we don&rsquo;t need to switch to your IDE and terminal back and forth. We can use <code>--notifications</code> flag for this.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
+$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate --notifications
+
+<span style="color:#75715e">## Output</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</code></pre></div><p><strong>Preview</strong></p>
+<p>
  
   
   
@@ -312,22 +370,19 @@ if (!doNotTrack) {
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*-LJSlJ4NHxX2bpBoG5vF_g.png" title="Preferences &gt; Plugins &gt; Search for &#34;File Watchers&#34;" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.44_AM_qzligo.png" title="Build started" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*-LJSlJ4NHxX2bpBoG5vF_g.png"  alt="Preferences &gt; Plugins &gt; Search for &#34;File Watchers&#34;">
+    <img class="fig-img" src="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.44_AM_qzligo.png"  alt="Build started">
   
     </a>
   
    
-    <span class="caption">Preferences &gt; Plugins &gt; Search for &#34;File Watchers&#34;</span>
+    <span class="caption">Build started</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<ol start="2">
-<li>Go to <strong>Preferences</strong> &gt; <strong>Tools</strong> &gt; <strong>File Watchers</strong>. Create a new <strong>File Watcher</strong> by clicking the <strong>+</strong> button. Choose custom template</li>
-</ol>
 
  
   
@@ -367,30 +422,19 @@ if (!doNotTrack) {
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*jnQ-CyXK3lrbOvIw96QL6Q.png" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.34_AM_w4i2c4.png" title="Build success" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*jnQ-CyXK3lrbOvIw96QL6Q.png" >
+    <img class="fig-img" src="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993429/Screen_Shot_2020-05-09_at_10.01.34_AM_w4i2c4.png"  alt="Build success">
   
     </a>
   
+   
+    <span class="caption">Build success</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<ol start="3">
-<li>Change the <strong>File Type</strong> to <strong>Javascript</strong></li>
-<li>Adjust your <strong>Scope</strong> to your project directory or whatever folder you want to include</li>
-<li>Add ESLint binary path on the <strong>Watcher Settings</strong> &gt; <strong>Program</strong>. If you install ESLint locally (per project), you can find ESLint on <code>node_modules/bin</code> and the path will look like this</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ProjectFileDir$/node_modules/.bin/ESLint
-</code></pre></div><p>If you install ESLint globally (and/or use nvm), you can check ESLint path by executing which ESLint on the terminal. Since I’m using nvm, my ESLint path looks like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/Users/vicz/.nvm/versions/node/v7.0.0/bin/ESLint
-</code></pre></div><ol start="6">
-<li>Add <code>--fix $FileName$</code> to <strong>Watcher Settings</strong> &gt; <strong>Arguments</strong></li>
-<li>Click on the <strong>Watcher Settings</strong> &gt; <strong>Other Options</strong> to expand hidden options and add <code>$FileDir</code> to <strong>Watcher Settings</strong> &gt; <strong>Other Options</strong> &gt; <strong>Working Directory</strong></li>
-<li>Uncheck the <strong>Immediate file synchronization</strong></li>
-</ol>
 
  
   
@@ -430,23 +474,19 @@ if (!doNotTrack) {
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*9kmjeSMC4leS8VkrYx65PQ.png" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993700/Screen_Shot_2020-05-09_at_10.06.04_AM_t9yo1y.png" title="Build failed" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*9kmjeSMC4leS8VkrYx65PQ.png" >
+    <img class="fig-img" src="https://res.cloudinary.com/dweyilbvh/image/upload/v1588993700/Screen_Shot_2020-05-09_at_10.06.04_AM_t9yo1y.png"  alt="Build failed">
   
     </a>
   
+   
+    <span class="caption">Build failed</span>
   
 </div>
 
   <div style="clear:both;"></div>
-
-<blockquote>
-<p><strong><em>References:</em></strong><br>
-<a href="https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm">https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm</a><br>
-<a href="https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je">https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je</a><br>
-<a href="https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html">https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html</a></p>
-</blockquote>
+</p>
               
             </div>
           </div>
@@ -458,9 +498,11 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/webstrom/">webstrom</a>
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/golang/">golang</a>
 
-  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/tips/">tips</a>
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/gin/">gin</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/tools/">tools</a>
 
                   </div>
                 
@@ -473,7 +515,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/react-native-with-graphql/" data-tooltip="React Native with GraphQL">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -481,7 +523,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/" data-tooltip="How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/" data-tooltip="Installing Gollum on OSX Catalina">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -499,13 +541,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -554,7 +596,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/react-native-with-graphql/" data-tooltip="React Native with GraphQL">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -562,7 +604,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/" data-tooltip="How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/" data-tooltip="Installing Gollum on OSX Catalina">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -580,13 +622,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -617,13 +659,13 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Fautofix-eslint-issue-on-webstrom-2016%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Flive-reload-golang-development-with-gin%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Fautofix-eslint-issue-on-webstrom-2016%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Flive-reload-golang-development-with-gin%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -713,9 +755,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/reyhansofian.github.io\/en\/post\/autofix-eslint-issue-on-webstrom-2016\/';
+          this.page.url = 'https:\/\/reyhansofian.github.io\/en\/post\/live-reload-golang-development-with-gin\/';
           
-            this.page.identifier = '\/en\/post\/autofix-eslint-issue-on-webstrom-2016\/'
+            this.page.identifier = '\/en\/post\/live-reload-golang-development-with-gin\/'
           
         };
         (function() {

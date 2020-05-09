@@ -31,7 +31,7 @@
   
   
     
-      <meta property="article:section" content="development">
+      <meta property="article:section" content="programming">
     
   
   
@@ -255,7 +255,7 @@ if (!doNotTrack) {
   
     <span>dalam</span>
     
-      <a class="category-link" href="https://reyhansofian.github.io/id/categories/development">development</a>
+      <a class="category-link" href="https://reyhansofian.github.io/id/categories/programming">programming</a>
     
   
 
@@ -496,7 +496,7 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
   <div style="clear:both;"></div>
 
-<p><em><strong>Penjelasan nomor pada gambar:</strong></em></p>
+<p><strong><em>Penjelasan nomor pada gambar:</em></strong></p>
 <p>    <em>1. Nama ConfigMap</em><br>
     <em>2. Blok data untuk sebuah ConfigMap</em></p>
 <p>Lalu kita gunakan nilai dari ConfigMap <strong>&ldquo;special-config&rdquo;</strong> (dari key <strong>&ldquo;metadata.name&rdquo;</strong>) tersebut ke sebuah Pod dengan menggunakan env seperti berikut</p>
@@ -552,7 +552,7 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
   <div style="clear:both;"></div>
 
-<p><em><strong>Penjelasan nomor pada gambar:</strong></em></p>
+<p><strong><em>Penjelasan nomor pada gambar:</em></strong></p>
 <p>    <em>1. Nama environment variable yang akan digunakan oleh aplikasi</em><br>
     <em>2. Referensi ke ConfigMap yang akan digunakan. Dalam contoh ini mengacu kepada ConfigMap di gambar 2.1</em><br>
     <em>3. Key dari sebuah ConfigMap yang akan dipakai nilainya</em><br>
@@ -611,14 +611,14 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
   <div style="clear:both;"></div>
 
-<p><em><strong>Penjelasan nomor pada gambar:</strong></em></p>
+<p><strong><em>Penjelasan nomor pada gambar:</em></strong></p>
 <p>    <em>1. Referensi ke nama volume yang akan digunakan. Dalam contoh ini nomor 1 akan menggunakan volume dari nomor 3, yaitu volume “config-volume”</em><br>
     <em>2. Path yang akan digunakan oleh volume tersebut di dalam Pod</em><br>
     <em>3. Nama volume</em><br>
     <em>4. Nama ConfigMap yang dijadikan referensi oleh volume “config-volume” (nomor 3)</em></p>
 <hr>
-<p>Menggunakan ConfigMap sebagai variabel lingkungan dengan menggunakan volume membuka peluang untuk mengubah variabel lingkungan yang ada didalam sebuah container atau Pod tanpa harus melakukan restart. Metode seperti ini biasa disebut dengan <em><strong>&ldquo;live-update&rdquo;</strong></em> atau <em><strong>&ldquo;hot config&rdquo;</strong></em>.</p>
-<p>Kenapa <em><strong>&ldquo;live-update&rdquo;</strong></em> dibutuhkan? Karena di dalam dunia kontainerisasi, jika kita setel variabel lingkungan dengan <code>docker run -e &lt;KEY&gt;=&lt;VALUE&gt;</code> atau menggunakan <code>env</code> pada konfigurasi Pod, kita tidak bisa langsung menggantinya pada saat aplikasi berjalan. Sehingga kita perlu cara lain untuk membaca variabel lingkungan, yaitu dengan membaca dari sebuah file. Dalam konteks kali ini akan kita menggunakan ConfigMap yang sudah dipasang ke sebuah Pod.</p>
+<p>Menggunakan ConfigMap sebagai variabel lingkungan dengan menggunakan volume membuka peluang untuk mengubah variabel lingkungan yang ada didalam sebuah container atau Pod tanpa harus melakukan restart. Metode seperti ini biasa disebut dengan <strong><em>&ldquo;live-update&rdquo;</em></strong> atau <strong><em>&ldquo;hot config&rdquo;</em></strong>.</p>
+<p>Kenapa <strong><em>&ldquo;live-update&rdquo;</em></strong> dibutuhkan? Karena di dalam dunia kontainerisasi, jika kita setel variabel lingkungan dengan <code>docker run -e &lt;KEY&gt;=&lt;VALUE&gt;</code> atau menggunakan <code>env</code> pada konfigurasi Pod, kita tidak bisa langsung menggantinya pada saat aplikasi berjalan. Sehingga kita perlu cara lain untuk membaca variabel lingkungan, yaitu dengan membaca dari sebuah file. Dalam konteks kali ini akan kita menggunakan ConfigMap yang sudah dipasang ke sebuah Pod.</p>
 <p>Sebelum kita mulai, mari kita lihat apa yang terjadi jika ConfigMap berubah dengan contoh konfigurasi ConfigMap seperti berikut</p>
 
  
@@ -724,7 +724,7 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
   <div style="clear:both;"></div>
 
-<p>Jika kita perhatikan, setiap variabel yang kita definisikan di dalam ConfigMap akan menjadi sebuah file di dalam kontainer yang ada di dalam setiap Pod. File-file ini memiliki tautan (<em><strong>symlink</strong></em>) ke dalam sebuah folder <code>..data</code> dengan nama file yang sama. Misal <code>ENV_IS_MAINTENANCE</code> memiliki tautan ke file <code>..data/ENV_IS_MAINTENACE</code>, dst. Dan folder <code>..data</code> mengarah kepada sebuah folder yang memiliki nama <code>..2019_02_22_04_00_47.246998214</code>.</p>
+<p>Jika kita perhatikan, setiap variabel yang kita definisikan di dalam ConfigMap akan menjadi sebuah file di dalam kontainer yang ada di dalam setiap Pod. File-file ini memiliki tautan (<strong><em>symlink</em></strong>) ke dalam sebuah folder <code>..data</code> dengan nama file yang sama. Misal <code>ENV_IS_MAINTENANCE</code> memiliki tautan ke file <code>..data/ENV_IS_MAINTENACE</code>, dst. Dan folder <code>..data</code> mengarah kepada sebuah folder yang memiliki nama <code>..2019_02_22_04_00_47.246998214</code>.</p>
 <p>Sekarang mari kita coba membuat sebuah aplikasi sederhana menggunakan NodeJS dan ExpressJS yang membaca variabel lingkungan dari ConfigMap, lalu kita kemas ke dalam sebuah kontainer supaya kita bisa memvalidasi ide di atas.</p>
 
 
@@ -761,7 +761,7 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
           <tbody>
             <tr>
               <td class="gutter">
-                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br></pre>
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br></pre>
               </td>
               <td class="code">
                 <pre class="code-highlight language-js"><code class="js">// @ts-check
@@ -782,8 +782,8 @@ fs.watch(`${mountPath}`, (event, filename) =&gt; {
 // only listen to event &#34;rename&#34;.
 // kubelet will rename the reference folder on ConfigMap update.
 if (event === &#34;rename&#34; &amp;&amp; filename) {
-    if (filename === configMapFile) {
-    console.log(`process.env BEFORE: ${JSON.stringify(process.env)}`);
+if (filename === configMapFile) {
+console.log(`process.env BEFORE: ${JSON.stringify(process.env)}`);
 
     // get all files from `..data` directory
     const dir = fs.readdirSync(`${mountPath}/${configMapFile}`);
@@ -800,6 +800,7 @@ if (event === &#34;rename&#34; &amp;&amp; filename) {
 
     console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
     }
+
 }
 });
 
@@ -816,8 +817,8 @@ res.status(200).send(`Is it maintenance? ${isMaintenace}`);
 
 app.listen(3000, err =&gt; {
 if (err) {
-    console.error(err);
-    process.exit(1);
+console.error(err);
+process.exit(1);
 }
 
 console.log(`Server is up on port 3000`);
@@ -830,7 +831,7 @@ console.log(`Server is up on port 3000`);
     
   </div>
 </figure>
-<p>Kode di atas akan melihat dan melakukan perubahan jika terjadi event <em><strong>&ldquo;rename&rdquo;</strong></em> di dalam folder <code>/etc/config</code>. Setelah itu kita buat sebuah konfigurasi Deployment dan Service untuk sebuah Pod seperti berikut, lalu kita unggah ke Kubernetes dengan <code>kubectl apply -f test-k8s.yaml</code>.</p>
+<p>Kode di atas akan melihat dan melakukan perubahan jika terjadi event <strong><em>&ldquo;rename&rdquo;</em></strong> di dalam folder <code>/etc/config</code>. Setelah itu kita buat sebuah konfigurasi Deployment dan Service untuk sebuah Pod seperti berikut, lalu kita unggah ke Kubernetes dengan <code>kubectl apply -f test-k8s.yaml</code>.</p>
 
 
   
@@ -866,95 +867,90 @@ console.log(`Server is up on port 3000`);
           <tbody>
             <tr>
               <td class="gutter">
-                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br><span>82</span><br><span>83</span><br><span>84</span><br><span>85</span><br><span>86</span><br></pre>
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br></pre>
               </td>
               <td class="code">
                 <pre class="code-highlight language-yaml"><code class="yaml">apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    test-app: test
-  name: test
-  namespace: default
+labels:
+test-app: test
+name: test
+namespace: default
 spec:
-  externalTrafficPolicy: Cluster
-  ports:
-  - nodePort: 30321
-    port: 3000
-    protocol: TCP
-    targetPort: 3000
+externalTrafficPolicy: Cluster
+ports:
+
+- nodePort: 30321
+  port: 3000
+  protocol: TCP
+  targetPort: 3000
   selector:
-    test-app: test
+  test-app: test
   sessionAffinity: None
   type: NodePort
-status:
+  status:
   loadBalancer: {}
+
 ---
+
 apiVersion: extensions/v1
 kind: Deployment
 metadata:
-  name: test
+name: test
 spec:
-  revisionHistoryLimit: 2
-  strategy:
-    type: RollingUpdate
-  replicas: 1
-  selector:
-    matchLabels:
-      test-app: test
-  template:
-    metadata:
-      labels:
-        test-app: test
-    spec:
-      volumes:
-        - name: config-volume
-          configMap:
-            name: test-config
-      containers:
-        - name: test
-          image: reyhan/docker-try-config:1.0.0
-          command: [&#34;npm&#34;, &#34;start&#34;]
-          imagePullPolicy: Never
-          livenessProbe:
-            httpGet:
-              path: /info
-              port: 3000
-            initialDelaySeconds: 90
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /info
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          ports:
-            - containerPort: 3000
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/config
-          resources:
-            requests:
-              memory: &#34;256Mi&#34;
-              cpu: &#34;64m&#34;
-            limits:
-              memory: &#34;512Mi&#34;
-              cpu: &#34;256m&#34;
-          env:
-            - name: ENV_SQL_CLIENT
-              value: &#34;mysql&#34;
-            - name: ENV_SQL_HOST
-              value: &#34;13.67.44.182&#34;
-            - name: ENV_IS_MAINTENANCE
-              valueFrom:
-                configMapKeyRef:
-                  name: test-config
-                  key: ENV_IS_MAINTENANCE
-            - name: ENV_IS_BLOWN_UP
-              valueFrom:
-                configMapKeyRef:
-                  name: test-config
-                  key: ENV_IS_BLOWN_UP</code></pre>
+revisionHistoryLimit: 2
+strategy:
+type: RollingUpdate
+replicas: 1
+selector:
+matchLabels:
+test-app: test
+template:
+metadata:
+labels:
+test-app: test
+spec:
+volumes: - name: config-volume
+configMap:
+name: test-config
+containers: - name: test
+image: reyhan/docker-try-config:1.0.0
+command: [&#34;npm&#34;, &#34;start&#34;]
+imagePullPolicy: Never
+livenessProbe:
+httpGet:
+path: /info
+port: 3000
+initialDelaySeconds: 90
+periodSeconds: 5
+readinessProbe:
+httpGet:
+path: /info
+port: 3000
+initialDelaySeconds: 5
+periodSeconds: 5
+ports: - containerPort: 3000
+volumeMounts: - name: config-volume
+mountPath: /etc/config
+resources:
+requests:
+memory: &#34;256Mi&#34;
+cpu: &#34;64m&#34;
+limits:
+memory: &#34;512Mi&#34;
+cpu: &#34;256m&#34;
+env: - name: ENV_SQL_CLIENT
+value: &#34;mysql&#34; - name: ENV_SQL_HOST
+value: &#34;13.67.44.182&#34; - name: ENV_IS_MAINTENANCE
+valueFrom:
+configMapKeyRef:
+name: test-config
+key: ENV_IS_MAINTENANCE - name: ENV_IS_BLOWN_UP
+valueFrom:
+configMapKeyRef:
+name: test-config
+key: ENV_IS_BLOWN_UP</code></pre>
               </td>
             </tr>
           </tbody>
@@ -1123,11 +1119,11 @@ spec:
 <p>Beberapa hal yang harus kita ingat jika menggunakan ConfigMap:</p>
 <ol>
 <li>ConfigMap hanya &ldquo;hidup&rdquo; di dalam satu namespace saja. Yang artinya kita tidak bisa menggunakan ConfigMap yang berada di namespace lain.</li>
-<li>Proses sinkronisasi ConfigMap tidak langsung terjadi atau biasa disebut <em><strong>&ldquo;eventually consistent&rdquo;</strong></em>. Hal ini terjadi karena frekuensi sinkronisasi dari kubelet standardnya adalah 60 detik. Jika ingin proses sinkronisasi lebih cepat dapat menggunakan opsi <code>--sync-frequency</code>. Untuk lebih jelasnya bisa baca dari dokumentasi resmi Kubernetes di <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically">sini</a></li>
+<li>Proses sinkronisasi ConfigMap tidak langsung terjadi atau biasa disebut <strong><em>&ldquo;eventually consistent&rdquo;</em></strong>. Hal ini terjadi karena frekuensi sinkronisasi dari kubelet standardnya adalah 60 detik. Jika ingin proses sinkronisasi lebih cepat dapat menggunakan opsi <code>--sync-frequency</code>. Untuk lebih jelasnya bisa baca dari dokumentasi resmi Kubernetes di <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically">sini</a></li>
 </ol>
 <hr>
 <h1 id="ekstra">Ekstra!</h1>
-<p>Jika kita amati, implementasi <em><strong>&ldquo;live-update&rdquo;</strong></em> di atas hanya bisa bekerja untuk NodeJS saja karena NodeJS memiliki pustaka standar untuk sistem file yang bisa melihat perubahan suatu file (dengan menggunakan <code>fs.watch</code>). Apabila kita ingin implementasi di bahasa lain, maka kode server dan konfigurasi Deployment, Service dan Pod di atas perlu sedikit penyesuaian.</p>
+<p>Jika kita amati, implementasi <strong><em>&ldquo;live-update&rdquo;</em></strong> di atas hanya bisa bekerja untuk NodeJS saja karena NodeJS memiliki pustaka standar untuk sistem file yang bisa melihat perubahan suatu file (dengan menggunakan <code>fs.watch</code>). Apabila kita ingin implementasi di bahasa lain, maka kode server dan konfigurasi Deployment, Service dan Pod di atas perlu sedikit penyesuaian.</p>
 
 
   
@@ -1163,105 +1159,96 @@ spec:
           <tbody>
             <tr>
               <td class="gutter">
-                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br><span>82</span><br><span>83</span><br><span>84</span><br><span>85</span><br><span>86</span><br><span>87</span><br><span>88</span><br><span>89</span><br><span>90</span><br><span>91</span><br><span>92</span><br><span>93</span><br><span>94</span><br><span>95</span><br><span>96</span><br></pre>
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br><span>46</span><br><span>47</span><br><span>48</span><br><span>49</span><br><span>50</span><br><span>51</span><br><span>52</span><br><span>53</span><br><span>54</span><br><span>55</span><br><span>56</span><br><span>57</span><br><span>58</span><br><span>59</span><br><span>60</span><br><span>61</span><br><span>62</span><br><span>63</span><br><span>64</span><br><span>65</span><br><span>66</span><br><span>67</span><br><span>68</span><br><span>69</span><br><span>70</span><br><span>71</span><br><span>72</span><br><span>73</span><br><span>74</span><br><span>75</span><br><span>76</span><br><span>77</span><br><span>78</span><br><span>79</span><br><span>80</span><br><span>81</span><br><span>82</span><br><span>83</span><br><span>84</span><br><span>85</span><br><span>86</span><br><span>87</span><br></pre>
               </td>
               <td class="code">
                 <pre class="code-highlight language-yaml"><code class="yaml">apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    test-app: test
-  name: test
-  namespace: default
+labels:
+test-app: test
+name: test
+namespace: default
 spec:
-  externalTrafficPolicy: Cluster
-  ports:
-  - nodePort: 30321
-    port: 3000
-    protocol: TCP
-    targetPort: 3000
+externalTrafficPolicy: Cluster
+ports:
+
+- nodePort: 30321
+  port: 3000
+  protocol: TCP
+  targetPort: 3000
   selector:
-    test-app: test
+  test-app: test
   sessionAffinity: None
   type: NodePort
-status:
+  status:
   loadBalancer: {}
+
 ---
+
 apiVersion: extensions/v1
 kind: Deployment
 metadata:
-  name: test
+name: test
 spec:
-  revisionHistoryLimit: 2
-  strategy:
-    type: RollingUpdate
-  replicas: 1
-  selector:
-    matchLabels:
-      test-app: test
-  template:
-    metadata:
-      labels:
-        test-app: test
-    spec:
-      volumes:
-        - name: config-volume
-          configMap:
-            name: test-config
-      containers:
-        - name: configmap-reload
-          image: &#34;jimmidyson/configmap-reload:v0.1&#34;
-          imagePullPolicy: &#34;IfNotPresent&#34;
-          args:
-            - --volume-dir=/etc/config
-            - --webhook-url=http://localhost:3000/-/reload
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/config
-              readOnly: true
-        - name: test
-          image: reyhan/docker-try-config:1.0.3
-          command: [&#34;npm&#34;, &#34;start&#34;]
-          imagePullPolicy: Never
-          livenessProbe:
-            httpGet:
-              path: /info
-              port: 3000
-            initialDelaySeconds: 90
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /info
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          ports:
-            - containerPort: 3000
-          volumeMounts:
-            - name: config-volume
-              mountPath: /etc/config
-          resources:
-            requests:
-              memory: &#34;256Mi&#34;
-              cpu: &#34;64m&#34;
-            limits:
-              memory: &#34;512Mi&#34;
-              cpu: &#34;256m&#34;
-          env:
-            - name: ENV_SQL_CLIENT
-              value: &#34;mysql&#34;
-            - name: ENV_SQL_HOST
-              value: &#34;13.67.44.182&#34;
-            - name: ENV_IS_MAINTENANCE
-              valueFrom:
-                configMapKeyRef:
-                  name: test-config
-                  key: ENV_IS_MAINTENANCE
-            - name: ENV_IS_BLOWN_UP
-              valueFrom:
-                configMapKeyRef:
-                  name: test-config
-                  key: ENV_IS_BLOWN_UP</code></pre>
+revisionHistoryLimit: 2
+strategy:
+type: RollingUpdate
+replicas: 1
+selector:
+matchLabels:
+test-app: test
+template:
+metadata:
+labels:
+test-app: test
+spec:
+volumes: - name: config-volume
+configMap:
+name: test-config
+containers: - name: configmap-reload
+image: &#34;jimmidyson/configmap-reload:v0.1&#34;
+imagePullPolicy: &#34;IfNotPresent&#34;
+args: - --volume-dir=/etc/config - --webhook-url=http://localhost:3000/-/reload
+volumeMounts: - name: config-volume
+mountPath: /etc/config
+readOnly: true - name: test
+image: reyhan/docker-try-config:1.0.3
+command: [&#34;npm&#34;, &#34;start&#34;]
+imagePullPolicy: Never
+livenessProbe:
+httpGet:
+path: /info
+port: 3000
+initialDelaySeconds: 90
+periodSeconds: 5
+readinessProbe:
+httpGet:
+path: /info
+port: 3000
+initialDelaySeconds: 5
+periodSeconds: 5
+ports: - containerPort: 3000
+volumeMounts: - name: config-volume
+mountPath: /etc/config
+resources:
+requests:
+memory: &#34;256Mi&#34;
+cpu: &#34;64m&#34;
+limits:
+memory: &#34;512Mi&#34;
+cpu: &#34;256m&#34;
+env: - name: ENV_SQL_CLIENT
+value: &#34;mysql&#34; - name: ENV_SQL_HOST
+value: &#34;13.67.44.182&#34; - name: ENV_IS_MAINTENANCE
+valueFrom:
+configMapKeyRef:
+name: test-config
+key: ENV_IS_MAINTENANCE - name: ENV_IS_BLOWN_UP
+valueFrom:
+configMapKeyRef:
+name: test-config
+key: ENV_IS_BLOWN_UP</code></pre>
               </td>
             </tr>
           </tbody>
@@ -1371,46 +1358,46 @@ const mountPath = &#34;/etc/config&#34;;
 const configMapFile = &#34;..data&#34;;
 
 function readConfig() {
-  const dir = fs.readdirSync(`${mountPath}/${configMapFile}`);
+const dir = fs.readdirSync(`${mountPath}/${configMapFile}`);
 
-  console.log(`Available envar: ${dir}`);
+console.log(`Available envar: ${dir}`);
 
-  dir.forEach(env =&gt; {
-    process.env[env] = fs.readFileSync(
-      `${mountPath}/${configMapFile}/${env}`
-    );
-  });
+dir.forEach(env =&gt; {
+process.env[env] = fs.readFileSync(
+`${mountPath}/${configMapFile}/${env}`
+);
+});
 }
 
 app.get(&#34;/info&#34;, (req, res) =&gt; {
-  res.sendStatus(200);
+res.sendStatus(200);
 });
 
 app.use(bodyParser.json());
 
 // configmap reload webhook
 app.post(&#34;/-/reload&#34;, (req, res) =&gt; {
-  // read new ConfigMap value
-  readConfigMap();
+// read new ConfigMap value
+readConfigMap();
 
-  console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
+console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
 
-  res.sendStatus(200);
+res.sendStatus(200);
 });
 
 app.get(&#34;/isMaintenance&#34;, (req, res) =&gt; {
-  const isMaintenace = process.env.ENV_IS_MAINTENANCE;
+const isMaintenace = process.env.ENV_IS_MAINTENANCE;
 
-  res.status(200).send(`Is it maintenance? ${isMaintenace}`);
+res.status(200).send(`Is it maintenance? ${isMaintenace}`);
 })
 
 app.listen(3000, err =&gt; {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
+if (err) {
+console.error(err);
+process.exit(1);
+}
 
-  console.log(`Server is up on port 3000`);
+console.log(`Server is up on port 3000`);
 });</code></pre>
               </td>
             </tr>
@@ -1477,7 +1464,7 @@ app.listen(3000, err =&gt; {
 <li>Jika ConfigMap mengalami perubahan, kontainer configmap-reload akan memberikan notifikasi kepada aplikasi yang memiliki endpoint <code>/-/reload</code> (sesuai dengan konfigurasi parameter <code>--webhook-url</code>)</li>
 <li>Aplikasi yang menerima notifikasi akan membaca ulang semua variabel lingkungan yang ada di ConfigMap lalu menyimpan ulang ke sebuah variabel global. Karena contoh di atas menggunakan NodeJS, maka akan disimpan ke variabel <code>process.env</code></li>
 </ol>
-<p>Dengan metode seperti ini, kita bisa implementasi <em><strong>&ldquo;live-update&rdquo;</strong></em> dengan bahasa pemrograman apapun. Selamat bereksperimen!</p>
+<p>Dengan metode seperti ini, kita bisa implementasi <strong><em>&ldquo;live-update&rdquo;</em></strong> dengan bahasa pemrograman apapun. Selamat bereksperimen!</p>
 <hr>
 <h1 id="referensi">Referensi</h1>
 <ul>

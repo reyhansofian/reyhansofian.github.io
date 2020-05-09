@@ -31,7 +31,7 @@
   
   
     
-      <meta property="article:section" content="development">
+      <meta property="article:section" content="programming">
     
   
   
@@ -255,7 +255,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="https://reyhansofian.github.io/en/categories/development">development</a>
+      <a class="category-link" href="https://reyhansofian.github.io/en/categories/programming">programming</a>
     
   
 
@@ -265,13 +265,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>When I&rsquo;m conducting a workshop for <a href="https://www.facebook.com/groups/DevCMalang">Facebook Developer Circle Malang</a>, one of our participants asking how <a href="https://github.com/apollographql/graphql-tag">gql</a> works. I know it&rsquo;s called <em><strong>template literals</strong></em>, but how did <em><strong>template literals</strong></em> can behave like a function (but without parentheses)?</p>
+              <p>When I&rsquo;m conducting a workshop for <a href="https://www.facebook.com/groups/DevCMalang">Facebook Developer Circle Malang</a>, one of our participants asking how <a href="https://github.com/apollographql/graphql-tag">gql</a> works. I know it&rsquo;s called <strong><em>template literals</em></strong>, but how did <strong><em>template literals</em></strong> can behave like a function (but without parentheses)?</p>
 <p>Template literals is a new feature in ES6 or ES2015 (it&rsquo;s called &ldquo;template strings&rdquo; in prior editions of ES2015).
-It allow us to embed expressions, multi-line strings, and string interpolation. There are two kinds of template literals: <em><strong>template literals</strong></em> and <em><strong>tagged template literals</strong></em>.</p>
+It allow us to embed expressions, multi-line strings, and string interpolation. There are two kinds of template literals: <strong><em>template literals</em></strong> and <strong><em>tagged template literals</em></strong>.</p>
 <h1 id="template-literals">Template Literals</h1>
 <p>Template literals are enclosed by the back-tick (` `) characters with the dollar sign and curly braces as a placeholder (<code>${expression}</code>). This placeholder can do string interpolation or expression interpolation.</p>
 <h3 id="string-interpolation">String Interpolation</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bruce&#39;</span>;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Bruce&#34;</span>;
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`Hello there, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>;
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greetingWithMultilines</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">greeting</span><span style="color:#e6db74">}</span><span style="color:#e6db74">
 </span><span style="color:#e6db74">How are you today?`</span>;
@@ -298,15 +298,15 @@ It allow us to embed expressions, multi-line strings, and string interpolation. 
 <blockquote>
 <p>Tagged template literals is an advanced form of template literals. Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.</p>
 </blockquote>
-<p>If you notice, <em><strong>tagged template literals</strong></em>&lsquo;s first argument is containing an array of string! Here&rsquo;s an example</p>
+<p>If you notice, <strong><em>tagged template literals</em></strong>&lsquo;s first argument is containing an array of string! Here&rsquo;s an example</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">someFunction</span>(<span style="color:#a6e22e">strings</span>, <span style="color:#a6e22e">name</span>) {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Array of string:&#39;</span>, <span style="color:#a6e22e">strings</span>);
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Name parameter:&#39;</span>, <span style="color:#a6e22e">name</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Array of string:&#34;</span>, <span style="color:#a6e22e">strings</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Name parameter:&#34;</span>, <span style="color:#a6e22e">name</span>);
 }
 
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Bruce&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Bruce&#34;</span>;
 
-<span style="color:#a6e22e">someFunction</span><span style="color:#e6db74">`Hello there, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>
+<span style="color:#a6e22e">someFunction</span><span style="color:#e6db74">`Hello there, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>;
 
 <span style="color:#75715e">// Result:
 </span><span style="color:#75715e">// Array of string: [&#34;Hello there, &#34;, &#34;!&#34;]
