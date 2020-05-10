@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", tech, development, tips, articles">
+<meta name="description" content="Memindahkan file-file dari OSX ke Ubuntu dengan menggunakan Wifi tanpa perlu menggunakan HDD eksternal ataupun flashdisk">
+
+
+<meta property="og:description" content="Memindahkan file-file dari OSX ke Ubuntu dengan menggunakan Wifi tanpa perlu menggunakan HDD eksternal ataupun flashdisk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04">
+<meta name="twitter:title" content="Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04">
+<meta property="og:url" content="https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="Memindahkan file-file dari OSX ke Ubuntu dengan menggunakan Wifi tanpa perlu menggunakan HDD eksternal ataupun flashdisk">
+<meta name="twitter:description" content="Memindahkan file-file dari OSX ke Ubuntu dengan menggunakan Wifi tanpa perlu menggunakan HDD eksternal ataupun flashdisk">
+<meta property="og:locale" content="id">
+
+  
+    <meta property="article:published_time" content="2016-08-24T22:50:18">
+  
+  
+    <meta property="article:modified_time" content="2016-08-24T22:50:18">
+  
+  
+  
+    
+      <meta property="article:section" content="technology">
+    
+  
+  
+    
+      <meta property="article:tag" content="tips">
+    
+      <meta property="article:tag" content="unix">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="https://pacs.ou.edu/filer/sharing/1495831525/1027/">
+  <meta property="twitter:image" content="https://pacs.ou.edu/filer/sharing/1495831525/1027/">
+
+
+  <meta property="og:image" content="https://networkencyclopedia.com/wp-content/uploads/2019/08/ftam-file-transfer-access-management.jpg">
+  <meta property="twitter:image" content="https://networkencyclopedia.com/wp-content/uploads/2019/08/ftam-file-transfer-access-management.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.cb8227a92f3fbced97026ddbd9a1e2ef3ed6bfcbb9db48d8a2b1ca4f579071e0.css">
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/id/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Beranda</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tag</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  <div class="sidebar-lang">
+    <ul class="sidebar-buttons">
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/id">
+            <i class="sidebar-button-icon flag-icon flag-icon-id"></i>
+            <span class="sidebar-button-desc">ID</span>
+          </a>
+        </li>
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/en">
+            <i class="sidebar-button-icon flag-icon flag-icon-gb"></i>
+            <span class="sidebar-button-desc">EN</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://networkencyclopedia.com/wp-content/uploads/2019/08/ftam-file-transfer-access-management.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="https://networkencyclopedia.com/file-transfer-access-and-management-ftam">https://networkencyclopedia.com/file-transfer-access-and-management-ftam</a></span>
+          
+          <div class="post-header-edit-on-github main-content-wrap">
+            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2016-08-24-id-how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04.id.md" class="btn btn--default">
+              <span class="fa fa-github">
+              </span>
+              Edit on GitHub
+            </a>
+          </div>
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-08-24T22:50:18&#43;07:00">
+        
+  Agustus 24, 2016
+
+      </time>
+    
+    
+  
+  
+    <span>dalam</span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/id/categories/technology">technology</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Hari ini aku berencana memindahkan semua file-file yang ada di Macbook Air kantorku (OSX El Capitan) ke laptop pribadiku (Ubuntu 14.04). Awalnya rencana memindahkan file-file tersebut ingin menggunakan HDD eksternal, tapi ternyata semua HDD eksternalku rusak. Jadi aku harus mencari cara lain supaya bisa memindahkan semua file tersebut. Akhirnya ide memindahkan dengan menggunakan network datang (dengan menggunakan Wifi).</p>
+<p>Jadi ceritanya begini:</p>
+<h1 id="prasyarat">Prasyarat</h1>
+<ul>
+<li>Kedua laptop (Macbook dan laptop Ubuntu) harus dalam network yang sama</li>
+<li>Cek IP network yang digunakan oleh laptop Ubuntu dengan cara</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; ifconfig
+docker0   Link encap:Ethernet  HWaddr 02:42:a7:c6:fe:9a
+          inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>  TX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+eth0      Link encap:Ethernet  HWaddr 30:85:a9:25:79:2f
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>  TX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:26183 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26183 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:2772883 <span style="color:#f92672">(</span>2.7 MB<span style="color:#f92672">)</span>  TX bytes:2772883 <span style="color:#f92672">(</span>2.7 MB<span style="color:#f92672">)</span>
+vboxnet4  Link encap:Ethernet  HWaddr 0a:00:27:00:00:04
+          inet addr:192.168.99.1  Bcast:192.168.99.255  Mask:255.255.255.0
+          inet6 addr: fe80::800:27ff:fe00:4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1641 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>  TX bytes:320617 <span style="color:#f92672">(</span>320.6 KB<span style="color:#f92672">)</span>
+wlan0     Link encap:Ethernet  HWaddr dc:85:de:08:13:28
+          inet addr:192.168.1.68  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::de85:deff:fe08:1328/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2904324 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1565126 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:1275931788 <span style="color:#f92672">(</span>1.2 GB<span style="color:#f92672">)</span>  TX bytes:518127433 <span style="color:#f92672">(</span>518.1 MB<span style="color:#f92672">)</span>
+</code></pre></div><p>Jika kalian menggunakan Wifi, maka kamu bisa mencari di bagian <code>wlan0</code> dan lihat di sub-bagian <code>inet addr</code>. Di contoh ini alamat IP-nya adalah <strong>192.168.1.68</strong></p>
+<h1 id="setup-ubuntu-1404">Setup Ubuntu 14.04</h1>
+<ul>
+<li>Di sini aku menggunakan Samba Server untuk share folder ke dalam network. Kalian bisa cek instalasi Samba Server kalian dengan menjalankan perintah</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; which samba
+/usr/sbin/samba
+<span style="color:#75715e"># ^^^ It will return like this if you already have samba installed</span>
+</code></pre></div><ul>
+<li>Jika kalian belum memiliki Samba Server, kalian bisa install dengan menjalankan perintah <code>sudo apt-get install samba</code></li>
+<li>Buat sebuah folder untuk menyimpan file-file yang akan ditransfer via Samba Server dengan menjalankan perintah</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; sudo mkdir -p /media/hdd/backup <span style="color:#75715e"># Path could be anything you want</span>
+&gt; sudo chown nobody:nogroup /media/hdd/backup
+</code></pre></div><ul>
+<li>Sekarang mari kita sesuaikan sedikit konfigurasi Samba Servernya dengan menjalankan perintah <code>sudo vim /etc/samba/smb.conf</code> (jika kalian tidak terbiasa menggunakan Vim, kalian bisa menggunakan editor lain seperti Nano, Pico atau bahkan VSCode)</li>
+<li>Tambahkan konfigurasi berikut di bagian paling bawah file konfigurasi tersebut</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>Ubuntu 14.04<span style="color:#f92672">]</span> <span style="color:#75715e"># This is the network name that will show up on the network list</span>
+    comment <span style="color:#f92672">=</span> Ubuntu File Server Share
+    path <span style="color:#f92672">=</span> /media/hdd/backup
+    browsable <span style="color:#f92672">=</span> yes
+    guest ok <span style="color:#f92672">=</span> yes
+    read only <span style="color:#f92672">=</span> no
+    create mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0755</span>
+</code></pre></div><blockquote>
+<p>Opsi yang bisa digunakan untuk konfigurasi Samba Server:<br>
+<br>
+<strong>comment:</strong> a short description of the share. Adjust to fit your needs.<br>
+<strong>path:</strong> the path to the directory to share. Technically Samba shares can be placed anywhere on the filesystem as long as the permissions are correct, but adhering to standards is recommended.<br>
+<strong>browsable:</strong> enables Windows clients to browse the shared directory using Windows Explorer.<br>
+<strong>guest ok:</strong> allows clients to connect to the share without supplying a password.<br>
+<strong>read only:</strong> determines if the share is read only or if write privileges are granted. Write privileges are allowed only when the value is no, as is seen in this example. If the value is yes, then access to the share is read only.<br>
+<strong>create mask:</strong> determines the permissions new files will have when created.<br>
+<br>
+-<!-- raw HTML omitted -->From: <a href="https://help.ubuntu.com/lts/serverguide/samba-fileserver.html">https://help.ubuntu.com/lts/serverguide/samba-fileserver.html</a><!-- raw HTML omitted --></p>
+</blockquote>
+<p> </p>
+<ul>
+<li>Simpan, lalu restart Samba Servernya dengan menjalankan perintah</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; sudo service samba restart
+nmbd stop/waiting
+nmbd start/running, process <span style="color:#ae81ff">22180</span>
+smbd stop/waiting
+smbd start/running, process <span style="color:#ae81ff">22192</span>
+stop: Unknown instance:
+samba-ad-dc start/running, process <span style="color:#ae81ff">22207</span>
+</code></pre></div><ul>
+<li>Konfigurasi Samba Server sudah selesai. Sekarang kita pindah ke Macbook</li>
+</ul>
+<hr>
+<h1 id="setup-mac-osx-el-capitan">Setup Mac OSX (El Capitan)</h1>
+<ul>
+<li>Bukan aplikasi <strong>Finder</strong></li>
+<li>Cari menu <strong>Go</strong> -&gt; <strong>Connect to Server</strong> atau bisa dengan menggunakan shortcut <strong>Cmd + K</strong> (nanti akan muncul sebuah popup)</li>
+</ul>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/984/1*rPk3Ez8gjIyO5uTW1H14Ow.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/984/1*rPk3Ez8gjIyO5uTW1H14Ow.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ul>
+<li>Masukkan alamat IP <strong>smb://192.168.1.68</strong> ke menu <strong>Server Address</strong>. Alamat IP-nya tergantung dari <code>ifconfig</code> kalian di Macbook ya. Caranya mirip dengan menggunakan di Ubuntu di atas. Setelah itu tekan tombol <strong>Connect</strong>.</li>
+<li>Sebuah popup akan muncul (lagi)</li>
+</ul>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/836/1*pVXiaBRWBPXWcD9B5sJQ_A.png" title="Volume Ubuntuk 14.04 berwarna abu-abu karena aku sudah memasangnya (mount)" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/836/1*pVXiaBRWBPXWcD9B5sJQ_A.png"  alt="Volume Ubuntuk 14.04 berwarna abu-abu karena aku sudah memasangnya (mount)">
+  
+    </a>
+  
+   
+    <span class="caption">Volume Ubuntuk 14.04 berwarna abu-abu karena aku sudah memasangnya (mount)</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ul>
+<li>NOTE: Volume Ubuntuk 14.04 berwarna abu-abu karena aku sudah memasangnya (mount)</li>
+<li>Pilih volume yang diinginkan, lalu tekan tombol <strong>OK</strong></li>
+<li>Volume pilihan kalian akan muncul di daftar <strong>Devices</strong></li>
+</ul>
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+    
+      
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+<div class="figure center fig-100" >
+  
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*J-QUtQBEylJLUSo9xBzU8Q.png" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*J-QUtQBEylJLUSo9xBzU8Q.png" >
+  
+    </a>
+  
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+<ul>
+<li>Sekarang buka terminal kalian</li>
+<li>Kita akan menggunakan <code>rsync</code> untuk menyalin (copy) semua file yang ada di Macbok ke Ubuntu. Caranya dengan menjalankan perintah</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">&gt; sudo rsync -vaE --progress --exclude<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/dirs/you/dont/need&#39;</span> /Users/username/your/folder/to/copy/from /Volumes/Ubuntu<span style="color:#ae81ff">\ </span>14.04
+</code></pre></div><blockquote>
+<p>Flag yang bisa digunakan di <code>rsync</code>:<br>
+<br>
+<strong>v:</strong> increases verbosity.<br>
+<strong>a:</strong> applies archive settings to mirror the source files exactly, including symbolic links and permissions.<br>
+<strong>E:</strong> copies extended attributes and resource forks (OS X only).<br>
+<strong>progress:</strong> provides a count down and transfer statistics during the copy.<br>
+<strong>exclude:</strong> exclude desired file / folder from copied<br>
+<br>
+-<!-- raw HTML omitted -->From: <a href="https://apple.stackexchange.com/questions/117465/fastest-and-safest-way-to-copy-massive-data-from-one-external-drive-to-another/117469#117469">https://apple.stackexchange.com/questions/117465/fastest-and-safest-way-to-copy-massive-data-from-one-external-drive-to-another/117469#117469</a><!-- raw HTML omitted --></p>
+</blockquote>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">DITAG DI</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/tips/">tips</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/unix/">unix</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/" data-tooltip="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Reyhan Sofian. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/" data-tooltip="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Fbagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04%2F">
+          <i class="fa fa-facebook-official"></i><span>Bagikan di Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Fbagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04%2F">
+          <i class="fa fa-twitter"></i><span>Bagikan di Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/id\/post\/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04\/';
+          
+            this.page.identifier = '\/id\/post\/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

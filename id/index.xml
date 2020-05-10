@@ -38,5 +38,14 @@
       <description>&lt;p&gt;Saya dan tim sedang mengerjakan aplikasi Javascript dengan menggunakan NodeJS dan ReactJS. Kami menggunakan ESLint sebagai standart untuk kode kami dengan menggunakan konfigurasi ESLint dari AirBnB. Hingga saat ini kami cukup puas dengan konfigurasi ini.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04</title>
+      <link>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</link>
+      <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</guid>
+      <description>&lt;p&gt;Hari ini aku berencana memindahkan semua file-file yang ada di Macbook Air kantorku (OSX El Capitan) ke laptop pribadiku (Ubuntu 14.04). Awalnya rencana memindahkan file-file tersebut ingin menggunakan HDD eksternal, tapi ternyata semua HDD eksternalku rusak. Jadi aku harus mencari cara lain supaya bisa memindahkan semua file tersebut. Akhirnya ide memindahkan dengan menggunakan network datang (dengan menggunakan Wifi).&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

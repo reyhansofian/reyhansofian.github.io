@@ -143,6 +143,26 @@
   </url>
   
   <url>
+    <loc>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</loc>
+    <lastmod>2016-08-24T22:50:18+07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://reyhansofian.github.io/id/tags/unix/</loc>
+    <lastmod>2016-08-24T22:50:18+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/unix/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/unix/"
+                />
+  </url>
+  
+  <url>
     <loc>https://reyhansofian.github.io/id/archives/</loc>
     <xhtml:link
                 rel="alternate"
