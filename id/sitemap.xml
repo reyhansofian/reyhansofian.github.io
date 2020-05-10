@@ -100,6 +100,16 @@
   <url>
     <loc>https://reyhansofian.github.io/id/tags/kubernetes/</loc>
     <lastmod>2020-05-04T23:17:28+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://reyhansofian.github.io/en/tags/kubernetes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="id"
+                href="https://reyhansofian.github.io/id/tags/kubernetes/"
+                />
   </url>
   
   <url>

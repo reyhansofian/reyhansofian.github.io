@@ -8,19 +8,19 @@
 <meta name="generator" content="Hugo 0.69.0 with theme Tranquilpeak 0.4.7-BETA">
 <meta name="author" content="Reyhan Sofian">
 <meta name="keywords" content=", tech, development, tips, articles">
-<meta name="description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
+<meta name="description" content="Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables.">
 
 
-<meta property="og:description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
+<meta property="og:description" content="Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes ConfigMap pada Aplikasi Dinamis">
-<meta name="twitter:title" content="Kubernetes ConfigMap pada Aplikasi Dinamis">
-<meta property="og:url" content="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
-<meta property="twitter:url" content="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+<meta property="og:title" content="Kubernetes ConfigMap on Dynamic Applications">
+<meta name="twitter:title" content="Kubernetes ConfigMap on Dynamic Applications">
+<meta property="og:url" content="https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
 <meta property="og:site_name" content="Everyday I Learn">
-<meta property="og:description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
-<meta name="twitter:description" content="Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.">
-<meta property="og:locale" content="id">
+<meta property="og:description" content="Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables.">
+<meta name="twitter:description" content="Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables.">
+<meta property="og:locale" content="en">
 
   
     <meta property="article:published_time" content="2020-05-04T23:17:28">
@@ -67,14 +67,14 @@
   <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
 
 
-    <title>Kubernetes ConfigMap pada Aplikasi Dinamis</title>
+    <title>Kubernetes ConfigMap on Dynamic Applications</title>
 
     <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
     
 
     
 
-    <link rel="canonical" href="https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+    <link rel="canonical" href="https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -115,7 +115,7 @@ if (!doNotTrack) {
       <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="https://reyhansofian.github.io/id/">Everyday I Learn</a>
+    <a class="header-title-link" href="https://reyhansofian.github.io/en/">Everyday I Learn</a>
   </div>
   
     
@@ -149,21 +149,21 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/">
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/en/">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
-      <span class="sidebar-button-desc">Beranda</span>
+      <span class="sidebar-button-desc">Home</span>
     </a>
   </li>
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="https://reyhansofian.github.io/id/tags">
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/en/tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
-      <span class="sidebar-button-desc">Tag</span>
+      <span class="sidebar-button-desc">Tags</span>
     </a>
   </li>
 
@@ -228,7 +228,7 @@ if (!doNotTrack) {
             <span class="post-header-cover-caption caption"><a href="https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png">https://stackify.com/wp-content/uploads/2018/03/quick-guide-to-kubernetes-1-1280x720.png</a></span>
           
           <div class="post-header-edit-on-github main-content-wrap">
-            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2019-02-24-id-kubernetes-configmap-on-dynamic-application.id.md" class="btn btn--default">
+            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2019-02-24-en-kubernetes-configmap-on-dynamic-application.md" class="btn btn--default">
               <span class="fa fa-github">
               </span>
               Edit on GitHub
@@ -238,7 +238,7 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Kubernetes ConfigMap pada Aplikasi Dinamis
+      Kubernetes ConfigMap on Dynamic Applications
     </h1>
   
   
@@ -246,16 +246,16 @@ if (!doNotTrack) {
     
       <time itemprop="datePublished" datetime="2020-05-04T23:17:28&#43;07:00">
         
-  Mei 4, 2020
+  May 4, 2020
 
       </time>
     
     
   
   
-    <span>dalam</span>
+    <span>in</span>
     
-      <a class="category-link" href="https://reyhansofian.github.io/id/categories/programming">programming</a>
+      <a class="category-link" href="https://reyhansofian.github.io/en/categories/programming">programming</a>
     
   
 
@@ -265,14 +265,13 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.</p>
-<h1 id="apa-itu-configmap">Apa Itu ConfigMap?</h1>
+              <p>Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables. We will talk about what is ConfigMap and what are the possibilities using ConfigMap?</p>
+<h1 id="what-is-configmap">What is ConfigMap</h1>
 <blockquote>
 <p>ConfigMap allows you to decouple configuration artifacts from image content to keep containerized applications portable.</p>
 </blockquote>
-<p>Menurut penjelasan resmi dari dokumentasi Kubernetes, ConfigMap adalah sebuah mekanisme untuk memisahkan konfigurasi dari sebuah aplikasi yang sudah dikontainerkan. Hal ini dapat membuat aplikasi tersebut lebih portabel dan membuat konfigurasinya lebih mudah untuk diubah dan dimanage, dan juga mengurangi kemungkinan konfigurasi yang langsung ditulis ke dalam sebuah Pod.
-ConfigMap cocok digunakan untuk menyimpan konfigurasi yang tidak sensitif atau konfigurasi yang tidak perlu dienkripsi, seperti variabel lingkungan.</p>
-<h1 id="bagaimana-cara-kerja-configmap">Bagaimana Cara Kerja ConfigMap?</h1>
+<p>As per Kubernetes documentation, ConfigMap is a mechanism to separate configuration from a containerized application (since we&rsquo;re talking Kubernetes, all application inside Kubernetes is containerized). This will lead the applications to be more portable and more configurable. ConfigMap usage is more suitable for a configuration that doesn&rsquo;t contain sensitive information since it doesn&rsquo;t have any encryption.</p>
+<h1 id="how-configmap-works">How ConfigMap works?</h1>
 
  
   
@@ -312,27 +311,24 @@ ConfigMap cocok digunakan untuk menyimpan konfigurasi yang tidak sensitif atau k
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/600/1*GoB8Po84hhM707uIi_xZVA.png" title="Gambar 1.1 — Membuat ConfigMap" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/600/1*GoB8Po84hhM707uIi_xZVA.png" title="Image 1.1 — Create ConfigMap" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/600/1*GoB8Po84hhM707uIi_xZVA.png"  alt="Gambar 1.1 — Membuat ConfigMap">
+    <img class="fig-img" src="https://miro.medium.com/max/600/1*GoB8Po84hhM707uIi_xZVA.png"  alt="Image 1.1 — Create ConfigMap">
   
     </a>
   
    
-    <span class="caption">Gambar 1.1 — Membuat ConfigMap</span>
+    <span class="caption">Image 1.1 — Create ConfigMap</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p>Pada Gambar 1.1 kita membuat ConfigMap terlebih dahulu. Ada 3 cara untuk membuat ConfigMap:</p>
+<p>There are 3 ways to create ConfigMap:</p>
 <ol>
-<li>Menggunakan opsi &ndash;from-file.
-Contoh: <code>kubectl create configmap myConfigMap --from-file /my/path/to/directory/or/file</code></li>
-<li>Menggunakan opsi &ndash;from-literal.
-Contoh: <code>kubectl create configmap myConfigMap --from-literal KEY1=VALUE1 KEY2=VALUE2</code></li>
-<li>Menggunakan manifest dengan tipe ConfigMap (lihat gambar 2.1).
-Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml dan sesuai dengan spesifikasi, lalu mengunggah file tersebut dengan perintah <code>kubectl apply -f myConfigMap.yaml</code></li>
+<li><code>--from-file</code> flag. Example: <code>kubectl create configmap myConfigMap --from-file /my/path/to/directory/or/file</code></li>
+<li><code>--from-literal</code> flag. Example: <code>kubectl create configmap myConfigMap --from-literal KEY1=VALUE1 KEY2=VALUE2</code></li>
+<li>With Kubernetes manifest with kind <code>ConfigMap</code>. We can create a file with <code>.yaml</code> or <code>.json</code>, and the we can apply it using <code>kubectl apply -f myConfigMap.yaml</code></li>
 </ol>
 
  
@@ -373,20 +369,20 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/600/1*KQjy0ceER44muI5_kZkdLA.png" title="Gambar 1.2 — Unggah ConfigMap" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/600/1*KQjy0ceER44muI5_kZkdLA.png" title="Image 1.2 — Apply ConfigMap" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/600/1*KQjy0ceER44muI5_kZkdLA.png"  alt="Gambar 1.2 — Unggah ConfigMap">
+    <img class="fig-img" src="https://miro.medium.com/max/600/1*KQjy0ceER44muI5_kZkdLA.png"  alt="Image 1.2 — Apply ConfigMap">
   
     </a>
   
    
-    <span class="caption">Gambar 1.2 — Unggah ConfigMap</span>
+    <span class="caption">Image 1.2 — Apply ConfigMap</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p>Perintah <code>kubectl create configmap</code> maupun <code>kubectl apply -f &lt;file&gt;</code> akan mengunggah ConfigMap tersebut ke Apiserver Kubernetes yang ada di dalam cluster Kubernetes.</p>
+<p><code>kubectl create configmap</code> or <code>kubectl apply -f &lt;file&gt;</code> command will upload the ConfigMap definition to the Kubernetes Apiserver that lives inside Kubernetes cluster.</p>
 
  
   
@@ -426,24 +422,24 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/600/1*bVutgbPL5mfpdhnMTzFiAQ.png" title="Gambar 1.2 — Apiserver mendistribusikan ConfigMap" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/600/1*bVutgbPL5mfpdhnMTzFiAQ.png" title="Image 1.3 — ConfigMap distribution by Apiserver" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/600/1*bVutgbPL5mfpdhnMTzFiAQ.png"  alt="Gambar 1.2 — Apiserver mendistribusikan ConfigMap">
+    <img class="fig-img" src="https://miro.medium.com/max/600/1*bVutgbPL5mfpdhnMTzFiAQ.png"  alt="Image 1.3 — ConfigMap distribution by Apiserver">
   
     </a>
   
    
-    <span class="caption">Gambar 1.2 — Apiserver mendistribusikan ConfigMap</span>
+    <span class="caption">Image 1.3 — ConfigMap distribution by Apiserver</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p>Lalu apiserver akan mendistribusikan ConfigMap tersebut ke semua Pod yang membutuhkan yang berada di dalam cluster Kubernetes.</p>
-<h1 id="bagaimana-cara-menggunakan-configmap">Bagaimana Cara Menggunakan ConfigMap?</h1>
-<p>Ada 2 cara untuk menggunakan ConfigMap:</p>
-<p><strong>1. Sebagai environment variable</strong></p>
-<p>Sebagai contoh, kita memiliki sebuah ConfigMap seperti berikut</p>
+<p>The Apiserver will distribute the ConfigMap definition to all Pods inside the cluster.</p>
+<h1 id="how-to-use-configmap">How to use ConfigMap?</h1>
+<p>There are 2 ways to use ConfigMap</p>
+<h3 id="1-as-environment-variable">1. As environment variable</h3>
+<p>As an example, we will create a ConfigMap like this</p>
 
  
   
@@ -483,23 +479,23 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1000/1*UmIEX_zGQqrxNbTjdEyuGw.png" title="Gambar 2.1 - ConfigMap" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1000/1*UmIEX_zGQqrxNbTjdEyuGw.png" title="Image 2.1 - ConfigMap" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1000/1*UmIEX_zGQqrxNbTjdEyuGw.png"  alt="Gambar 2.1 - ConfigMap">
+    <img class="fig-img" src="https://miro.medium.com/max/1000/1*UmIEX_zGQqrxNbTjdEyuGw.png"  alt="Image 2.1 - ConfigMap">
   
     </a>
   
    
-    <span class="caption">Gambar 2.1 - ConfigMap</span>
+    <span class="caption">Image 2.1 - ConfigMap</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p><strong><em>Penjelasan nomor pada gambar:</em></strong></p>
-<p>    <em>1. Nama ConfigMap</em><br>
-    <em>2. Blok data untuk sebuah ConfigMap</em></p>
-<p>Lalu kita gunakan nilai dari ConfigMap <strong>&ldquo;special-config&rdquo;</strong> (dari key <strong>&ldquo;metadata.name&rdquo;</strong>) tersebut ke sebuah Pod dengan menggunakan env seperti berikut</p>
+<p><em><strong>Descriptions:</strong></em></p>
+<p>    1. <em>ConfigMap name</em><br>
+    2. <em>ConfigMap data (can be in KEY-VALUE format or filename format)</em></p>
+<p>We will attach the ConfigMap values to a Pod and use it as environment variables</p>
 
  
   
@@ -539,26 +535,26 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1000/1*zSVWgoFVokE6MRPYvp3-MQ.png" title="Gambar 2.2 - Konfigurasi Pod" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1000/1*zSVWgoFVokE6MRPYvp3-MQ.png" title="Image 2.2 - Pod Manifest" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1000/1*zSVWgoFVokE6MRPYvp3-MQ.png"  alt="Gambar 2.2 - Konfigurasi Pod">
+    <img class="fig-img" src="https://miro.medium.com/max/1000/1*zSVWgoFVokE6MRPYvp3-MQ.png"  alt="Image 2.2 - Pod Manifest">
   
     </a>
   
    
-    <span class="caption">Gambar 2.2 - Konfigurasi Pod</span>
+    <span class="caption">Image 2.2 - Pod Manifest</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p><strong><em>Penjelasan nomor pada gambar:</em></strong></p>
-<p>    <em>1. Nama environment variable yang akan digunakan oleh aplikasi</em><br>
-    <em>2. Referensi ke ConfigMap yang akan digunakan. Dalam contoh ini mengacu kepada ConfigMap di gambar 2.1</em><br>
-    <em>3. Key dari sebuah ConfigMap yang akan dipakai nilainya</em><br>
-    <em>4. Referensi ke ConfigMap lain tanpa harus mendefinisikan key yang akan digunakan</em></p>
-<p><strong>2. Sebagai volume yang dipasang ke sebuah pod</strong></p>
-<p>ConfigMap juga dapat digunakan dengan menggunakan plugin volume. Kita ambil contoh dengan menggunakan konfigurasi ConfigMap yang sama dengan di atas (gambar 2.1). Kita buat konfigurasi Pod seperti berikut:</p>
+<p><em><strong>Descriptions:</strong></em></p>
+<p>    1. Environment variable&rsquo;s name that will be injected into Pod<br>
+    2. Reference to a particular ConfigMap name. This can be found from <strong>metada.name</strong> on the ConfigMap manifest<br>
+    3. ConfigMap key name that we will use<br>
+    4. Load all key and values from another ConfigMap \</p>
+<h3 id="2-as-a-volume-that-attached-to-a-pod">2. As a volume that attached to a Pod</h3>
+<p>ConfigMap also supports the Volume plugin. For instances, we will use the same ConfigMap manifest and we will create a Pod manifest like this</p>
 
  
   
@@ -598,28 +594,28 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*q7EtLCY9rEhRH_on0ZZl1w.png" title="Gambar 2.3 - Konfigurasi Pod menggunakan plugin volume" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*q7EtLCY9rEhRH_on0ZZl1w.png" title="Image 2.3 - Pod manifest using Volume plugin" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*q7EtLCY9rEhRH_on0ZZl1w.png"  alt="Gambar 2.3 - Konfigurasi Pod menggunakan plugin volume">
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*q7EtLCY9rEhRH_on0ZZl1w.png"  alt="Image 2.3 - Pod manifest using Volume plugin">
   
     </a>
   
    
-    <span class="caption">Gambar 2.3 - Konfigurasi Pod menggunakan plugin volume</span>
+    <span class="caption">Image 2.3 - Pod manifest using Volume plugin</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p><strong><em>Penjelasan nomor pada gambar:</em></strong></p>
-<p>    <em>1. Referensi ke nama volume yang akan digunakan. Dalam contoh ini nomor 1 akan menggunakan volume dari nomor 3, yaitu volume “config-volume”</em><br>
-    <em>2. Path yang akan digunakan oleh volume tersebut di dalam Pod</em><br>
-    <em>3. Nama volume</em><br>
-    <em>4. Nama ConfigMap yang dijadikan referensi oleh volume “config-volume” (nomor 3)</em></p>
+<p><em><strong>Descriptions:</strong></em></p>
+<p>    1. Volume name that will be used. In this example, it will use the volume from number 3 which is &ldquo;config-volume&rdquo; volume<br>
+    2. Volume mount path<br>
+    3. Volume name<br>
+    4. ConfigMap name that will be used by the &ldquo;config-volume&rdquo; volume \</p>
 <hr>
-<p>Menggunakan ConfigMap sebagai variabel lingkungan dengan menggunakan volume membuka peluang untuk mengubah variabel lingkungan yang ada didalam sebuah container atau Pod tanpa harus melakukan restart. Metode seperti ini biasa disebut dengan <strong><em>&ldquo;live-update&rdquo;</em></strong> atau <strong><em>&ldquo;hot config&rdquo;</em></strong>.</p>
-<p>Kenapa <strong><em>&ldquo;live-update&rdquo;</em></strong> dibutuhkan? Karena di dalam dunia kontainerisasi, jika kita setel variabel lingkungan dengan <code>docker run -e &lt;KEY&gt;=&lt;VALUE&gt;</code> atau menggunakan <code>env</code> pada konfigurasi Pod, kita tidak bisa langsung menggantinya pada saat aplikasi berjalan. Sehingga kita perlu cara lain untuk membaca variabel lingkungan, yaitu dengan membaca dari sebuah file. Dalam konteks kali ini akan kita menggunakan ConfigMap yang sudah dipasang ke sebuah Pod.</p>
-<p>Sebelum kita mulai, mari kita lihat apa yang terjadi jika ConfigMap berubah dengan contoh konfigurasi ConfigMap seperti berikut</p>
+<p>Using the ConfigMap as environment variables using volume will lead us to a possibility where we can update Pod&rsquo;s environment variables without the need to restart. This method usually called as <em><strong>&ldquo;live-update&rdquo;</strong></em> or <em><strong>&ldquo;hot-config&rdquo;</strong></em>.</p>
+<p>Why do we need <em><strong>&ldquo;live-update&rdquo;</strong></em>? In the world of the container, the environment variables will be set in stone if the application (or container) is already running. This means we can&rsquo;t change the environment variables on the fly if we are injecting environment variables using <code>docker run -e &lt;KEY&gt;=&lt;VALUE&gt;</code> (for Docker) or using <code>env</code> (for Kubernetes Pod). Instead, we can use a file to store the environment variables. And in this example, we will use ConfigMap that will be attached to a Pod volume.</p>
+<p>Let&rsquo;s examine the ConfigMap behavior if it got an update. Let&rsquo;s create a simple ConfigMap manifest like this</p>
 
  
   
@@ -659,19 +655,20 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*jYIXmJHAv97m7XQZUWh-DQ.png" title="Gambar 3.1 - Konfigurasi ConfigMap" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*jYIXmJHAv97m7XQZUWh-DQ.png" title="Image 3.1 - Simple ConfigMap" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*jYIXmJHAv97m7XQZUWh-DQ.png"  alt="Gambar 3.1 - Konfigurasi ConfigMap">
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*jYIXmJHAv97m7XQZUWh-DQ.png"  alt="Image 3.1 - Simple ConfigMap">
   
     </a>
   
    
-    <span class="caption">Gambar 3.1 - Konfigurasi ConfigMap</span>
+    <span class="caption">Image 3.1 - Simple ConfigMap</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
+<p>After applied it using <code>kubectl apply -f</code>, let&rsquo;s take a look inside the Pod&rsquo;s container how ConfigMap works as environment variables. We will go to the volume mount path directory based on the Pod configuration (in this case, it mounts to <code>/etc/config</code>)</p>
 
  
   
@@ -711,21 +708,21 @@ Untuk menggunakan cara ini kita perlu membuat sebuah file dengan ekstensi .yaml 
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*MiKDIUvl72yUvlIfUqs6KQ.png" title="Gambar 3.2 - ConfigMap di dalam sebuah container sebelum berubah" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*MiKDIUvl72yUvlIfUqs6KQ.png" title="Image 3.2 - ConfigMap inside a Pod&#39;s container" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*MiKDIUvl72yUvlIfUqs6KQ.png"  alt="Gambar 3.2 - ConfigMap di dalam sebuah container sebelum berubah">
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*MiKDIUvl72yUvlIfUqs6KQ.png"  alt="Image 3.2 - ConfigMap inside a Pod&#39;s container">
   
     </a>
   
    
-    <span class="caption">Gambar 3.2 - ConfigMap di dalam sebuah container sebelum berubah</span>
+    <span class="caption">Image 3.2 - ConfigMap inside a Pod&#39;s container</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p>Jika kita perhatikan, setiap variabel yang kita definisikan di dalam ConfigMap akan menjadi sebuah file di dalam kontainer yang ada di dalam setiap Pod. File-file ini memiliki tautan (<strong><em>symlink</em></strong>) ke dalam sebuah folder <code>..data</code> dengan nama file yang sama. Misal <code>ENV_IS_MAINTENANCE</code> memiliki tautan ke file <code>..data/ENV_IS_MAINTENACE</code>, dst. Dan folder <code>..data</code> mengarah kepada sebuah folder yang memiliki nama <code>..2019_02_22_04_00_47.246998214</code>.</p>
-<p>Sekarang mari kita coba membuat sebuah aplikasi sederhana menggunakan NodeJS dan ExpressJS yang membaca variabel lingkungan dari ConfigMap, lalu kita kemas ke dalam sebuah kontainer supaya kita bisa memvalidasi ide di atas.</p>
+<p>If we look at the image above, every key that we define on ConfigMap will be mounted as files by Kubernetes. These files have symlinks to <code>...data</code> folder and inside that folder have the same names. For example Misal <code>ENV_IS_MAINTENANCE</code> symlinked to <code>..data/ENV_IS_MAINTENACE</code>, etc. Also <code>..data</code> folder symlinked to another folder called <code>..2019_02_22_04_00_47.246998214</code>.</p>
+<p>Now for proof of concept, let&rsquo;s create a simple application using NodeJS and ExpressJS and ship it as a container. This application main purpose is to read the environment variables from ConfigMap and listen to that folder if there is an update</p>
 
 
   
@@ -782,8 +779,8 @@ fs.watch(`${mountPath}`, (event, filename) =&gt; {
   // only listen to event &#34;rename&#34;.
   // kubelet will rename the reference folder on ConfigMap update.
   if (event === &#34;rename&#34; &amp;&amp; filename) {
-  if (filename === configMapFile) {
-  console.log(`process.env BEFORE: ${JSON.stringify(process.env)}`);
+    if (filename === configMapFile) {
+      console.log(`process.env BEFORE: ${JSON.stringify(process.env)}`);
 
       // get all files from `..data` directory
       const dir = fs.readdirSync(`${mountPath}/${configMapFile}`);
@@ -792,35 +789,35 @@ fs.watch(`${mountPath}`, (event, filename) =&gt; {
 
       // read all files inside `..data` directory
       dir.forEach(env =&gt; {
-          // inject the new envar value to `process.env` object (not recommended)
-          process.env[env] = fs.readFileSync(
+        // inject the new envar value to `process.env` object (not recommended)
+        process.env[env] = fs.readFileSync(
           `${mountPath}/${configMapFile}/${env}`
-          );
+        );
       });
 
       console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
-      }
+    }
   }
 });
 
 // for readinessProbe and livelinessProbe Kubernetes
 app.get(&#34;/info&#34;, (req, res) =&gt; {
-res.sendStatus(200);
+  res.sendStatus(200);
 });
 
 app.get(&#34;/isMaintenance&#34;, (req, res) =&gt; {
-const isMaintenace = process.env.ENV_IS_MAINTENANCE;
+  const isMaintenace = process.env.ENV_IS_MAINTENANCE;
 
-res.status(200).send(`Is it maintenance? ${isMaintenace}`);
+  res.status(200).send(`Is it maintenance? ${isMaintenace}`);
 })
 
 app.listen(3000, err =&gt; {
-if (err) {
-console.error(err);
-process.exit(1);
-}
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
 
-console.log(`Server is up on port 3000`);
+  console.log(`Server is up on port 3000`);
 });</code></pre>
               </td>
             </tr>
@@ -830,7 +827,7 @@ console.log(`Server is up on port 3000`);
     
   </div>
 </figure>
-<p>Kode di atas akan melihat dan melakukan perubahan jika terjadi event <strong><em>&ldquo;rename&rdquo;</em></strong> di dalam folder <code>/etc/config</code>. Setelah itu kita buat sebuah konfigurasi Deployment dan Service untuk sebuah Pod seperti berikut, lalu kita unggah ke Kubernetes dengan <code>kubectl apply -f test-k8s.yaml</code>.</p>
+<p>Those code above will listen to a <strong>&ldquo;rename&rdquo;</strong> event inside <code>/etc/config</code> folder. Let&rsquo;s containerized it and deploy it to Kubernetes. As usual, we will run <code>kubectl apply -f</code> to create the Kubernetes Service, Deployment, and Pod at the same time.</p>
 
 
   
@@ -963,7 +960,7 @@ spec:
     
   </div>
 </figure>
-<p>Selanjutnya mari kita ubah konfigurasi ConfigMap di atas menjadi</p>
+<p>Next, let&rsquo;s update the ConfigMap value to</p>
 
  
   
@@ -1003,14 +1000,14 @@ spec:
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*H9gsRDvKQeydrJWp6QInBg.png" title="Gambar 3.3 — Perubahan konfigurasi ConfigMap pada key &#34;ENV_IS_MAINTENTANCE&#34;" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*H9gsRDvKQeydrJWp6QInBg.png" title="Image 3.3 - Change the &#34;ENV_IS_MAINTENTANCE&#34; key on ConfigMap" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*H9gsRDvKQeydrJWp6QInBg.png"  alt="Gambar 3.3 — Perubahan konfigurasi ConfigMap pada key &#34;ENV_IS_MAINTENTANCE&#34;">
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*H9gsRDvKQeydrJWp6QInBg.png"  alt="Image 3.3 - Change the &#34;ENV_IS_MAINTENTANCE&#34; key on ConfigMap">
   
     </a>
   
    
-    <span class="caption">Gambar 3.3 — Perubahan konfigurasi ConfigMap pada key &#34;ENV_IS_MAINTENTANCE&#34;</span>
+    <span class="caption">Image 3.3 - Change the &#34;ENV_IS_MAINTENTANCE&#34; key on ConfigMap</span>
   
 </div>
 
@@ -1055,20 +1052,20 @@ spec:
 
 <div class="figure center fig-100" >
   
-    <a class="fancybox" href="https://miro.medium.com/max/1400/1*-chB0yixX6GdBfW3ZA0oDQ.png" title="Gambar 3.4 — ConfigMap di dalam sebuah container setelah berubah" data-fancybox-group="">
+    <a class="fancybox" href="https://miro.medium.com/max/1400/1*-chB0yixX6GdBfW3ZA0oDQ.png" title="Image 3.4 — Environment variables inside container has been modified" data-fancybox-group="">
   
-    <img class="fig-img" src="https://miro.medium.com/max/1400/1*-chB0yixX6GdBfW3ZA0oDQ.png"  alt="Gambar 3.4 — ConfigMap di dalam sebuah container setelah berubah">
+    <img class="fig-img" src="https://miro.medium.com/max/1400/1*-chB0yixX6GdBfW3ZA0oDQ.png"  alt="Image 3.4 — Environment variables inside container has been modified">
   
     </a>
   
    
-    <span class="caption">Gambar 3.4 — ConfigMap di dalam sebuah container setelah berubah</span>
+    <span class="caption">Image 3.4 — Environment variables inside container has been modified</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
-<p>Dari gambar di atas dapat kita lihat bahwa tautan antara file-file variabel lingkungan tidak berubah sama sekali. Hanya tautan folder ..data yang berubah tautannya menuju folder baru yang namanya <code>..2019_02_23_19_01_09.591362024</code>.</p>
+<p>From the image above, the symlinks between environment variables files didn&rsquo;t change at all. The only change is the symlink for <code>...data</code> changed to a new folder called <code>..2019_02_23_19_01_09.591362024</code>. For more clarity, take a look at the short gif below</p>
 
  
   
@@ -1119,15 +1116,15 @@ spec:
 
   <div style="clear:both;"></div>
 
-<p>Dari animasi di atas dapat kita lihat bagaimana mudahnya mengubah variabel lingkungan tanpa harus mengubah konfigurasi Deployment, Service, atau Pod sama sekali bahkan tanpa harus restart aplikasi tersebut.</p>
-<p>Beberapa hal yang harus kita ingat jika menggunakan ConfigMap:</p>
+<p>As we can see, updating environment variables using this method is quite easy since we don&rsquo;t need to redeploy the Pod at all!</p>
+<p>But there are some things worth to note:</p>
 <ol>
-<li>ConfigMap hanya &ldquo;hidup&rdquo; di dalam satu namespace saja. Yang artinya kita tidak bisa menggunakan ConfigMap yang berada di namespace lain.</li>
-<li>Proses sinkronisasi ConfigMap tidak langsung terjadi atau biasa disebut <strong><em>&ldquo;eventually consistent&rdquo;</em></strong>. Hal ini terjadi karena frekuensi sinkronisasi dari kubelet standardnya adalah 60 detik. Jika ingin proses sinkronisasi lebih cepat dapat menggunakan opsi <code>--sync-frequency</code>. Untuk lebih jelasnya bisa baca dari dokumentasi resmi Kubernetes di <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically">sini</a></li>
+<li>ConfigMap only &ldquo;live&rdquo; inside a namespace. Which mean it can&rsquo;t be shared to another namespace</li>
+<li>ConfigMap update is eventually consistent which means it doesn&rsquo;t update immediately after we update it. This is the default behavior from the Kubernetes (kubelet to be specific) where the sync frequency every 60 seconds. If we want to make it faster, we can change the <code>--sync-frequency</code> on the kubelet. Please look at the <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/#mounted-configmaps-are-updated-automatically">official documentation</a> for more reference</li>
 </ol>
 <hr>
-<h1 id="ekstra">Ekstra!</h1>
-<p>Jika kita amati, implementasi <strong><em>&ldquo;live-update&rdquo;</em></strong> di atas hanya bisa bekerja untuk NodeJS saja karena NodeJS memiliki pustaka standar untuk sistem file yang bisa melihat perubahan suatu file (dengan menggunakan <code>fs.watch</code>). Apabila kita ingin implementasi di bahasa lain, maka kode server dan konfigurasi Deployment, Service dan Pod di atas perlu sedikit penyesuaian.</p>
+<h1 id="extra">Extra!</h1>
+<p>The implementation of the <strong>&ldquo;live-update&rdquo;</strong> above can only work on NodeJS applications since it has <code>fs</code> standard library which can listen to the filesystem events (<code>fs.watch</code>). If we want to implement &ldquo;live-update&rdquo; on other than NodeJS, so we need to adjust our code and our Pod&rsquo;s deployment. For simplicity, we still using NodeJS but not using <code>fs.watch</code>.</p>
 
 
   
@@ -1270,7 +1267,6 @@ spec:
     
   </div>
 </figure>
-<p>Mari kita perhatikan konfigurasi containers di atas</p>
 
  
   
@@ -1321,7 +1317,7 @@ spec:
 
   <div style="clear:both;"></div>
 
-<p>Jika kita perhatikan lagi, kita menambahkan kontainer <a href="https://github.com/jimmidyson/configmap-reload">jimmidyson/configmap-reload</a> dengan beberapa konfigurasinya ke dalam Pod untuk membaca perubahan ConfigMap.</p>
+<p>If we look closely at the container&rsquo;s configuration above, we add a new container from <a href="https://github.com/jimmidyson/configmap-reload">jimmidyson/configmap-reload</a> with its configurations to read the ConfigMap. This method usually called <strong>&ldquo;sidecar container&rdquo;</strong>.</p>
 
 
   
@@ -1391,7 +1387,7 @@ app.use(bodyParser.json());
 // configmap reload webhook
 app.post(&#34;/-/reload&#34;, (req, res) =&gt; {
   // read new ConfigMap value
-  readConfig();
+  readConfigMap();
 
   console.log(`process.env AFTER: ${JSON.stringify(process.env)}`);
 
@@ -1420,7 +1416,7 @@ app.listen(3000, err =&gt; {
     
   </div>
 </figure>
-<p>Untuk kode server kita menambahkan satu endpoint supaya bisa menerima webhook dari kontainer <strong>&ldquo;configmap-reload&rdquo;</strong>.</p>
+<p>On the NodeJS application, we need to add a new endpoint to receive the notification from the sidecar container (<strong>&ldquo;configmap-reload&rdquo;</strong> container).</p>
 
  
   
@@ -1471,15 +1467,15 @@ app.listen(3000, err =&gt; {
 
   <div style="clear:both;"></div>
 
-<p>Jika kita menggunakan metode seperti ini, maka alur kerjanya akan menjadi seperti berikut</p>
+<p>With this method, the application flow will be like this</p>
 <ol>
-<li>Kontainer configmap-reload akan melihat apakah ConfigMap yang dipasang sebagai volume mengalami perubahan atau tidak</li>
-<li>Jika ConfigMap mengalami perubahan, kontainer configmap-reload akan memberikan notifikasi kepada aplikasi yang memiliki endpoint <code>/-/reload</code> (sesuai dengan konfigurasi parameter <code>--webhook-url</code>)</li>
-<li>Aplikasi yang menerima notifikasi akan membaca ulang semua variabel lingkungan yang ada di ConfigMap lalu menyimpan ulang ke sebuah variabel global. Karena contoh di atas menggunakan NodeJS, maka akan disimpan ke variabel <code>process.env</code></li>
+<li>Sidecar container <strong>&ldquo;configmap-reload&rdquo;</strong> will watch if there is any update on the environment variables files inside the volume</li>
+<li>If those files got updated, sidecar container <strong>&ldquo;configmap-reload&rdquo;</strong> will send a notification (HTTP call) to our main container&rsquo;s endpoint <code>/-/reload</code> (same with the <code>--webhook-url</code> parameter on the sidecar container)</li>
+<li>The main application will re-read all environment variables files and then store it on the global object <code>process.env</code></li>
 </ol>
-<p>Dengan metode seperti ini, kita bisa implementasi <strong><em>&ldquo;live-update&rdquo;</em></strong> dengan bahasa pemrograman apapun. Selamat bereksperimen!</p>
+<p>Using this method, we can implement &ldquo;live-update&rdquo; to every programming language that we like. Happy coding!</p>
 <hr>
-<h1 id="referensi">Referensi</h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="https://unofficial-kubernetes.readthedocs.io/en/latest/tasks/configure-pod-container/configmap/">https://unofficial-kubernetes.readthedocs.io/en/latest/tasks/configure-pod-container/configmap/</a></li>
 <li><a href="https://cloud.google.com/kubernetes-engine/docs/concepts/configmap">https://cloud.google.com/kubernetes-engine/docs/concepts/configmap</a></li>
@@ -1498,9 +1494,9 @@ app.listen(3000, err =&gt; {
                 
                 
                   <div class="post-footer-tags">
-                    <span class="text-color-light text-small">DITAG DI</span><br/>
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/id/tags/kubernetes/">kubernetes</a>
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/kubernetes/">kubernetes</a>
 
                   </div>
                 
@@ -1513,17 +1509,17 @@ app.listen(3000, err =&gt; {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/" data-tooltip="Live-reload dengan Gin untuk Develop Aplikasi Golang">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/" data-tooltip="Live Reload Golang Development With Gin">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/" data-tooltip="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/" data-tooltip="Installing Gollum on OSX Catalina">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -1539,13 +1535,13 @@ app.listen(3000, err =&gt; {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -1594,17 +1590,17 @@ app.listen(3000, err =&gt; {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/" data-tooltip="Live-reload dengan Gin untuk Develop Aplikasi Golang">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/" data-tooltip="Live Reload Golang Development With Gin">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">SELANJUTNYA</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
                 </a>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/" data-tooltip="Memperbaiki Masalah Autofix ESLint pada Webstrom 2016">
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/" data-tooltip="Installing Gollum on OSX Catalina">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">SEBELUMNYA</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -1620,13 +1616,13 @@ app.listen(3000, err =&gt; {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -1657,14 +1653,14 @@ app.listen(3000, err =&gt; {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Fkubernetes-configmap-pada-aplikasi-dinamis%2F">
-          <i class="fa fa-facebook-official"></i><span>Bagikan di Facebook</span>
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Fkubernetes-configmap-on-dynamic-applications%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fid%2Fpost%2Fkubernetes-configmap-pada-aplikasi-dinamis%2F">
-          <i class="fa fa-twitter"></i><span>Bagikan di Twitter</span>
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Fkubernetes-configmap-on-dynamic-applications%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
     
@@ -1753,9 +1749,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/reyhansofian.github.io\/id\/post\/kubernetes-configmap-pada-aplikasi-dinamis\/';
+          this.page.url = 'https:\/\/reyhansofian.github.io\/en\/post\/kubernetes-configmap-on-dynamic-applications\/';
           
-            this.page.identifier = '\/id\/post\/kubernetes-configmap-pada-aplikasi-dinamis\/'
+            this.page.identifier = '\/en\/post\/kubernetes-configmap-on-dynamic-applications\/'
           
         };
         (function() {

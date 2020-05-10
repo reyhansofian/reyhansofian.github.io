@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Kubernetes ConfigMap on Dynamic Applications</title>
+      <link>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</link>
+      <pubDate>Mon, 04 May 2020 23:17:28 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</guid>
+      <description>&lt;p&gt;Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables. We will talk about what is ConfigMap and what are the possibilities using ConfigMap?&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Installing Gollum on OSX Catalina</title>
       <link>https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/</link>
       <pubDate>Thu, 23 Jan 2020 16:32:22 +0700</pubDate>

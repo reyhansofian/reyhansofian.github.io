@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on Everyday I Learn</title>
+    <link>https://reyhansofian.github.io/en/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on Everyday I Learn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 May 2020 23:17:28 +0700</lastBuildDate>
+    
+	<atom:link href="https://reyhansofian.github.io/en/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes ConfigMap on Dynamic Applications</title>
+      <link>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</link>
+      <pubDate>Mon, 04 May 2020 23:17:28 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</guid>
+      <description>&lt;p&gt;Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables. We will talk about what is ConfigMap and what are the possibilities using ConfigMap?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
