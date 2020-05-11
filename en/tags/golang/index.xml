@@ -6,10 +6,19 @@
     <description>Recent content in golang on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 08:24:28 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 22:44:31 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/en/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Mock Gin-Gonic for JSON Response</title>
+      <link>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</link>
+      <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</guid>
+      <description>&lt;p&gt;Create an HTTP server using &lt;a href=&#34;https://gin-gonic.com/&#34;&gt;Gin&lt;/a&gt; is quite easy. While developing an application using Gin, I&amp;rsquo;m stumbled on how to test the JSON response using Gin.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Live Reload Golang Development With Gin</title>

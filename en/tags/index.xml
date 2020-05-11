@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2020 08:24:28 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 10 May 2020 22:44:31 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,18 +14,36 @@
     <item>
       <title>gin</title>
       <link>https://reyhansofian.github.io/en/tags/gin/</link>
-      <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
+      <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
       
       <guid>https://reyhansofian.github.io/en/tags/gin/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>gin-gonic</title>
+      <link>https://reyhansofian.github.io/en/tags/gin-gonic/</link>
+      <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/tags/gin-gonic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>golang</title>
       <link>https://reyhansofian.github.io/en/tags/golang/</link>
-      <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
+      <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
       
       <guid>https://reyhansofian.github.io/en/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://reyhansofian.github.io/en/tags/testing/</link>
+      <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/tags/testing/</guid>
       <description></description>
     </item>
     
