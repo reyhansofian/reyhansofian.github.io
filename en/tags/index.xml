@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 May 2020 22:44:31 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 05 Sep 2021 18:24:58 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>frontend</title>
+      <link>https://reyhansofian.github.io/en/tags/frontend/</link>
+      <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/tags/frontend/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>javascript</title>
+      <link>https://reyhansofian.github.io/en/tags/javascript/</link>
+      <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/tags/javascript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nodejs</title>
+      <link>https://reyhansofian.github.io/en/tags/nodejs/</link>
+      <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/tags/nodejs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>gin</title>
@@ -89,15 +116,6 @@
       <pubDate>Wed, 12 Jul 2017 08:25:31 +0700</pubDate>
       
       <guid>https://reyhansofian.github.io/en/tags/vim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>javascript</title>
-      <link>https://reyhansofian.github.io/en/tags/javascript/</link>
-      <pubDate>Fri, 16 Jun 2017 08:16:53 +0700</pubDate>
-      
-      <guid>https://reyhansofian.github.io/en/tags/javascript/</guid>
       <description></description>
     </item>
     

@@ -6,10 +6,21 @@
     <description>Recent content on Everyday I Learn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 May 2020 22:44:31 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 05 Sep 2021 18:24:58 +0700</lastBuildDate>
     
 	<atom:link href="https://reyhansofian.github.io/en/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deep Copy to Avoid Value Reference</title>
+      <link>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</link>
+      <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
+      
+      <guid>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</guid>
+      <description>Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.
+It happens to me when I&amp;rsquo;m trying to find a sidebar ID from the store of the sidebar tree. Yes, a tree. Imagine the store if we have a sidebar tree like this
+ Sidebar tree example   and we need to find out the ID of file2.</description>
+    </item>
     
     <item>
       <title>How to Mock Gin-Gonic for JSON Response</title>
