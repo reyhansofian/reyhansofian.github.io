@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="Reyhan Sofian">
+<meta name="keywords" content=", tech, development, tips, articles">
+<meta name="description" content="Go time package has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&rsquo;s create a small case for this.">
+
+
+<meta property="og:description" content="Go time package has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&rsquo;s create a small case for this.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Add Workdays Using Go">
+<meta name="twitter:title" content="Add Workdays Using Go">
+<meta property="og:url" content="https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+<meta property="twitter:url" content="https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+<meta property="og:site_name" content="Everyday I Learn">
+<meta property="og:description" content="Go time package has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&rsquo;s create a small case for this.">
+<meta name="twitter:description" content="Go time package has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&rsquo;s create a small case for this.">
+<meta property="og:locale" content="en">
+
+  
+    <meta property="article:published_time" content="2021-09-07T11:17:16">
+  
+  
+    <meta property="article:modified_time" content="2021-09-07T11:17:16">
+  
+  
+  
+    
+      <meta property="article:section" content="programming">
+    
+  
+  
+    
+      <meta property="article:tag" content="golang">
+    
+      <meta property="article:tag" content="datetime">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+  <meta name="twitter:site" content="@reyhan_sofian">
+
+
+  <meta name="twitter:creator" content="@reyhan_sofian">
+
+
+
+
+
+
+  <meta property="og:image" content="https://image.shutterstock.com/image-photo/hand-turns-dice-changes-word-260nw-1457643776.jpg">
+  <meta property="twitter:image" content="https://image.shutterstock.com/image-photo/hand-turns-dice-changes-word-260nw-1457643776.jpg">
+
+
+  <meta property="og:image" content="https://static01.nyt.com/images/2019/11/08/opinion/06newport/06newport-mobileMasterAt3x.jpg">
+  <meta property="twitter:image" content="https://static01.nyt.com/images/2019/11/08/opinion/06newport/06newport-mobileMasterAt3x.jpg">
+
+
+
+
+  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
+
+
+    <title>Add Workdays Using Go</title>
+
+    <link rel="icon" href="https://reyhansofian.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+    
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-99138527-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="4">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://reyhansofian.github.io/en/">Everyday I Learn</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://reyhansofian.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="4">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://reyhansofian.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
+        
+          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/en/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://reyhansofian.github.io/en/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+  <div class="sidebar-lang">
+    <ul class="sidebar-buttons">
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/id">
+            <i class="sidebar-button-icon flag-icon flag-icon-id"></i>
+            <span class="sidebar-button-desc">ID</span>
+          </a>
+        </li>
+      
+      
+      
+      
+      
+      
+        <li class="sidebar-button">
+          <a class="sidebar-button-link" href="https://reyhansofian.github.io/en">
+            <i class="sidebar-button-icon flag-icon flag-icon-gb"></i>
+            <span class="sidebar-button-desc">EN</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              "
+       style="background-image:url('https://static01.nyt.com/images/2019/11/08/opinion/06newport/06newport-mobileMasterAt3x.jpg')"
+       data-behavior="4">
+    
+  </div>
+
+
+      <div id="main" data-behavior="4"
+        class="hasCover
+               hasCoverMetaOut
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption"><a href="https://www.nytimes.com/2019/11/06/opinion/five-hour-workday-experiment.html">https://www.nytimes.com/2019/11/06/opinion/five-hour-workday-experiment.html</a></span>
+          
+          <div class="post-header-edit-on-github main-content-wrap">
+            <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2021-09-07-add-workdays-using-go.md" class="btn btn--default">
+              <span class="fa fa-github">
+              </span>
+              Edit on GitHub
+            </a>
+          </div>
+          
+            <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      Add Workdays Using Go
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2021-09-07T11:17:16&#43;07:00">
+        
+  September 7, 2021
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="https://reyhansofian.github.io/en/categories/programming">programming</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Go <a href="https://pkg.go.dev/time">time package</a> has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&rsquo;s create a small case for this.</p>
+<h2 id="study-case">Study Case</h2>
+<p>We want to create a Gantt chart data for our to-do app project. We will break down the tasks into a sequential task.</p>
+<ol>
+<li>UI/UX design (5 days)</li>
+<li>Implementing the frontend (3 days)</li>
+<li>Implementing the backend (2 days)</li>
+</ol>
+<p>Let&rsquo;s assume that this project will start on 9 August 2021. So this project will end on 20 August 2021.</p>
+<h2 id="data-structure">Data Structure</h2>
+<p>Each task will have these types</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Task</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#75715e">// Name of the task e.g. UI/UX design, FE, BE, etc
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Name</span> <span style="color:#66d9ef">string</span>
+
+    <span style="color:#75715e">// Duration of the task
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">Duration</span> <span style="color:#66d9ef">int</span>
+}
+</code></pre></div><p>and let&rsquo;s mix them up into an array of <code>Task</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tasks</span> = []<span style="color:#a6e22e">Task</span>{
+    {<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;UI/UX Design&#34;</span>, <span style="color:#a6e22e">Duration</span>: <span style="color:#ae81ff">5</span>},
+    {<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;FE Implementation&#34;</span>, <span style="color:#a6e22e">Duration</span>: <span style="color:#ae81ff">3</span>}, 
+    {<span style="color:#a6e22e">Name</span>: <span style="color:#e6db74">&#34;BE Implementation&#34;</span>, <span style="color:#a6e22e">Duration</span>: <span style="color:#ae81ff">2</span>}, 
+}
+</code></pre></div><p>Don&rsquo;t forget to create the Gantt chart data structure too</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Data</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">Name</span>      <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">StartDate</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>
+    <span style="color:#a6e22e">EndDate</span>   <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>
+}
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> []<span style="color:#a6e22e">Data</span>
+</code></pre></div><h2 id="implementation">Implementation</h2>
+<p>There are lots of solutions out there and recursive is the neat solution to handle this case. Let&rsquo;s start with the function param signature first</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">date</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>, <span style="color:#a6e22e">days</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+<span style="color:#f92672">...</span>
+}
+</code></pre></div><p>we have <code>date</code> as <code>time.Time</code> which we will use as our start date. And we have <code>days</code> as <code>int</code> which we will use as how many days we want to add.</p>
+<p>Since we&rsquo;re doing recursive, we will add a <code>do...while</code> loop and add a stopping point to it. So we won&rsquo;t have an infinite loop. The idea is we will decrement the <code>days</code> on each iteration and we will stop if the <code>days</code> value is zero.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">date</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>, <span style="color:#a6e22e">days</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+    <span style="color:#66d9ef">for</span> {
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">days</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date</span>
+        }
+
+        <span style="color:#f92672">...</span>
+        <span style="color:#a6e22e">days</span><span style="color:#f92672">--</span>
+    }
+}
+</code></pre></div><p>Now come to the fun parts. The main idea of this function is we keep adding more days until the <code>days</code> are zero. And it will skip the weekend days (Saturday and Sunday) to Monday.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">date</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>, <span style="color:#a6e22e">days</span> <span style="color:#66d9ef">int</span>) <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> {
+   <span style="color:#66d9ef">for</span> {
+        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">days</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">date</span>
+        }
+
+        <span style="color:#a6e22e">date</span> = <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">AddDate</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+       
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">Weekday</span>() <span style="color:#f92672">==</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Saturday</span> {
+            <span style="color:#a6e22e">date</span> = <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">AddDate</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>)
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">date</span>, <span style="color:#a6e22e">days</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">Weekday</span>() <span style="color:#f92672">==</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sunday</span> {
+            <span style="color:#a6e22e">date</span> = <span style="color:#a6e22e">date</span>.<span style="color:#a6e22e">AddDate</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>)
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">date</span>, <span style="color:#a6e22e">days</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+        }
+
+        <span style="color:#a6e22e">days</span><span style="color:#f92672">--</span>
+   }
+}
+</code></pre></div><p>The logic is quite simple</p>
+<ol>
+<li>Add one day on each iteration</li>
+<li>If the current date (after addition) is Saturday, we will add two more days. So it will skip to Monday</li>
+<li>It&rsquo;s like the logic above. But, we only add one more day if the current date is Sunday</li>
+<li>Before return back to the same function, we decrement the <code>days</code> by one</li>
+<li>Once it comes to the next iteration, the <code>date</code> already has the addition to it. And the <code>days</code> already had the subtraction</li>
+<li>And the function will continue until the <code>days</code> is zero</li>
+</ol>
+<div class="alert warning ">
+  <p>Please note that the function will always end up with one more day than intended. For example, if we add 4 days from 9 August 2021, it will end up at 13 August 2021.</p>
+</div>
+<h2 id="the-calculation">The Calculation</h2>
+<p>Now let&rsquo;s do the calculation for adding workdays. Let&rsquo;s begin with iterate the <code>tasks</code>  and put the calculated date to our <code>data []Data</code>. Don&rsquo;t forget that our start date is from 9 August 2021.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">...</span>
+<span style="color:#a6e22e">firstDate</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Parse</span>(<span style="color:#e6db74">&#34;2006-01-02 00:00:00&#34;</span>, <span style="color:#e6db74">&#34;2021-08-09 00:00:00&#34;</span>)
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">data</span> []<span style="color:#a6e22e">Data</span>
+
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">k</span>, <span style="color:#a6e22e">v</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">tasks</span> {
+    <span style="color:#a6e22e">d</span><span style="color:#f92672">:=</span> <span style="color:#a6e22e">Data</span>{}
+ 
+    <span style="color:#75715e">// let&#39;s assume that the first index is the start date
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">k</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+        <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">StartDate</span> =  <span style="color:#a6e22e">firstDate</span> 
+        <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">EndDate</span> = <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">firstDate</span> ,  <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Duration</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">data</span>[<span style="color:#a6e22e">k</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>].<span style="color:#a6e22e">EndDate</span>
+        <span style="color:#a6e22e">startDate</span> <span style="color:#f92672">:=</span>  <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">start</span>, <span style="color:#ae81ff">1</span>) 
+        <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">StartDate</span> = <span style="color:#a6e22e">startDate</span>
+        <span style="color:#a6e22e">d</span>.<span style="color:#a6e22e">EndDate</span> = <span style="color:#a6e22e">AddWorkdays</span>(<span style="color:#a6e22e">starDate</span>, <span style="color:#a6e22e">v</span>.<span style="color:#a6e22e">Duration</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+    }
+ 
+    <span style="color:#a6e22e">data</span> = append(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">d</span>) 
+}
+<span style="color:#f92672">...</span>
+</code></pre></div><p>The logic is like this</p>
+<ol>
+<li>We iterate the <code>tasks</code></li>
+<li>We will assume that the first index is always the start date of the project</li>
+<li>If it&rsquo;s the first day, we will assign the <code>StartDate</code> with the <code>firstDate</code>. For the <code>EndDate</code>, we will use the <code>AddWorkdays</code> function to add days based on duration (<code>v.Duration</code>). Don&rsquo;t forget to subtract by one day since the function has a gotcha</li>
+<li>If it&rsquo;s the rest of the days, we will use the <code>EndDate</code> from the last element as the start date. And we will add one day so the start date won&rsquo;t clash with the end date from the previous element. The <code>EndDate</code> use the same logic as above</li>
+<li>Append the calculated data to the <code>[]Data</code></li>
+</ol>
+<p>If we want to print the result, we can use a JSON pretty print (<code>json.MarshalIndent</code>).</p>
+<h2 id="result">Result</h2>
+
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+
+  
+    
+  
+  
+    
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+      <span>main.go</span>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">go</li>
+      
+        <li class="tab ">json</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-go" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br><span>42</span><br><span>43</span><br><span>44</span><br><span>45</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-go"><code class="go">package main
+
+type Task struct {
+    // Name of the task e.g. UI/UX design, FE, BE, etc
+    Name string
+
+    // Duration of the task
+    Duration int
+}
+
+type Data struct {
+    Name      string
+    StartDate time.Time
+    EndDate   time.Time
+}
+
+var tasks = []Task{
+    {Name: &#34;UI/UX Design&#34;, Duration: 5},
+    {Name: &#34;FE Implementation&#34;, Duration: 3}, 
+    {Name: &#34;BE Implementation&#34;, Duration: 2}, 
+}
+
+function main() {
+    firstDate, _ := time.Parse(&#34;2006-01-02 00:00:00&#34;, &#34;2021-08-09 00:00:00&#34;)
+    var data []Data
+    for k, v := range tasks {
+        d := Data{Name: v.Name}
+
+        // let&#39;s assume that the first index is the start date
+        if k == 0 {
+            d.StartDate = firstDate
+            d.EndDate = AddWorkdays(firstDate, v.Duration-1)
+        } else {
+            start := data[k-1].EndDate
+            startDate := AddWorkdays(start, 1)
+            d.StartDate = startDate
+            d.EndDate = AddWorkdays(startDate, v.Duration-1)
+        }
+
+        data = append(data, d)
+    }
+
+    json, _ := json.MarshalIndent(data, &#34;&#34;, &#34;  &#34;)
+    fmt.Printf(&#34;Data %s&#34;, json)
+}</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+      
+      <figure class="highlight language-json" style="display: none;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-json"><code class="json">// Output
+Data [
+  {
+    &#34;Name&#34;: &#34;UI/UX Design&#34;,
+    &#34;StartDate&#34;: &#34;2021-08-09T00:00:00Z&#34;,
+    &#34;EndDate&#34;: &#34;2021-08-13T00:00:00Z&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;FE Implementation&#34;,
+    &#34;StartDate&#34;: &#34;2021-08-16T00:00:00Z&#34;,
+    &#34;EndDate&#34;: &#34;2021-08-18T00:00:00Z&#34;
+  },
+  {
+    &#34;Name&#34;: &#34;BE Implementation&#34;,
+    &#34;StartDate&#34;: &#34;2021-08-19T00:00:00Z&#34;,
+    &#34;EndDate&#34;: &#34;2021-08-20T00:00:00Z&#34;
+  }
+]</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://pkg.go.dev/time">https://pkg.go.dev/time</a></li>
+<li><a href="https://yourbasic.org/golang/do-while-loop/">https://yourbasic.org/golang/do-while-loop/</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/golang/">golang</a>
+
+  <a class="tag tag--primary tag--small" href="https://reyhansofian.github.io/en/tags/datetime/">datetime</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/" data-tooltip="Deep Copy to Avoid Value Reference">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Reyhan Sofian. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/" data-tooltip="Deep Copy to Avoid Value Reference">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://reyhansofian.github.io/en/post/add-workdays-using-go/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+      
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Fadd-workdays-using-go%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Freyhansofian.github.io%2Fen%2Fpost%2Fadd-workdays-using-go%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Reyhan Sofian</h4>
+    
+      <div id="about-card-bio">Just another software engineer</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Indonesia
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js" integrity="sha512-MinqHeqca99q5bWxFNQEQpplMBFiUNrEwuuDj2rCSh1DgeeTXUgvgYIHZ1puBS9IKBkdfLMSk/ZWVDasa3Y/2A==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/go.min.js" integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://reyhansofian.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+    hljs.highlightAll();
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/reyhansofian.github.io\/en\/post\/add-workdays-using-go\/';
+          
+            this.page.identifier = '\/en\/post\/add-workdays-using-go\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'reyhansofian';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

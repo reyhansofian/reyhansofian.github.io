@@ -91,7 +91,7 @@
     
     
     
-    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.cb8227a92f3fbced97026ddbd9a1e2ef3ed6bfcbb9db48d8a2b1ca4f579071e0.css">
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
     
     
 
@@ -745,7 +745,8 @@ if (!doNotTrack) {
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js" integrity="sha512-MinqHeqca99q5bWxFNQEQpplMBFiUNrEwuuDj2rCSh1DgeeTXUgvgYIHZ1puBS9IKBkdfLMSk/ZWVDasa3Y/2A==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/languages/go.min.js" integrity="sha512-EWROca+bote+7Oaaar1F6y74iZj1r1F9rm/ly7o+/FwJopbBaWtsFDmaKoZDd3QiGU2pGacBirHJNivmGLYrow==" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
@@ -776,6 +777,7 @@ $(document).ready(function() {
       $(this).addClass('codeblock');
     }
     hljs.highlightBlock(block);
+    hljs.highlightAll();
   });
 });
 </script>
