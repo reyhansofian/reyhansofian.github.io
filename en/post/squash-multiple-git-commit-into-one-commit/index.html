@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
   <head>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"
+          integrity="sha512-v/wOVTkoU7mXEJC3hXnw9AA6v32qzpknvuUF6J2Lbkasxaxn2nYcl+HGB7fr/kChGfCqubVr1n2sq1UFu3Gh1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+          crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="Reyhan Sofian">
+<meta name="generator" content="Hugo 0.141.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="">
 <meta name="keywords" content=", tech, development, tips, articles">
 <meta name="description" content="Squash multiple git commit as one commit for more readable commit">
 
@@ -43,10 +51,6 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@reyhan_sofian">
-
-
-  <meta name="twitter:creator" content="@reyhan_sofian">
 
 
 
@@ -62,9 +66,6 @@
 
 
 
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
 
 
     <title>Squash Multiple Git Commit Into One Commit</title>
@@ -77,7 +78,7 @@
     <link rel="canonical" href="https://reyhansofian.github.io/en/post/squash-multiple-git-commit-into-one-commit/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
@@ -87,26 +88,15 @@
     
     
     
-    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.eae5d12f489664e48782b2e20a4cae6263ab6f6ed80abb3480be9533fb140d0a.css">
     
     
 
     
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-99138527-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
     
+    
+
     
   </head>
 
@@ -125,8 +115,6 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
-      
     
     </a>
   
@@ -134,16 +122,6 @@ if (!doNotTrack) {
 
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://reyhansofian.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
-        
-          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
-        
-      </div>
     
     <ul class="sidebar-buttons">
       
@@ -268,83 +246,83 @@ if (!doNotTrack) {
               <p>Git is a powerful versioning tool. Most tech companies use Git as their versioning tools (some big companies still using Mercurial and SVN though). It’s also applied to my current company.</p>
 <p>I have a habit to commit on a small chunk and treat it as a “checkpoint”. So whenever I need to revert, it’s easy to do that. Sometimes I want to merge previous commits into a single, just want to make it more compact before pushing it into a remote branch. With Git, this is quite easy to do by using the rebase command.
 Let’s say we have a bunch of commit like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git log --oneline
-9b5b3fb fourth commit
-92459dd third commit
-689b035 second commit
-4bda376 first commit
-</code></pre></div><p>Now we want to merge commit second commit, third commit, and fourth commit into a single commit message. We can run a rebase with the interactive (-i) option. This will open up your text editor</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ git rebase -i HEAD~3
-pick 689b035 second commit
-pick 92459dd third commit
-pick 9b5b3fb fourth commit
-<span style="color:#75715e"># Rebase 4bda376..9b5b3fb onto 4bda376 (3 commands)</span>
-#
-<span style="color:#75715e"># Commands:</span>
-<span style="color:#75715e"># p, pick = use commit</span>
-<span style="color:#75715e"># r, reword = use commit, but edit the commit message</span>
-<span style="color:#75715e"># e, edit = use commit, but stop for amending</span>
-<span style="color:#75715e"># s, squash = use commit, but meld into previous commit</span>
-<span style="color:#75715e"># f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message</span>
-<span style="color:#75715e"># x, exec = run command (the rest of the line) using shell</span>
-<span style="color:#75715e"># d, drop = remove commit</span>
-#
-<span style="color:#75715e"># These lines can be re-ordered; they are executed from top to bottom.</span>
-#
-<span style="color:#75715e"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
-#
-<span style="color:#75715e"># However, if you remove everything, the rebase will be aborted.</span>
-#
-<span style="color:#75715e"># Note that empty commits are commented out</span>
-</code></pre></div><p>If we want to squash second commit, third commit, and fourth commit, we just need to change the pick on the fourth commit and third commit into squash or s like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pick 689b035 second commit
-squash 92459dd third commit
-squash 9b5b3fb fourth commit
-<span style="color:#75715e"># Rebase 4bda376..9b5b3fb onto 4bda376 (3 commands)</span>
-#
-<span style="color:#75715e"># Commands:</span>
-<span style="color:#75715e"># p, pick = use commit</span>
-<span style="color:#75715e"># r, reword = use commit, but edit the commit message</span>
-<span style="color:#75715e"># e, edit = use commit, but stop for amending</span>
-<span style="color:#75715e"># s, squash = use commit, but meld into previous commit</span>
-<span style="color:#75715e"># f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message</span>
-<span style="color:#75715e"># x, exec = run command (the rest of the line) using shell</span>
-<span style="color:#75715e"># d, drop = remove commit</span>
-#
-<span style="color:#75715e"># These lines can be re-ordered; they are executed from top to bottom.</span>
-#
-<span style="color:#75715e"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
-#
-<span style="color:#75715e"># However, if you remove everything, the rebase will be aborted.</span>
-#
-<span style="color:#75715e"># Note that empty commits are commented out</span>
-</code></pre></div><p>Saving and quit your text editor will open up a new editor with this content</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This is a combination of 3 commits.</span>
-<span style="color:#75715e"># This is the 1st commit message:</span>
-second commit
-<span style="color:#75715e"># This is the commit message #2:</span>
-third commit
-<span style="color:#75715e"># This is the commit message #3:</span>
-fourth commit
-<span style="color:#75715e"># Please enter the commit message for your changes. Lines starting</span>
-<span style="color:#75715e"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
-#
-<span style="color:#75715e"># Date:      Sat Feb 31 01:44:13 2020 +0700</span>
-#
-<span style="color:#75715e"># interactive rebase in progress; onto 4bda376</span>
-<span style="color:#75715e"># Last commands done (3 commands done):</span>
-<span style="color:#75715e">#    s 92459dd third commit</span>
-<span style="color:#75715e">#    s 9b5b3fb fourth commit</span>
-<span style="color:#75715e"># No commands remaining.</span>
-<span style="color:#75715e"># You are currently rebasing branch &#39;master&#39; on &#39;4bda376&#39;.</span>
-#
-<span style="color:#75715e"># Changes to be committed:</span>
-<span style="color:#75715e"># modified:   README.md</span>
-#
-</code></pre></div><p>You can leave it as is or you can change the commit message as you desire. Let’s change the commit message to squashed commit message, then save and quit your text editor. You can check the merged (squashed) commit message again and it will look like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">bbbecea squashed commit message
-4bda376 first commit
-</code></pre></div><p>As you can see, second commit, third commit, and fourth commit is gone and replaced by a new commit message.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ git log --oneline
+</span></span><span style="display:flex;"><span>9b5b3fb fourth commit
+</span></span><span style="display:flex;"><span>92459dd third commit
+</span></span><span style="display:flex;"><span>689b035 second commit
+</span></span><span style="display:flex;"><span>4bda376 first commit
+</span></span></code></pre></div><p>Now we want to merge commit second commit, third commit, and fourth commit into a single commit message. We can run a rebase with the interactive (-i) option. This will open up your text editor</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ git rebase -i HEAD~3
+</span></span><span style="display:flex;"><span>pick 689b035 second commit
+</span></span><span style="display:flex;"><span>pick 92459dd third commit
+</span></span><span style="display:flex;"><span>pick 9b5b3fb fourth commit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Rebase 4bda376..9b5b3fb onto 4bda376 (3 commands)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Commands:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># p, pick = use commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># r, reword = use commit, but edit the commit message</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># e, edit = use commit, but stop for amending</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># s, squash = use commit, but meld into previous commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># x, exec = run command (the rest of the line) using shell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># d, drop = remove commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># These lines can be re-ordered; they are executed from top to bottom.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># However, if you remove everything, the rebase will be aborted.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Note that empty commits are commented out</span>
+</span></span></code></pre></div><p>If we want to squash second commit, third commit, and fourth commit, we just need to change the pick on the fourth commit and third commit into squash or s like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pick 689b035 second commit
+</span></span><span style="display:flex;"><span>squash 92459dd third commit
+</span></span><span style="display:flex;"><span>squash 9b5b3fb fourth commit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Rebase 4bda376..9b5b3fb onto 4bda376 (3 commands)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Commands:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># p, pick = use commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># r, reword = use commit, but edit the commit message</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># e, edit = use commit, but stop for amending</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># s, squash = use commit, but meld into previous commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># f, fixup = like &#34;squash&#34;, but discard this commit&#39;s log message</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># x, exec = run command (the rest of the line) using shell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># d, drop = remove commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># These lines can be re-ordered; they are executed from top to bottom.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># However, if you remove everything, the rebase will be aborted.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Note that empty commits are commented out</span>
+</span></span></code></pre></div><p>Saving and quit your text editor will open up a new editor with this content</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># This is a combination of 3 commits.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is the 1st commit message:</span>
+</span></span><span style="display:flex;"><span>second commit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is the commit message #2:</span>
+</span></span><span style="display:flex;"><span>third commit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is the commit message #3:</span>
+</span></span><span style="display:flex;"><span>fourth commit
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Please enter the commit message for your changes. Lines starting</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># with &#39;#&#39; will be ignored, and an empty message aborts the commit.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Date:      Sat Feb 31 01:44:13 2020 +0700</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># interactive rebase in progress; onto 4bda376</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Last commands done (3 commands done):</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    s 92459dd third commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#    s 9b5b3fb fourth commit</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># No commands remaining.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You are currently rebasing branch &#39;master&#39; on &#39;4bda376&#39;.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Changes to be committed:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># modified:   README.md</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span></code></pre></div><p>You can leave it as is or you can change the commit message as you desire. Let’s change the commit message to squashed commit message, then save and quit your text editor. You can check the merged (squashed) commit message again and it will look like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>bbbecea squashed commit message
+</span></span><span style="display:flex;"><span>4bda376 first commit
+</span></span></code></pre></div><p>As you can see, second commit, third commit, and fourth commit is gone and replaced by a new commit message.
 Hope you enjoy it 🎉</p>
               
             </div>
@@ -438,9 +416,10 @@ Hope you enjoy it 🎉</p>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 Reyhan Sofian. All Rights Reserved
+    &copy; 2025 Everyday I Learn. All Rights Reserved
   </span>
 </footer>
+
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
@@ -536,25 +515,9 @@ Hope you enjoy it 🎉</p>
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Reyhan Sofian</h4>
-    
-      <div id="about-card-bio">Just another software engineer</div>
+    <h4 id="about-card-name"></h4>
     
     
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Indonesia
-      </div>
     
   </div>
 </div>
@@ -563,7 +526,10 @@ Hope you enjoy it 🎉</p>
 
     
   
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+    
+      
+      <div id="cover" style="background-image:url('https://reyhansofian.github.io/images/wallpaper.webp');"></div>
+    
   
 
 

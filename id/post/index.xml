@@ -4,48 +4,37 @@
     <title>Posts on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/id/post/</link>
     <description>Recent content in Posts on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>id</language>
     <lastBuildDate>Sat, 09 May 2020 08:24:28 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/id/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/id/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Live-reload dengan Gin untuk Develop Aplikasi Golang</title>
       <link>https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/</link>
       <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/</guid>
       <description>&lt;p&gt;Berawal dari dunia per-NodeJS-an, aku selalu menggunakan Nodemon untuk develop aplikasi dengan NodeJS. Singkat cerita, di ak mendapatkan projek yang menggunakan Golang sebagai pengganti dari aplikasi lama, dan memuat ulang aplikasi yang kodenya sudah dimodifikasi cukup membuat repot. Karena aku harus restart Golang servernya setiap kali ada perubahan di dalam kode aplikasi.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kubernetes ConfigMap pada Aplikasi Dinamis</title>
       <link>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</link>
       <pubDate>Mon, 04 May 2020 23:17:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</guid>
       <description>&lt;p&gt;Kubernetes memiliki fitur yang bernama ConfigMap yang biasa digunakan untuk menyimpan konfigurasi suatu aplikasi. Di artikel ini kita akan membahas tentang ConfigMap dan kita bisa pakai ConfigMap untuk apa saja.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Memperbaiki Masalah Autofix ESLint pada Webstrom 2016</title>
       <link>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</link>
       <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</guid>
       <description>&lt;p&gt;Saya dan tim sedang mengerjakan aplikasi Javascript dengan menggunakan NodeJS dan ReactJS. Kami menggunakan ESLint sebagai standart untuk kode kami dengan menggunakan konfigurasi ESLint dari AirBnB. Hingga saat ini kami cukup puas dengan konfigurasi ini.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04</title>
       <link>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</link>
       <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</guid>
       <description>&lt;p&gt;Hari ini aku berencana memindahkan semua file-file yang ada di Macbook Air kantorku (OSX El Capitan) ke laptop pribadiku (Ubuntu 14.04). Awalnya rencana memindahkan file-file tersebut ingin menggunakan HDD eksternal, tapi ternyata semua HDD eksternalku rusak. Jadi aku harus mencari cara lain supaya bisa memindahkan semua file tersebut. Akhirnya ide memindahkan dengan menggunakan network datang (dengan menggunakan Wifi).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

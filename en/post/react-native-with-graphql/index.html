@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
   <head>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"
+          integrity="sha512-v/wOVTkoU7mXEJC3hXnw9AA6v32qzpknvuUF6J2Lbkasxaxn2nYcl+HGB7fr/kChGfCqubVr1n2sq1UFu3Gh1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+          crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="Reyhan Sofian">
+<meta name="generator" content="Hugo 0.141.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="">
 <meta name="keywords" content=", tech, development, tips, articles">
 <meta name="description" content="React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.">
 
@@ -47,10 +55,6 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@reyhan_sofian">
-
-
-  <meta name="twitter:creator" content="@reyhan_sofian">
 
 
 
@@ -66,9 +70,6 @@
 
 
 
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
 
 
     <title>React Native with GraphQL</title>
@@ -81,7 +82,7 @@
     <link rel="canonical" href="https://reyhansofian.github.io/en/post/react-native-with-graphql/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
@@ -91,26 +92,15 @@
     
     
     
-    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.eae5d12f489664e48782b2e20a4cae6263ab6f6ed80abb3480be9533fb140d0a.css">
     
     
 
     
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-99138527-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
     
+    
+
     
   </head>
 
@@ -129,8 +119,6 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
-      
     
     </a>
   
@@ -138,16 +126,6 @@ if (!doNotTrack) {
 
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://reyhansofian.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
-        
-          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
-        
-      </div>
     
     <ul class="sidebar-buttons">
       
@@ -282,135 +260,135 @@ if (!doNotTrack) {
 <p>Quite simple, huh?! OK, let&rsquo;s code!</p>
 <h2 id="integrating-apollo-provider-with-react-navigation">Integrating Apollo Provider with React Navigation</h2>
 <p>First, define your route and add it to React Navigation&rsquo;s <code>StackNavigator</code>. Example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-navigation&#34;</span>;
-
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/App&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film/FilmDetail&#34;</span>;
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">Home</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
-    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">App</span>,
-  },
-  <span style="color:#a6e22e">Film</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Film&#34;</span>,
-    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Film</span>,
-  },
-  <span style="color:#a6e22e">FilmDetail</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FilmDetail&#34;</span>,
-    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilmDetail</span>,
-  },
-};
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">StackNavigator</span>(<span style="color:#a6e22e">routes</span>);
-</code></pre></div><p>Second, in main entrypoint file (mine is <code>main.js</code>), import <code>ApolloClient</code>, <code>ApolloProvider</code>, <code>createNetworkInterface</code> from <code>react-apollo</code> module and initialize an <code>ApolloClient</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">import</span> {
-  <span style="color:#a6e22e">ApolloClient</span>,
-  <span style="color:#a6e22e">ApolloProvider</span>,
-  <span style="color:#a6e22e">createNetworkInterface</span>,
-} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-apollo&#34;</span>;
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ApolloClient</span>({
-  <span style="color:#a6e22e">networkInterface</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">createNetworkInterface</span>({
-    <span style="color:#a6e22e">uri</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GRAPHQL_SERVER_ENDPOINT&#34;</span>,
-  }),
-});
-</code></pre></div><p>And then, crate a class for wrapping your router with <code>ApolloProvider</code> and register it as your root component.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppContainer</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ApolloProvider</span> <span style="color:#a6e22e">client</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">client</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">/&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ApolloProvider&gt;</span>
-    );
-  }
-}
-
-<span style="color:#a6e22e">Expo</span>.<span style="color:#a6e22e">registerRootComponent</span>(<span style="color:#a6e22e">AppContainer</span>);
-</code></pre></div><p>So the full code for the main entrypoint looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// main.js
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Expo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;expo&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-navigation&#34;</span>;
-
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/App&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film&#34;</span>;
-<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film/FilmDetail&#34;</span>;
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> {
-  <span style="color:#a6e22e">Home</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
-    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">App</span>,
-  },
-  <span style="color:#a6e22e">Film</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Film&#34;</span>,
-    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Film</span>,
-  },
-  <span style="color:#a6e22e">FilmDetail</span><span style="color:#f92672">:</span> {
-    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FilmDetail&#34;</span>,
-    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilmDetail</span>,
-  },
-};
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">StackNavigator</span>(<span style="color:#a6e22e">routes</span>);
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppContainer</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">return</span> (
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ApolloProvider</span> <span style="color:#a6e22e">client</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">client</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">/&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ApolloProvider&gt;</span>
-    );
-  }
-}
-
-<span style="color:#a6e22e">Expo</span>.<span style="color:#a6e22e">registerRootComponent</span>(<span style="color:#a6e22e">AppContainer</span>);
-</code></pre></div><h2 id="graphql-query-on-component">GraphQL Query on Component</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// main.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-navigation&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/App&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film/FilmDetail&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Home</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">App</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Film</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Film&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Film</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">FilmDetail</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FilmDetail&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilmDetail</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">StackNavigator</span>(<span style="color:#a6e22e">routes</span>);
+</span></span></code></pre></div><p>Second, in main entrypoint file (mine is <code>main.js</code>), import <code>ApolloClient</code>, <code>ApolloProvider</code>, <code>createNetworkInterface</code> from <code>react-apollo</code> module and initialize an <code>ApolloClient</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// main.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ApolloClient</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">ApolloProvider</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">createNetworkInterface</span>,
+</span></span><span style="display:flex;"><span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-apollo&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">client</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ApolloClient</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">networkInterface</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">createNetworkInterface</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">uri</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;GRAPHQL_SERVER_ENDPOINT&#34;</span>,
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>});
+</span></span></code></pre></div><p>And then, crate a class for wrapping your router with <code>ApolloProvider</code> and register it as your root component.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// main.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppContainer</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ApolloProvider</span> <span style="color:#a6e22e">client</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">client</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ApolloProvider&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Expo</span>.<span style="color:#a6e22e">registerRootComponent</span>(<span style="color:#a6e22e">AppContainer</span>);
+</span></span></code></pre></div><p>So the full code for the main entrypoint looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// main.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Expo</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;expo&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">StackNavigator</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-navigation&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">App</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/App&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Film</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;./src/Film/FilmDetail&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Home</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Home&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">App</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Film</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Film&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Film</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">FilmDetail</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;FilmDetail&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">screen</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FilmDetail</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">StackNavigator</span>(<span style="color:#a6e22e">routes</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppContainer</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ApolloProvider</span> <span style="color:#a6e22e">client</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">client</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MainApp</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ApolloProvider&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Expo</span>.<span style="color:#a6e22e">registerRootComponent</span>(<span style="color:#a6e22e">AppContainer</span>);
+</span></span></code></pre></div><h2 id="graphql-query-on-component">GraphQL Query on Component</h2>
 <p>If you&rsquo;re not familiar with GraphQL query, you might want to read <a href="http://graphql.org/learn/queries/">GraphQL Query documentation</a> first. On this example, we just do a query to get a detail with an <a href="http://graphql.org/learn/queries/#arguments">argument</a> and <a href="http://graphql.org/learn/queries/#variables">variable</a> from Starwars API.</p>
 <p>With GraphQL, we can specify which field(s) do we need just like <code>SELECT</code> in SQL query. We just need <code>title</code>, <code>openingCrawl</code>, <code>director</code>, <code>producers</code>, and <code>releaseDate</code> fields for this example. With GraphQL, we can query like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) {
-  <span style="color:#a6e22e">title</span>
-  <span style="color:#a6e22e">openingCrawl</span>
-  <span style="color:#a6e22e">director</span>
-  <span style="color:#a6e22e">producers</span>
-  <span style="color:#a6e22e">releaseDate</span>
-}
-</code></pre></div><p>We just need to specify the object name (it&rsquo;s <code>film</code> in this example), arguments (it&rsquo;s <code>id: $id</code>), and fields (within curly braces). Please do note that we need to add either comma, new line or even space for each fields. Valid query example</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">
-<span style="color:#75715e">// With comma
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) { <span style="color:#a6e22e">title</span>,<span style="color:#a6e22e">episodeID</span>, <span style="color:#a6e22e">openingCrawl</span>, <span style="color:#a6e22e">director</span> }
-
-<span style="color:#75715e">// With new line
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) {
-  <span style="color:#a6e22e">title</span>
-  <span style="color:#a6e22e">openingCrawl</span>
-  <span style="color:#a6e22e">director</span>
-  <span style="color:#a6e22e">producers</span>
-  <span style="color:#a6e22e">releaseDate</span>
-}
-
-<span style="color:#75715e">// With space
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) { <span style="color:#a6e22e">title</span> <span style="color:#a6e22e">openingCrawl</span> <span style="color:#a6e22e">director</span> <span style="color:#a6e22e">producers</span> <span style="color:#a6e22e">releaseDate</span> }
-</code></pre></div><p>You can pick your flavor. Personally, I like the one with new line. It&rsquo;s much more readable if we deals with lots of fields later. Let&rsquo;s go ahead.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">openingCrawl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">director</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">producers</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">releaseDate</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>We just need to specify the object name (it&rsquo;s <code>film</code> in this example), arguments (it&rsquo;s <code>id: $id</code>), and fields (within curly braces). Please do note that we need to add either comma, new line or even space for each fields. Valid query example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// With comma
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) { <span style="color:#a6e22e">title</span>,<span style="color:#a6e22e">episodeID</span>, <span style="color:#a6e22e">openingCrawl</span>, <span style="color:#a6e22e">director</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// With new line
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">title</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">openingCrawl</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">director</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">producers</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">releaseDate</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// With space
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) { <span style="color:#a6e22e">title</span> <span style="color:#a6e22e">openingCrawl</span> <span style="color:#a6e22e">director</span> <span style="color:#a6e22e">producers</span> <span style="color:#a6e22e">releaseDate</span> }
+</span></span></code></pre></div><p>You can pick your flavor. Personally, I like the one with new line. It&rsquo;s much more readable if we deals with lots of fields later. Let&rsquo;s go ahead.</p>
 <p>Now we can wrap the object with a <code>query</code> statement</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">$id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ID</span><span style="color:#f92672">!</span>) {
-  <span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) {
-    <span style="color:#a6e22e">title</span>
-    <span style="color:#a6e22e">openingCrawl</span>
-    <span style="color:#a6e22e">director</span>
-    <span style="color:#a6e22e">producers</span>
-    <span style="color:#a6e22e">releaseDate</span>
-  }
-}
-</code></pre></div><p>If you&rsquo;re looking at the <code>query</code> statement, it has <code>$id</code> and <code>ID!</code> on its parameter (just like a normal function pattern). Basically, GraphQL has a <a href="http://graphql.org/learn/schema/#type-system">type system</a> which mean that we need to specify the type for each of its paramater.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">query</span>(<span style="color:#a6e22e">$id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ID</span><span style="color:#f92672">!</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">film</span>(<span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">$id</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">openingCrawl</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">director</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">producers</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">releaseDate</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If you&rsquo;re looking at the <code>query</code> statement, it has <code>$id</code> and <code>ID!</code> on its parameter (just like a normal function pattern). Basically, GraphQL has a <a href="http://graphql.org/learn/schema/#type-system">type system</a> which mean that we need to specify the type for each of its paramater.</p>
 <p>So, we can say that <code>query</code> statement has a parameter called <code>$id</code> which has type of <code>ID</code> (<a href="http://graphql.org/learn/schema/#scalar-types">GraphQL built-in type</a>). And the exclamation mark (<code>ID!</code>) means that the field is non-nullable or required.</p>
 <p>And if you&rsquo;re looking at the <code>film</code> object, it also has a parameter called <code>id</code>. We can passing the arguments from <code>query</code> statement to the <code>film</code> object (just like normal function) just like the code above.</p>
 <p>OK, so how do we get the <code>$id</code>? React-Apollo comes with a handy way how to get the variable(s). Please refer to this <a href="http://dev.apollodata.com/react/api-queries.html#graphql-config-options-variables">page</a>. Basically, React-Apollo is just a High Order Component for React. The <code>graphql</code> container has a pattern like this</p>
@@ -418,104 +396,104 @@ if (!doNotTrack) {
 <h1 id="graphqlquery-configcomponent">graphql(query, [config])(component)</h1>
 </blockquote>
 <p>As you can see, the first parameter of the container is the query and the second is the config. We can get the <code>$id</code> from the config. <strong>Note: since React Native support <code>decorators</code> syntax, I will use it.</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">graphql</span>(<span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
-</span><span style="color:#e6db74">    query($id: ID!) {
-</span><span style="color:#e6db74">      film(id: $id) {
-</span><span style="color:#e6db74">        title
-</span><span style="color:#e6db74">        openingCrawl
-</span><span style="color:#e6db74">        director
-</span><span style="color:#e6db74">        producers
-</span><span style="color:#e6db74">        releaseDate
-</span><span style="color:#e6db74">      }
-</span><span style="color:#e6db74">    }
-</span><span style="color:#e6db74">`</span>, {
-  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">props</span>) =&gt; ({
-    <span style="color:#a6e22e">variables</span><span style="color:#f92672">:</span> {
-      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>, <span style="color:#75715e">// navigation object comes from React Navigation
-</span><span style="color:#75715e"></span>    },
-  }),
-})
-</code></pre></div><p>You&rsquo;ll notice that we specify the variables called <code>id</code> on the <code>options</code> section. It will get injected into the query and will be read by grapqhl query as <code>$id</code> on runtime. The code will looks like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// FilmDetail.js
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">gql</span>, <span style="color:#a6e22e">graphql</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-apollo&#34;</span>;
-<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">View</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-native&#34;</span>;
-
-<span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">graphql</span>(
-  <span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
-</span><span style="color:#e6db74">    query($id: ID!) {
-</span><span style="color:#e6db74">      film(id: $id) {
-</span><span style="color:#e6db74">        title
-</span><span style="color:#e6db74">        openingCrawl
-</span><span style="color:#e6db74">        director
-</span><span style="color:#e6db74">        producers
-</span><span style="color:#e6db74">        releaseDate
-</span><span style="color:#e6db74">      }
-</span><span style="color:#e6db74">    }
-</span><span style="color:#e6db74">  `</span>,
-  {
-    <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">props</span>) =&gt; ({
-      <span style="color:#a6e22e">variables</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>,
-      },
-    }),
-  }
-)
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
-  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">navigationOptions</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">navigation</span> }) =&gt; ({
-    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">title</span>,
-  });
-
-  <span style="color:#a6e22e">render</span>() {
-    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">film</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>;
-
-    <span style="color:#66d9ef">return</span> (
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">container</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Released</span> Date<span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">moment</span>(<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">releaseDate</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;DD MMMM Y&#34;</span>)}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Director</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">director</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Producers</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">producers</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;, &#34;</span>)}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlContainer</span>}<span style="color:#f92672">&gt;</span>
-          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlText</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">openingCrawl</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-    );
-  }
-}
-
-<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">FilmDetail</span>;
-</code></pre></div><p>React-Apollo will wrap the query result inside the <code>props.data</code>. If you want to get the result, you can access it via <code>this.props.data</code> object. For this example, we have <code>film</code> object for the query. React-Apollo will inject the <code>film</code> object into <code>props.data</code>. So we can access it by using <code>this.props.data.film</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a6e22e">render</span>() {
-  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">film</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>; <span style="color:#75715e">// we can also perform destructuring here
-</span><span style="color:#75715e"></span>
-  <span style="color:#66d9ef">return</span> (
-    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">container</span>}<span style="color:#f92672">&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Released</span> Date<span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {moment(film.releaseDate).format(&#39;DD MMMM Y&#39;)}&lt;/Text&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Director</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {film.director}&lt;/Text&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Producers</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {film.producers.join(&#39;, &#39;)}&lt;/Text&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlContainer</span>}<span style="color:#f92672">&gt;</span>
-        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlText</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">openingCrawl</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
-      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
-  );
-}
-</code></pre></div><p>The <code>data</code> prop has some other useful properties which can be accessed directly from <code>data</code>. For example, <a href="http://dev.apollodata.com/react/api-queries.html#graphql-query-data-loading"><code>data.loading</code></a> or <a href="http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error"><code>data.error</code></a>. Please do check the <code>data.loading</code> and <code>data.error</code> before render the page. Logically, you can show the loading bar if <code>data.loading</code> is <code>true</code> or you can show the error message if <code>data.error</code> is not <code>null</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">graphql</span>(<span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    query($id: ID!) {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      film(id: $id) {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        title
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        openingCrawl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        director
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        producers
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        releaseDate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">`</span>, {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">props</span>) =&gt; ({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">variables</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>, <span style="color:#75715e">// navigation object comes from React Navigation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    },
+</span></span><span style="display:flex;"><span>  }),
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><p>You&rsquo;ll notice that we specify the variables called <code>id</code> on the <code>options</code> section. It will get injected into the query and will be read by grapqhl query as <code>$id</code> on runtime. The code will looks like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// FilmDetail.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span>, <span style="color:#a6e22e">PropTypes</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">gql</span>, <span style="color:#a6e22e">graphql</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-apollo&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Text</span>, <span style="color:#a6e22e">View</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-native&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span><span style="color:#a6e22e">graphql</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">gql</span><span style="color:#e6db74">`
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    query($id: ID!) {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      film(id: $id) {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        title
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        openingCrawl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        director
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        producers
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        releaseDate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    }
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">  `</span>,
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">options</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">props</span>) =&gt; ({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">variables</span><span style="color:#f92672">:</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FilmDetail</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#a6e22e">navigationOptions</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">navigation</span> }) =&gt; ({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">title</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">navigation</span>.<span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">title</span>,
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">film</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">container</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Released</span> Date<span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">moment</span>(<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">releaseDate</span>).<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;DD MMMM Y&#34;</span>)}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Director</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">director</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Producers</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span><span style="color:#f92672">&gt;</span> {<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">producers</span>.<span style="color:#a6e22e">join</span>(<span style="color:#e6db74">&#34;, &#34;</span>)}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlText</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">openingCrawl</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">FilmDetail</span>;
+</span></span></code></pre></div><p>React-Apollo will wrap the query result inside the <code>props.data</code>. If you want to get the result, you can access it via <code>this.props.data</code> object. For this example, we have <code>film</code> object for the query. React-Apollo will inject the <code>film</code> object into <code>props.data</code>. So we can access it by using <code>this.props.data.film</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">render</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">film</span> } <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>.<span style="color:#a6e22e">data</span>; <span style="color:#75715e">// we can also perform destructuring here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">container</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">title</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Released</span> Date<span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {moment(film.releaseDate).format(&#39;DD MMMM Y&#39;)}&lt;/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Director</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {film.director}&lt;/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">rowContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">bold</span>}<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Producers</span><span style="color:#f92672">:&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;&lt;Text&gt; {film.producers.join(&#39;, &#39;)}&lt;/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">View</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlContainer</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Text</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">styles</span>.<span style="color:#a6e22e">openingCrawlText</span>}<span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">film</span>.<span style="color:#a6e22e">openingCrawl</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Text&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/View&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The <code>data</code> prop has some other useful properties which can be accessed directly from <code>data</code>. For example, <a href="http://dev.apollodata.com/react/api-queries.html#graphql-query-data-loading"><code>data.loading</code></a> or <a href="http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error"><code>data.error</code></a>. Please do check the <code>data.loading</code> and <code>data.error</code> before render the page. Logically, you can show the loading bar if <code>data.loading</code> is <code>true</code> or you can show the error message if <code>data.error</code> is not <code>null</code>.</p>
 <p>You can check the fully working example on <a href="https://github.com/reyhansofian/expo-swapi-graphql">here</a></p>
               
             </div>
@@ -613,9 +591,10 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 Reyhan Sofian. All Rights Reserved
+    &copy; 2025 Everyday I Learn. All Rights Reserved
   </span>
 </footer>
+
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
@@ -711,25 +690,9 @@ if (!doNotTrack) {
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Reyhan Sofian</h4>
-    
-      <div id="about-card-bio">Just another software engineer</div>
+    <h4 id="about-card-name"></h4>
     
     
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Indonesia
-      </div>
     
   </div>
 </div>
@@ -738,7 +701,10 @@ if (!doNotTrack) {
 
     
   
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+    
+      
+      <div id="cover" style="background-image:url('https://reyhansofian.github.io/images/wallpaper.webp');"></div>
+    
   
 
 

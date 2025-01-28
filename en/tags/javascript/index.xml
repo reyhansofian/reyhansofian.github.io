@@ -1,46 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>javascript on Everyday I Learn</title>
+    <title>Javascript on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/javascript/</link>
-    <description>Recent content in javascript on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in Javascript on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 05 Sep 2021 18:24:58 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deep Copy to Avoid Value Reference</title>
       <link>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</link>
       <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</guid>
-      <description>Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.
-It happens to me when I&amp;rsquo;m trying to find a sidebar ID from the store of the sidebar tree. Yes, a tree. Imagine the store if we have a sidebar tree like this
- Sidebar tree example   and we need to find out the ID of file2.</description>
+      <description>&lt;p&gt;Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Javascript&#39;s Template Literals</title>
       <link>https://reyhansofian.github.io/en/post/javascripts-template-literals/</link>
       <pubDate>Fri, 16 Jun 2017 08:16:53 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/javascripts-template-literals/</guid>
       <description>&lt;p&gt;When I&amp;rsquo;m conducting a workshop for &lt;a href=&#34;https://www.facebook.com/groups/DevCMalang&#34;&gt;Facebook Developer Circle Malang&lt;/a&gt;, one of our participants asking how &lt;a href=&#34;https://github.com/apollographql/graphql-tag&#34;&gt;gql&lt;/a&gt; works. I know it&amp;rsquo;s called &lt;strong&gt;&lt;em&gt;template literals&lt;/em&gt;&lt;/strong&gt;, but how did &lt;strong&gt;&lt;em&gt;template literals&lt;/em&gt;&lt;/strong&gt; can behave like a function (but without parentheses)?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>React Native with GraphQL</title>
       <link>https://reyhansofian.github.io/en/post/react-native-with-graphql/</link>
       <pubDate>Wed, 31 May 2017 09:26:13 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/react-native-with-graphql/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
-    
   </channel>
 </rss>

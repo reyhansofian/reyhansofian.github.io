@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tips on Everyday I Learn</title>
+    <title>Tips on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/id/tags/tips/</link>
-    <description>Recent content in tips on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in Tips on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>id</language>
     <lastBuildDate>Wed, 11 Jan 2017 23:33:37 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/id/tags/tips/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/id/tags/tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Memperbaiki Masalah Autofix ESLint pada Webstrom 2016</title>
       <link>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</link>
       <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</guid>
       <description>&lt;p&gt;Saya dan tim sedang mengerjakan aplikasi Javascript dengan menggunakan NodeJS dan ReactJS. Kami menggunakan ESLint sebagai standart untuk kode kami dengan menggunakan konfigurasi ESLint dari AirBnB. Hingga saat ini kami cukup puas dengan konfigurasi ini.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Bagaimana Transfer File dari OSX El Capitan ke Ubuntu 14.04</title>
       <link>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</link>
       <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</guid>
       <description>&lt;p&gt;Hari ini aku berencana memindahkan semua file-file yang ada di Macbook Air kantorku (OSX El Capitan) ke laptop pribadiku (Ubuntu 14.04). Awalnya rencana memindahkan file-file tersebut ingin menggunakan HDD eksternal, tapi ternyata semua HDD eksternalku rusak. Jadi aku harus mencari cara lain supaya bisa memindahkan semua file tersebut. Akhirnya ide memindahkan dengan menggunakan network datang (dengan menggunakan Wifi).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

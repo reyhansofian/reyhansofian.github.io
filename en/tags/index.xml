@@ -4,174 +4,135 @@
     <title>Tags on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/</link>
     <description>Recent content in Tags on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Tue, 07 Sep 2021 11:17:16 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>datetime</title>
+      <title>Datetime</title>
       <link>https://reyhansofian.github.io/en/tags/datetime/</link>
       <pubDate>Tue, 07 Sep 2021 11:17:16 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/datetime/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>golang</title>
+      <title>Golang</title>
       <link>https://reyhansofian.github.io/en/tags/golang/</link>
       <pubDate>Tue, 07 Sep 2021 11:17:16 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>frontend</title>
+      <title>Frontend</title>
       <link>https://reyhansofian.github.io/en/tags/frontend/</link>
       <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/frontend/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>javascript</title>
+      <title>Javascript</title>
       <link>https://reyhansofian.github.io/en/tags/javascript/</link>
       <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/javascript/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nodejs</title>
+      <title>Nodejs</title>
       <link>https://reyhansofian.github.io/en/tags/nodejs/</link>
       <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/nodejs/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>gin</title>
-      <link>https://reyhansofian.github.io/en/tags/gin/</link>
-      <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
-      
-      <guid>https://reyhansofian.github.io/en/tags/gin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>gin-gonic</title>
+      <title>Gin-Gonic</title>
       <link>https://reyhansofian.github.io/en/tags/gin-gonic/</link>
       <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/gin-gonic/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>testing</title>
+      <title>Testing</title>
       <link>https://reyhansofian.github.io/en/tags/testing/</link>
       <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/testing/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tools</title>
+      <title>Gin</title>
+      <link>https://reyhansofian.github.io/en/tags/gin/</link>
+      <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
+      <guid>https://reyhansofian.github.io/en/tags/gin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tools</title>
       <link>https://reyhansofian.github.io/en/tags/tools/</link>
       <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/tools/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>kubernetes</title>
+      <title>Kubernetes</title>
       <link>https://reyhansofian.github.io/en/tags/kubernetes/</link>
       <pubDate>Mon, 04 May 2020 23:17:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/kubernetes/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>osx</title>
+      <title>Osx</title>
       <link>https://reyhansofian.github.io/en/tags/osx/</link>
       <pubDate>Thu, 23 Jan 2020 16:32:22 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/osx/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>git</title>
+      <title>Git</title>
       <link>https://reyhansofian.github.io/en/tags/git/</link>
       <pubDate>Wed, 18 Apr 2018 22:20:30 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/git/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>https://reyhansofian.github.io/en/tags/vim/</link>
       <pubDate>Wed, 12 Jul 2017 08:25:31 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/vim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>react</title>
+      <title>React</title>
       <link>https://reyhansofian.github.io/en/tags/react/</link>
       <pubDate>Wed, 31 May 2017 09:26:13 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/react/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>react-native</title>
+      <title>React-Native</title>
       <link>https://reyhansofian.github.io/en/tags/react-native/</link>
       <pubDate>Wed, 31 May 2017 09:26:13 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/react-native/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tips</title>
+      <title>Tips</title>
       <link>https://reyhansofian.github.io/en/tags/tips/</link>
       <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/tips/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>webstrom</title>
+      <title>Webstrom</title>
       <link>https://reyhansofian.github.io/en/tags/webstrom/</link>
       <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/webstrom/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>unix</title>
+      <title>Unix</title>
       <link>https://reyhansofian.github.io/en/tags/unix/</link>
       <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/tags/unix/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
   <head>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"
+          integrity="sha512-v/wOVTkoU7mXEJC3hXnw9AA6v32qzpknvuUF6J2Lbkasxaxn2nYcl+HGB7fr/kChGfCqubVr1n2sq1UFu3Gh1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+          crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="Reyhan Sofian">
+<meta name="generator" content="Hugo 0.141.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="">
 <meta name="keywords" content=", tech, development, tips, articles">
 <meta name="description" content="Mocking JSON request-response using gin-gonic server for your daily TDD">
 
@@ -47,28 +55,21 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@reyhan_sofian">
-
-
-  <meta name="twitter:creator" content="@reyhan_sofian">
 
 
 
 
 
 
-  <meta property="og:image" content="https://blog.bearer.sh/content/images/2020/03/node-retry-2.png">
-  <meta property="twitter:image" content="https://blog.bearer.sh/content/images/2020/03/node-retry-2.png">
+  <meta property="og:image" content="https://devopedia.org/images/article/154/3480.1553097367.png">
+  <meta property="twitter:image" content="https://devopedia.org/images/article/154/3480.1553097367.png">
 
 
-  <meta property="og:image" content="https://blog.bearer.sh/content/images/2020/03/node-retry-2.png">
-  <meta property="twitter:image" content="https://blog.bearer.sh/content/images/2020/03/node-retry-2.png">
+  <meta property="og:image" content="https://res.cloudinary.com/dweyilbvh/image/upload/v1738086833/lwie4dgshttsjoog4eho.webp">
+  <meta property="twitter:image" content="https://res.cloudinary.com/dweyilbvh/image/upload/v1738086833/lwie4dgshttsjoog4eho.webp">
 
 
 
-
-  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
 
 
     <title>How to Mock Gin-Gonic for JSON Response</title>
@@ -81,7 +82,7 @@
     <link rel="canonical" href="https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
@@ -91,26 +92,15 @@
     
     
     
-    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.eae5d12f489664e48782b2e20a4cae6263ab6f6ed80abb3480be9533fb140d0a.css">
     
     
 
     
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-99138527-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
     
+    
+
     
   </head>
 
@@ -129,8 +119,6 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
-      
     
     </a>
   
@@ -138,16 +126,6 @@ if (!doNotTrack) {
 
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://reyhansofian.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
-        
-          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
-        
-      </div>
     
     <ul class="sidebar-buttons">
       
@@ -217,7 +195,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-center
               "
-       style="background-image:url('https://blog.bearer.sh/content/images/2020/03/node-retry-2.png')"
+       style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1738086833/lwie4dgshttsjoog4eho.webp')"
        data-behavior="4">
     
   </div>
@@ -229,7 +207,7 @@ if (!doNotTrack) {
                hasCoverCaption">
         <article class="post" itemscope itemType="http://schema.org/BlogPosting">
           
-            <span class="post-header-cover-caption caption"><a href="https://blog.bearer.sh/content/images/2020/03/node-retry-2.png">https://blog.bearer.sh/content/images/2020/03/node-retry-2.png</a></span>
+            <span class="post-header-cover-caption caption">Generated by AI</span>
           
           <div class="post-header-edit-on-github main-content-wrap">
             <a href="https://www.github.com/reyhansofian/reyhansofian-blog-hugo/tree/master/content/post/2020-05-10-en-mock-gin-gonic.md" class="btn btn--default">
@@ -273,17 +251,31 @@ if (!doNotTrack) {
 <p>As always, Google is your friend. After search for some hours, I actually pulled off how to write test using Gin. Let&rsquo;s create a simple application with a single endpoint and it response with JSON <code>{&quot;message&quot;: &quot;Welcome!&quot;}</code>.</p>
 
 
+
+
+
+
+
+
+
   
   
   
   
   
+
 
 
   
     
   
   
+
+
+
+
+
+
 
 <figure class="codeblock codeblock--tabbed">
   <figcaption>
@@ -326,20 +318,35 @@ func main() {
     
   </div>
 </figure>
+
 <p>Now let&rsquo;s create a router file</p>
 
 
+
+
+
+
+
+
+
   
   
   
   
   
+
 
 
   
     
   
   
+
+
+
+
+
+
 
 <figure class="codeblock codeblock--tabbed">
   <figcaption>
@@ -389,20 +396,35 @@ func SetupRouter(message string) *gin.Engine {
     
   </div>
 </figure>
+
 <p>After that, let&rsquo;s create a test file to test our router</p>
 
 
+
+
+
+
+
+
+
   
   
   
   
   
+
 
 
   
     
   
   
+
+
+
+
+
+
 
 <figure class="codeblock codeblock--tabbed">
   <figcaption>
@@ -489,10 +511,11 @@ func TestWelcome(t *testing.T) {
     
   </div>
 </figure>
+
 <p>Run the tests with <code>go test</code> inside folder or you can run test recursively using <code>go test ./...</code>. It will show</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ go test .
-ok      router/router   0.009s
-</code></pre></div><h1 id="references">References</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go test .
+</span></span><span style="display:flex;"><span>ok      router/router   0.009s
+</span></span></code></pre></div><h1 id="references">References</h1>
 <ul>
 <li><a href="https://medium.com/@craigchilds94/testing-gin-json-responses-1f258ce3b0b1">https://medium.com/@craigchilds94/testing-gin-json-responses-1f258ce3b0b1</a></li>
 <li><a href="https://semaphoreci.com/community/tutorials/test-driven-development-of-go-web-applications-with-gin">https://semaphoreci.com/community/tutorials/test-driven-development-of-go-web-applications-with-gin</a></li>
@@ -593,9 +616,10 @@ ok      router/router   0.009s
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 Reyhan Sofian. All Rights Reserved
+    &copy; 2025 Everyday I Learn. All Rights Reserved
   </span>
 </footer>
+
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
@@ -691,25 +715,9 @@ ok      router/router   0.009s
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Reyhan Sofian</h4>
-    
-      <div id="about-card-bio">Just another software engineer</div>
+    <h4 id="about-card-name"></h4>
     
     
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Indonesia
-      </div>
     
   </div>
 </div>
@@ -718,7 +726,10 @@ ok      router/router   0.009s
 
     
   
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+    
+      
+      <div id="cover" style="background-image:url('https://reyhansofian.github.io/images/wallpaper.webp');"></div>
+    
   
 
 

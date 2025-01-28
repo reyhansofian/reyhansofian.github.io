@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
   <head>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"
+          integrity="sha512-v/wOVTkoU7mXEJC3hXnw9AA6v32qzpknvuUF6J2Lbkasxaxn2nYcl+HGB7fr/kChGfCqubVr1n2sq1UFu3Gh1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+          crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="Reyhan Sofian">
+<meta name="generator" content="Hugo 0.141.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="">
 <meta name="keywords" content=", tech, development, tips, articles">
 <meta name="description" content="Developing Golang application with live-reload on save with Gin.">
 
@@ -47,10 +55,6 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@reyhan_sofian">
-
-
-  <meta name="twitter:creator" content="@reyhan_sofian">
 
 
 
@@ -67,9 +71,6 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-
 
     <title>Live Reload Golang Development With Gin</title>
 
@@ -81,7 +82,7 @@
     <link rel="canonical" href="https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
@@ -91,26 +92,15 @@
     
     
     
-    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.eae5d12f489664e48782b2e20a4cae6263ab6f6ed80abb3480be9533fb140d0a.css">
     
     
 
     
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-99138527-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
     
+    
+
     
   </head>
 
@@ -129,8 +119,6 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
-      
     
     </a>
   
@@ -138,16 +126,6 @@ if (!doNotTrack) {
 
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://reyhansofian.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
-        
-          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
-        
-      </div>
     
     <ul class="sidebar-buttons">
       
@@ -272,65 +250,65 @@ if (!doNotTrack) {
               <p>Coming from NodeJS land, I&rsquo;m always relying on Nodemon to have live-reload my development server while developing. Long story short, I got a project that uses Golang as a drop-in replacement, and reloading the development server is PITA. I need to restart my development server every time I have changed inside my code.</p>
 <p>After looking at some libraries like <a href="https://github.com/githubnemo/CompileDaemon">CompileDaemon</a>, <a href="https://github.com/cosmtrek/air">Air</a>, <a href="https://github.com/oxequa/realize">Realize</a>, even <a href="https://nodemon.io/">Nodemon</a>!. At first, I&rsquo;m trying CompileDaemon but it doesn&rsquo;t do the live-reload on save (maybe I didn&rsquo;t configure it properly 🤷‍♂️). And then trying Air and Realize, but these libraries need a configuration file to make it works. Unfortunately, this didn&rsquo;t meet my expectation where I don&rsquo;t need an extra configuration file to use that.</p>
 <p>And then I found <a href="https://github.com/codegangsta/gin">Gin</a> after some search. Simple yet powerful. Just like CompileDaemon but with extra features (personally, I like the <code>--notifications</code> flag where it will send a notification to our desktop). Here are some options we use for Gin</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   --laddr value, -l value       listening address <span style="color:#66d9ef">for</span> the proxy server
-   --port value, -p value        port <span style="color:#66d9ef">for</span> the proxy server <span style="color:#f92672">(</span>default: 3000<span style="color:#f92672">)</span>
-   --appPort value, -a value     port <span style="color:#66d9ef">for</span> the Go web server <span style="color:#f92672">(</span>default: 3001<span style="color:#f92672">)</span>
-   --bin value, -b value         name of generated binary file <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;gin-bin&#34;</span><span style="color:#f92672">)</span>
-   --path value, -t value        Path to watch files from <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span>
-   --build value, -d value       Path to build files from <span style="color:#f92672">(</span>defaults to same value as --path<span style="color:#f92672">)</span>
-   --excludeDir value, -x value  Relative directories to exclude
-   --immediate, -i               run the server immediately after it<span style="color:#960050;background-color:#1e0010">&#39;</span>s built
-   --all                         reloads whenever any file changes, as opposed to reloading only on .go file change
-   --godep, -g                   use godep when building
-   --buildArgs value             Additional go build arguments
-   --certFile value              TLS Certificate
-   --keyFile value               TLS Certificate Key
-   --logPrefix value             Setup custom log prefix
-   --notifications               enable desktop notifications
-   --help, -h                    show help
-   --version, -v                 print the version
-</code></pre></div><p>The downside for Gin is it needs a proxy server for as the front server (is it the right term?).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   --laddr value, -l value       listening address <span style="color:#66d9ef">for</span> the proxy server
+</span></span><span style="display:flex;"><span>   --port value, -p value        port <span style="color:#66d9ef">for</span> the proxy server <span style="color:#f92672">(</span>default: 3000<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   --appPort value, -a value     port <span style="color:#66d9ef">for</span> the Go web server <span style="color:#f92672">(</span>default: 3001<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   --bin value, -b value         name of generated binary file <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;gin-bin&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   --path value, -t value        Path to watch files from <span style="color:#f92672">(</span>default: <span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   --build value, -d value       Path to build files from <span style="color:#f92672">(</span>defaults to same value as --path<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>   --excludeDir value, -x value  Relative directories to exclude
+</span></span><span style="display:flex;"><span>   --immediate, -i               run the server immediately after it<span style="color:#960050;background-color:#1e0010">&#39;</span>s built
+</span></span><span style="display:flex;"><span>   --all                         reloads whenever any file changes, as opposed to reloading only on .go file change
+</span></span><span style="display:flex;"><span>   --godep, -g                   use godep when building
+</span></span><span style="display:flex;"><span>   --buildArgs value             Additional go build arguments
+</span></span><span style="display:flex;"><span>   --certFile value              TLS Certificate
+</span></span><span style="display:flex;"><span>   --keyFile value               TLS Certificate Key
+</span></span><span style="display:flex;"><span>   --logPrefix value             Setup custom log prefix
+</span></span><span style="display:flex;"><span>   --notifications               enable desktop notifications
+</span></span><span style="display:flex;"><span>   --help, -h                    show help
+</span></span><span style="display:flex;"><span>   --version, -v                 print the version
+</span></span></code></pre></div><p>The downside for Gin is it needs a proxy server for as the front server (is it the right term?).</p>
 <h2 id="examples">Examples</h2>
 <h3 id="running-go-server-on-port-8080">Running Go server on port 8080</h3>
 <p>This will create a proxy server on port 3000 and it will listen to the application port on 8080. With this setting, you need to send the request to the proxy server (port 3000) instead of directly to the Go server (port 8080).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
-$ gin --appPort <span style="color:#ae81ff">8080</span>
-
-<span style="color:#75715e">## Output</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">3000</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
-</code></pre></div><h3 id="running-go-server-on-port-8080-and-proxy-server-on-5000">Running Go server on port 8080 and proxy server on 5000</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># This will run all main package</span>
+</span></span><span style="display:flex;"><span>$ gin --appPort <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">3000</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</span></span></code></pre></div><h3 id="running-go-server-on-port-8080-and-proxy-server-on-5000">Running Go server on port 8080 and proxy server on 5000</h3>
 <p>This will create a proxy server on port 5000 and it will listen to the application port on 8080. With this setting, you need to send the request to the proxy server (port 5000) instead of directly to the Go server (port 8080).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
-$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span>
-
-<span style="color:#75715e">## Output</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
-</code></pre></div><h3 id="running-go-server-immediately-after-gin-build-run-successfully">Running Go server immediately after Gin build run successfully</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># This will run all main package</span>
+</span></span><span style="display:flex;"><span>$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</span></span></code></pre></div><h3 id="running-go-server-immediately-after-gin-build-run-successfully">Running Go server immediately after Gin build run successfully</h3>
 <p>There are some peoples encountered this problem where they can&rsquo;t make an API request to the server after Gin build. This is Gin&rsquo;s default behavior where it uses <code>time.Sleep(100 * time.Millisecond)</code> on its <code>build</code> function. We can solve this using <code>--immediate</code> flag so the server will immediately run after a successful build.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
-$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate
-
-<span style="color:#75715e"># or</span>
-$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> -i
-
-<span style="color:#75715e">## Output</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
-</code></pre></div><h3 id="send-desktop-notification-on-build">Send desktop notification on build</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># This will run all main package</span>
+</span></span><span style="display:flex;"><span>$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or</span>
+</span></span><span style="display:flex;"><span>$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> -i
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</span></span></code></pre></div><h3 id="send-desktop-notification-on-build">Send desktop notification on build</h3>
 <p>I love this feature. With the desktop notification, we know if the build succeeded or failed. So we don&rsquo;t need to switch to your IDE and terminal back and forth. We can use <code>--notifications</code> flag for this.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># This will run all main package</span>
-$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate --notifications
-
-<span style="color:#75715e">## Output</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
-<span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
-</code></pre></div><p><strong>Preview</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># This will run all main package</span>
+</span></span><span style="display:flex;"><span>$ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="color:#ae81ff">5000</span> --immediate --notifications
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Output</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Listening on port <span style="color:#ae81ff">5000</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Building...
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>gin<span style="color:#f92672">]</span> Build finished
+</span></span></code></pre></div><p><strong>Preview</strong></p>
 <p>
  
   
@@ -382,6 +360,7 @@ $ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="colo
 </div>
 
   <div style="clear:both;"></div>
+
 
 
  
@@ -436,6 +415,7 @@ $ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="colo
   <div style="clear:both;"></div>
 
 
+
  
   
   
@@ -486,6 +466,7 @@ $ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="colo
 </div>
 
   <div style="clear:both;"></div>
+
 </p>
               
             </div>
@@ -583,9 +564,10 @@ $ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="colo
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 Reyhan Sofian. All Rights Reserved
+    &copy; 2025 Everyday I Learn. All Rights Reserved
   </span>
 </footer>
+
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
@@ -681,25 +663,9 @@ $ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="colo
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Reyhan Sofian</h4>
-    
-      <div id="about-card-bio">Just another software engineer</div>
+    <h4 id="about-card-name"></h4>
     
     
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Indonesia
-      </div>
     
   </div>
 </div>
@@ -708,7 +674,10 @@ $ gin --appPort <span style="color:#ae81ff">8080</span> --port <span style="colo
 
     
   
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+    
+      
+      <div id="cover" style="background-image:url('https://reyhansofian.github.io/images/wallpaper.webp');"></div>
+    
   
 
 

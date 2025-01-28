@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="id">
   <head>
-    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js"
+          integrity="sha512-v/wOVTkoU7mXEJC3hXnw9AA6v32qzpknvuUF6J2Lbkasxaxn2nYcl+HGB7fr/kChGfCqubVr1n2sq1UFu3Gh1w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"></script>
+  
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+          integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+          crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.68.3 with theme Tranquilpeak 0.4.7-BETA">
-<meta name="author" content="Reyhan Sofian">
+<meta name="generator" content="Hugo 0.141.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="">
 <meta name="keywords" content=", tech, development, tips, articles">
 <meta name="description" content="Memperbaiki masalah autofix ESLint yang tidak berjalan dengan menggunakan File Watcher di Webstrom 2016.">
 
@@ -45,10 +53,6 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@reyhan_sofian">
-
-
-  <meta name="twitter:creator" content="@reyhan_sofian">
 
 
 
@@ -65,9 +69,6 @@
 
 
 
-  <meta property="og:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-  <meta property="twitter:image" content="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=640">
-
 
     <title>Memperbaiki Masalah Autofix ESLint pada Webstrom 2016</title>
 
@@ -79,7 +80,7 @@
     <link rel="canonical" href="https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/">
 
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/css/flag-icon.min.css" integrity="sha256-YjcCvXkdRVOucibC9I4mBS41lXPrWfqY2BnpskhZPnw=" crossorigin="anonymous" />
@@ -89,26 +90,15 @@
     
     
     
-    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.ffd4807884c3a87cd5dc96423275ffed5343a878e1f6763d1c40c7a915d725e8.css">
+    <link rel="stylesheet" href="https://reyhansofian.github.io/scss/main.min.eae5d12f489664e48782b2e20a4cae6263ab6f6ed80abb3480be9533fb140d0a.css">
     
     
 
     
       
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-99138527-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-
     
+    
+
     
   </head>
 
@@ -127,8 +117,6 @@ if (!doNotTrack) {
     
     
       
-        <img class="header-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=90" alt="Author&#39;s picture" />
-      
     
     </a>
   
@@ -136,16 +124,6 @@ if (!doNotTrack) {
 
       <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
-    
-      <div class="sidebar-profile">
-        <a href="https://reyhansofian.github.io/#about">
-          <img class="sidebar-profile-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-        </a>
-        <h4 class="sidebar-profile-name">Reyhan Sofian</h4>
-        
-          <h5 class="sidebar-profile-bio">Just another software engineer</h5>
-        
-      </div>
     
     <ul class="sidebar-buttons">
       
@@ -272,7 +250,7 @@ if (!doNotTrack) {
 <p>Ternyata, Webstrom (ataupun produk JetBrains lainnya) menyediakan <em>plugin</em> yang bernama <strong>File Watcher</strong>. <em>Plugin</em> ini dapat <strong>&ldquo;melihat&rdquo;</strong> (<strong><em>watch</em></strong>) perubahan pada kode kita dan akan melakukan suatu task tertentu jika terjadi perubahan. Informasi lebih lanjut, dapat membaca <a href="https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html">referensi berikut</a>.</p>
 <p>Akhirnya saya mencoba menggunakan <em>plugin</em> <strong>File Watcher</strong> tersebut supaya secara otomatis dapat memperbaiki kode kita yang ditandai memiliki masalah oleh ESLint. Jadi tidak perlu repot-repot memperbaiki kode yang berantakan. Berikut caranya untuk menggunakan File Watcher:</p>
 <ol>
-<li>Install <em>plugin</em> File Watcher. Kalian dapat menemukannya di menu <strong>Preferences</strong> &gt; <strong>Plugins</strong> &gt; <strong>Search for “File Watchers&rdquo;</strong>. Centang pilihannya dan klik tombol <strong>Apply</strong>. Setelah itu kalian perlu restart Webstrom.</li>
+<li>Install <em>plugin</em> File Watcher. Kalian dapat menemukannya di menu <strong>Preferences</strong> &gt; <strong>Plugins</strong> &gt; <strong>Search for “File Watchers&quot;</strong>. Centang pilihannya dan klik tombol <strong>Apply</strong>. Setelah itu kalian perlu restart Webstrom.</li>
 </ol>
 
  
@@ -325,6 +303,7 @@ if (!doNotTrack) {
 </div>
 
   <div style="clear:both;"></div>
+
 
 <ol start="2">
 <li>Cari menu <strong>Preferences</strong> &gt; <strong>Tools</strong> &gt; <strong>File Watchers</strong>. Buat <strong>File Watcher</strong> baru dengan menekan tombol <strong>+</strong>. Lalu pilih <strong>Custom Template</strong></li>
@@ -379,15 +358,16 @@ if (!doNotTrack) {
 
   <div style="clear:both;"></div>
 
+
 <ol start="3">
 <li>Ubah <strong>File Type</strong> menjadi <strong>Javascript</strong></li>
 <li>Sesuaikan <strong>Scope</strong> kalian ke direktori projek kalian atau direktori apapun yang ingin kalian masukkan</li>
 <li>Tambahkan binary ESLint ke path di menu <strong>Watcher Settings</strong> &gt; <strong>Program</strong>. Jika kalian install ESLint secara local (maksudnya per projek), kalian dapat menemukan binary ESLint di <code>&lt;project_path&gt;/node_modules/bin</code>. Pathnya akan terlihat seperti ini</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ProjectFileDir$/node_modules/.bin/ESLint
-</code></pre></div><p>Jika kalian install ESLint secara global (dengan/atau menggukan NVM), kalian dapat mencari path ESLint dengan mengeksekusi <code>which eslint</code> pada terminal. Contohnya jika saya menggunakan NVM, maka path-nya akan menjadi seperti ini (tergantung OS kalian)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/Users/vicz/.nvm/versions/node/v7.0.0/bin/ESLint
-</code></pre></div><ol start="6">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ProjectFileDir$/node_modules/.bin/ESLint
+</span></span></code></pre></div><p>Jika kalian install ESLint secara global (dengan/atau menggukan NVM), kalian dapat mencari path ESLint dengan mengeksekusi <code>which eslint</code> pada terminal. Contohnya jika saya menggunakan NVM, maka path-nya akan menjadi seperti ini (tergantung OS kalian)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>/Users/vicz/.nvm/versions/node/v7.0.0/bin/ESLint
+</span></span></code></pre></div><ol start="6">
 <li>Tambahkan parameter <code>--fix $FileName$</code> ke <strong>Watcher Settings</strong> &gt; <strong>Arguments</strong></li>
 <li>Klik menu <strong>Watcher Settings</strong> &gt; <strong>Other Options</strong> untuk melihat opsi tersembunyi dan tambahkan <code>$FileDir</code> ke <strong>Watcher Settings</strong> &gt; <strong>Other Options</strong> &gt; <strong>Working Directory</strong></li>
 <li>Jangan centang menu <strong>Immediate file synchronization</strong></li>
@@ -442,10 +422,11 @@ if (!doNotTrack) {
 
   <div style="clear:both;"></div>
 
+
 <blockquote>
-<p><strong><em>Referensi:</em></strong><br>
-<a href="https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm">https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm</a><br>
-<a href="https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je">https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je</a><br>
+<p><strong><em>Referensi:</em></strong> <br>
+<a href="https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm">https://stackoverflow.com/questions/29221136/lint-only-on-save-intellij-webstorm</a> <br>
+<a href="https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je">https://stackoverflow.com/questions/38883634/how-can-i-run-ESLint-fix-on-my-javascript-in-intellij-idea-webstorm-other-je</a> <br>
 <a href="https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html">https://www.jetbrains.com/help/webstorm/2016.3/file-watchers.html</a></p>
 </blockquote>
               
@@ -542,9 +523,10 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2021 Reyhan Sofian. All Rights Reserved
+    &copy; 2025 Everyday I Learn. All Rights Reserved
   </span>
 </footer>
+
 
       </div>
       <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
@@ -640,25 +622,9 @@ if (!doNotTrack) {
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="https://www.gravatar.com/avatar/291bcee126afd5d5e6fe20e2b4ce3153?s=110" alt="Author&#39;s picture" />
-    
-    <h4 id="about-card-name">Reyhan Sofian</h4>
-    
-      <div id="about-card-bio">Just another software engineer</div>
+    <h4 id="about-card-name"></h4>
     
     
-      <div id="about-card-job">
-        <i class="fa fa-briefcase"></i>
-        <br/>
-        Engineering Manager @ <a href="https://kata.ai">Kata.ai</a>
-      </div>
-    
-    
-      <div id="about-card-location">
-        <i class="fa fa-map-marker"></i>
-        <br/>
-        Indonesia
-      </div>
     
   </div>
 </div>
@@ -667,7 +633,10 @@ if (!doNotTrack) {
 
     
   
-    <div id="cover" style="background-image:url('https://res.cloudinary.com/dweyilbvh/image/upload/v1496287728/cover_gkeq0u.png');"></div>
+    
+      
+      <div id="cover" style="background-image:url('https://reyhansofian.github.io/images/wallpaper.webp');"></div>
+    
   
 
 

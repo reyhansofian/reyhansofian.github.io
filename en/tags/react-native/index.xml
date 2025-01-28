@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>react-native on Everyday I Learn</title>
+    <title>React-Native on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/react-native/</link>
-    <description>Recent content in react-native on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in React-Native on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 31 May 2017 09:26:13 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/react-native/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React Native with GraphQL</title>
       <link>https://reyhansofian.github.io/en/post/react-native-with-graphql/</link>
       <pubDate>Wed, 31 May 2017 09:26:13 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/react-native-with-graphql/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
-    
   </channel>
 </rss>

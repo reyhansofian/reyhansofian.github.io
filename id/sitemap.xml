@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://reyhansofian.github.io/id/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
@@ -15,9 +14,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/gin/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
@@ -30,9 +27,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/gin/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/golang/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
@@ -45,14 +40,10 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/golang/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/post/live-reload-dengan-gin-untuk-develop-aplikasi-golang/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/post/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
@@ -65,9 +56,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/post/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
@@ -80,9 +69,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/tools/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
@@ -95,9 +82,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/tools/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/kubernetes/</loc>
     <lastmod>2020-05-04T23:17:28+07:00</lastmod>
     <xhtml:link
@@ -110,19 +95,13 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/kubernetes/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/post/kubernetes-configmap-pada-aplikasi-dinamis/</loc>
     <lastmod>2020-05-04T23:17:28+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/post/memperbaiki-masalah-autofix-eslint-pada-webstrom-2016/</loc>
     <lastmod>2017-01-11T23:33:37+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/tips/</loc>
     <lastmod>2017-01-11T23:33:37+07:00</lastmod>
     <xhtml:link
@@ -135,9 +114,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/tips/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/webstrom/</loc>
     <lastmod>2017-01-11T23:33:37+07:00</lastmod>
     <xhtml:link
@@ -150,14 +127,10 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/webstrom/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/post/bagaimana-transfer-file-dari-osx-el-capitan-ke-ubuntu-14.04/</loc>
     <lastmod>2016-08-24T22:50:18+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/tags/unix/</loc>
     <lastmod>2016-08-24T22:50:18+07:00</lastmod>
     <xhtml:link
@@ -170,9 +143,7 @@
                 hreflang="id"
                 href="https://reyhansofian.github.io/id/tags/unix/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/id/archives/</loc>
     <xhtml:link
                 rel="alternate"
@@ -185,5 +156,4 @@
                 href="https://reyhansofian.github.io/id/archives/"
                 />
   </url>
-  
 </urlset>

@@ -1,42 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>golang on Everyday I Learn</title>
+    <title>Golang on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/golang/</link>
-    <description>Recent content in golang on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in Golang on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Tue, 07 Sep 2021 11:17:16 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/golang/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Workdays Using Go</title>
       <link>https://reyhansofian.github.io/en/post/add-workdays-using-go/</link>
       <pubDate>Tue, 07 Sep 2021 11:17:16 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/add-workdays-using-go/</guid>
       <description>&lt;p&gt;Go &lt;a href=&#34;https://pkg.go.dev/time&#34;&gt;time package&lt;/a&gt; has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&amp;rsquo;s create a small case for this.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to Mock Gin-Gonic for JSON Response</title>
       <link>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</link>
       <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</guid>
       <description>&lt;p&gt;Create an HTTP server using &lt;a href=&#34;https://gin-gonic.com/&#34;&gt;Gin&lt;/a&gt; is quite easy. While developing an application using Gin, I&amp;rsquo;m stumbled on how to test the JSON response using Gin.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Live Reload Golang Development With Gin</title>
       <link>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</link>
       <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</guid>
       <description>&lt;p&gt;Coming from NodeJS land, I&amp;rsquo;m always relying on Nodemon to have live-reload my development server while developing. Long story short, I got a project that uses Golang as a drop-in replacement, and reloading the development server is PITA. I need to restart my development server every time I have changed inside my code.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

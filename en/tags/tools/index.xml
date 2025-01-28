@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tools on Everyday I Learn</title>
+    <title>Tools on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/tools/</link>
-    <description>Recent content in tools on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in Tools on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Sat, 09 May 2020 08:24:28 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/tools/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/tools/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Live Reload Golang Development With Gin</title>
       <link>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</link>
       <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</guid>
       <description>&lt;p&gt;Coming from NodeJS land, I&amp;rsquo;m always relying on Nodemon to have live-reload my development server while developing. Long story short, I got a project that uses Golang as a drop-in replacement, and reloading the development server is PITA. I need to restart my development server every time I have changed inside my code.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

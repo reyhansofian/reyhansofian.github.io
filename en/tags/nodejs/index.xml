@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nodejs on Everyday I Learn</title>
+    <title>Nodejs on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/nodejs/</link>
-    <description>Recent content in nodejs on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in Nodejs on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Sun, 05 Sep 2021 18:24:58 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deep Copy to Avoid Value Reference</title>
       <link>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</link>
       <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</guid>
-      <description>Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.
-It happens to me when I&amp;rsquo;m trying to find a sidebar ID from the store of the sidebar tree. Yes, a tree. Imagine the store if we have a sidebar tree like this
- Sidebar tree example   and we need to find out the ID of file2.</description>
+      <description>&lt;p&gt;Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

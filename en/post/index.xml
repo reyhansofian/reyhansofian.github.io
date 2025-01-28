@@ -4,124 +4,93 @@
     <title>Posts on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/post/</link>
     <description>Recent content in Posts on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Tue, 07 Sep 2021 11:17:16 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Workdays Using Go</title>
       <link>https://reyhansofian.github.io/en/post/add-workdays-using-go/</link>
       <pubDate>Tue, 07 Sep 2021 11:17:16 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/add-workdays-using-go/</guid>
       <description>&lt;p&gt;Go &lt;a href=&#34;https://pkg.go.dev/time&#34;&gt;time package&lt;/a&gt; has extensive support for manipulating times and durations. For example, we can use the time package to find the next business days. Let&amp;rsquo;s create a small case for this.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Deep Copy to Avoid Value Reference</title>
       <link>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</link>
       <pubDate>Sun, 05 Sep 2021 18:24:58 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</guid>
-      <description>Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.
-It happens to me when I&amp;rsquo;m trying to find a sidebar ID from the store of the sidebar tree. Yes, a tree. Imagine the store if we have a sidebar tree like this
- Sidebar tree example   and we need to find out the ID of file2.</description>
+      <description>&lt;p&gt;Playing around application states in ReactJS or VueJS is quite fun. But it&amp;rsquo;s not fun anymore if we (accidentally) mutate the state while doing a search from the state.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How to Mock Gin-Gonic for JSON Response</title>
       <link>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</link>
       <pubDate>Sun, 10 May 2020 22:44:31 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</guid>
       <description>&lt;p&gt;Create an HTTP server using &lt;a href=&#34;https://gin-gonic.com/&#34;&gt;Gin&lt;/a&gt; is quite easy. While developing an application using Gin, I&amp;rsquo;m stumbled on how to test the JSON response using Gin.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Live Reload Golang Development With Gin</title>
       <link>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</link>
       <pubDate>Sat, 09 May 2020 08:24:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</guid>
       <description>&lt;p&gt;Coming from NodeJS land, I&amp;rsquo;m always relying on Nodemon to have live-reload my development server while developing. Long story short, I got a project that uses Golang as a drop-in replacement, and reloading the development server is PITA. I need to restart my development server every time I have changed inside my code.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Kubernetes ConfigMap on Dynamic Applications</title>
       <link>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</link>
       <pubDate>Mon, 04 May 2020 23:17:28 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</guid>
       <description>&lt;p&gt;Kubernetes has a feature called ConfigMap where it can be used as a configuration file or environment variables. We will talk about what is ConfigMap and what are the possibilities using ConfigMap?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Installing Gollum on OSX Catalina</title>
       <link>https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/</link>
       <pubDate>Thu, 23 Jan 2020 16:32:22 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/</guid>
       <description>&lt;p&gt;I’m working on a wiki page on Gitlab. In this particular case, I need to attach a file into the wiki. Which can’t be done using web editor on Gitlab. So I’m trying to edit it locally. In short, I need to pull the wiki and install Gollum on my laptop. Unfortunately, it didn’t go smoothly like a banana (?).&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Squash Multiple Git Commit Into One Commit</title>
       <link>https://reyhansofian.github.io/en/post/squash-multiple-git-commit-into-one-commit/</link>
       <pubDate>Wed, 18 Apr 2018 22:20:30 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/squash-multiple-git-commit-into-one-commit/</guid>
       <description>&lt;p&gt;Git is a powerful versioning tool. Most tech companies use Git as their versioning tools (some big companies still using Mercurial and SVN though). It’s also applied to my current company.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Different Vim Settings for Each Project</title>
       <link>https://reyhansofian.github.io/en/post/different-vim-settings-for-each-project/</link>
       <pubDate>Wed, 12 Jul 2017 08:25:31 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/different-vim-settings-for-each-project/</guid>
       <description>&lt;p&gt;Sometimes, we need to have a different Vim settings across projects. We can achieve it by kept specific settings for each projects in a &lt;code&gt;.vimrc.local&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Javascript&#39;s Template Literals</title>
       <link>https://reyhansofian.github.io/en/post/javascripts-template-literals/</link>
       <pubDate>Fri, 16 Jun 2017 08:16:53 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/javascripts-template-literals/</guid>
       <description>&lt;p&gt;When I&amp;rsquo;m conducting a workshop for &lt;a href=&#34;https://www.facebook.com/groups/DevCMalang&#34;&gt;Facebook Developer Circle Malang&lt;/a&gt;, one of our participants asking how &lt;a href=&#34;https://github.com/apollographql/graphql-tag&#34;&gt;gql&lt;/a&gt; works. I know it&amp;rsquo;s called &lt;strong&gt;&lt;em&gt;template literals&lt;/em&gt;&lt;/strong&gt;, but how did &lt;strong&gt;&lt;em&gt;template literals&lt;/em&gt;&lt;/strong&gt; can behave like a function (but without parentheses)?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>React Native with GraphQL</title>
       <link>https://reyhansofian.github.io/en/post/react-native-with-graphql/</link>
       <pubDate>Wed, 31 May 2017 09:26:13 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/react-native-with-graphql/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;TL;DR; React Native apps with Expo.io and GraphQL (React-Apollo). Less pain, less code.&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
-    
     <item>
       <title>Autofix ESLint Issue on Webstrom 2016</title>
       <link>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</link>
       <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</guid>
       <description>&lt;p&gt;Currently, I and my team are working on a Javascript application using NodeJS and ReactJS. We use ESLint to use a coding standard with AirBnB config. We’re satisfied with it so far.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04</title>
       <link>https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</link>
       <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</guid>
       <description>&lt;p&gt;Today I want to transfer all of my data from my office’s MacBook Air (El-Capitan) to my laptop (Ubuntu 14.04). Since two of my external hard disk are broken, I need another way to transfer those files. And I come with transferring using the network (I have a wifi router at home).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

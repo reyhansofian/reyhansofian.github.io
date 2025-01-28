@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://reyhansofian.github.io/en/post/add-workdays-using-go/</loc>
     <lastmod>2021-09-07T11:17:16+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/datetime/</loc>
     <lastmod>2021-09-07T11:17:16+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/</loc>
     <lastmod>2021-09-07T11:17:16+07:00</lastmod>
     <xhtml:link
@@ -25,9 +20,7 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/golang/</loc>
     <lastmod>2021-09-07T11:17:16+07:00</lastmod>
     <xhtml:link
@@ -40,9 +33,7 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/golang/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/</loc>
     <lastmod>2021-09-07T11:17:16+07:00</lastmod>
     <xhtml:link
@@ -55,9 +46,7 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/post/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/</loc>
     <lastmod>2021-09-07T11:17:16+07:00</lastmod>
     <xhtml:link
@@ -70,31 +59,30 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/deep-copy-to-avoid-value-reference/</loc>
     <lastmod>2021-09-05T18:24:58+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/frontend/</loc>
     <lastmod>2021-09-05T18:24:58+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/javascript/</loc>
     <lastmod>2021-09-05T18:24:58+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/nodejs/</loc>
     <lastmod>2021-09-05T18:24:58+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/en/tags/gin/</loc>
+  </url><url>
+    <loc>https://reyhansofian.github.io/en/tags/gin-gonic/</loc>
     <lastmod>2020-05-10T22:44:31+07:00</lastmod>
+  </url><url>
+    <loc>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</loc>
+    <lastmod>2020-05-10T22:44:31+07:00</lastmod>
+  </url><url>
+    <loc>https://reyhansofian.github.io/en/tags/testing/</loc>
+    <lastmod>2020-05-10T22:44:31+07:00</lastmod>
+  </url><url>
+    <loc>https://reyhansofian.github.io/en/tags/gin/</loc>
+    <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="id"
@@ -105,29 +93,10 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/gin/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/en/tags/gin-gonic/</loc>
-    <lastmod>2020-05-10T22:44:31+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/en/post/how-to-mock-gin-gonic-for-json-response/</loc>
-    <lastmod>2020-05-10T22:44:31+07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://reyhansofian.github.io/en/tags/testing/</loc>
-    <lastmod>2020-05-10T22:44:31+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/live-reload-golang-development-with-gin/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/tools/</loc>
     <lastmod>2020-05-09T08:24:28+07:00</lastmod>
     <xhtml:link
@@ -140,9 +109,7 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/tools/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/kubernetes/</loc>
     <lastmod>2020-05-04T23:17:28+07:00</lastmod>
     <xhtml:link
@@ -155,69 +122,43 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/kubernetes/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/kubernetes-configmap-on-dynamic-applications/</loc>
     <lastmod>2020-05-04T23:17:28+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/installing-gollum-on-osx-catalina/</loc>
     <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/osx/</loc>
     <lastmod>2020-01-23T16:32:22+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/git/</loc>
     <lastmod>2018-04-18T22:20:30+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/squash-multiple-git-commit-into-one-commit/</loc>
     <lastmod>2018-04-18T22:20:30+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/different-vim-settings-for-each-project/</loc>
     <lastmod>2017-07-12T08:25:31+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/vim/</loc>
     <lastmod>2017-07-12T08:25:31+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/javascripts-template-literals/</loc>
     <lastmod>2017-06-16T08:16:53+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/react/</loc>
     <lastmod>2017-05-31T09:26:13+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/react-native-with-graphql/</loc>
     <lastmod>2017-05-31T09:26:13+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/react-native/</loc>
     <lastmod>2017-05-31T09:26:13+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</loc>
     <lastmod>2017-01-11T23:33:37+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/tips/</loc>
     <lastmod>2017-01-11T23:33:37+07:00</lastmod>
     <xhtml:link
@@ -230,9 +171,7 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/tips/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/webstrom/</loc>
     <lastmod>2017-01-11T23:33:37+07:00</lastmod>
     <xhtml:link
@@ -245,14 +184,10 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/webstrom/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</loc>
     <lastmod>2016-08-24T22:50:18+07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/tags/unix/</loc>
     <lastmod>2016-08-24T22:50:18+07:00</lastmod>
     <xhtml:link
@@ -265,9 +200,7 @@
                 hreflang="en"
                 href="https://reyhansofian.github.io/en/tags/unix/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://reyhansofian.github.io/en/archives/</loc>
     <xhtml:link
                 rel="alternate"
@@ -280,5 +213,4 @@
                 href="https://reyhansofian.github.io/en/archives/"
                 />
   </url>
-  
 </urlset>

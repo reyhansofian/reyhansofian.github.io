@@ -1,33 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tips on Everyday I Learn</title>
+    <title>Tips on Everyday I Learn</title>
     <link>https://reyhansofian.github.io/en/tags/tips/</link>
-    <description>Recent content in tips on Everyday I Learn</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <description>Recent content in Tips on Everyday I Learn</description>
+    <generator>Hugo</generator>
+    <language>en</language>
     <lastBuildDate>Wed, 11 Jan 2017 23:33:37 +0700</lastBuildDate>
-    
-	<atom:link href="https://reyhansofian.github.io/en/tags/tips/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <atom:link href="https://reyhansofian.github.io/en/tags/tips/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Autofix ESLint Issue on Webstrom 2016</title>
       <link>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</link>
       <pubDate>Wed, 11 Jan 2017 23:33:37 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/autofix-eslint-issue-on-webstrom-2016/</guid>
       <description>&lt;p&gt;Currently, I and my team are working on a Javascript application using NodeJS and ReactJS. We use ESLint to use a coding standard with AirBnB config. We’re satisfied with it so far.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How I Transfer My Files From Mac Osx El Capitan to Ubuntu 14 04</title>
       <link>https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</link>
       <pubDate>Wed, 24 Aug 2016 22:50:18 +0700</pubDate>
-      
       <guid>https://reyhansofian.github.io/en/post/how-i-transfer-my-files-from-mac-osx-el-capitan-to-ubuntu-14-04/</guid>
       <description>&lt;p&gt;Today I want to transfer all of my data from my office’s MacBook Air (El-Capitan) to my laptop (Ubuntu 14.04). Since two of my external hard disk are broken, I need another way to transfer those files. And I come with transferring using the network (I have a wifi router at home).&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
